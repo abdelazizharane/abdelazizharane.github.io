@@ -1,0 +1,44 @@
+---
+title: "Acceuil"
+page-layout: full
+---
+
+Bienvenue **👋🏿**sur **`Data Vibes`**, l'espace où la passion pour les données et l'intelligence artificielle (iA) prend vie !
+
+Vous explorez le rythme incessant du monde des données avec moi, [**Abdel-aziz Harane Abounounou**](https://linkedin.com/in/abdel-aziz-harane). Installez-vous confortablement dans votre canapé tout en savourant votre jus 🧋 et explorez mon blog.
+
+![](images/logoblog.png){fig-alt="logo" fig-align="center" width="230"}
+
+Ce blog, `Data Vibes` a pour objet principal de démystifier le monde de la data & IA et de le transformer en une mélodie vibrante et accessible. À travers ce blog, je m'engage à vous offrir des *contenus clairs et accessibles*, couvrant une gamme variée, des tutoriels aux conseils d'analyses et de modélisations, inspirés des ouvrages spécialisés dans ces domaines. Mon objectif est de vous fournir des informations utiles et pertinentes pour enrichir votre compréhension et votre pratique dans ces sujets passionnants. N'hésitez pas à explorer les différentes publications pour découvrir davantage de ressources et d'idées.
+
+**Les thématiques que j'aborde sur ce blog :**
+
+::: panel-tabset
+## Data 📊
+
+Découvrez le pouvoir des données (or noir du 21ème siècle) à travers mes tutoriels pratiques, des études de cas stimulantes et des ressources complètes qui couvrent l'ensemble du spectre de la Satistique et de la Data Science. Que vous souhaitiez maîtriser les notions techniques et les techniques d'analyse de données, comprendre les principes de la visualisation de données ou plonger dans le monde de l'apprentissage statistique, le contenu informatif de ce blog est conçu pour vous.
+
+Alors, ça vous dit de cliquer sur l'onglet Blog ? Allons-y 🕺🏿 !
+
+## AI 🤖
+
+En abordant les différents thèmes de l'Intelligence Artificielle (IA), je vous foruni une analyse approfondie à travers les tutoriels où je vous détaillerez chaque concept de la statistique (fondement d'apprentissage automatique), de **Machine learning** et **Deep learning** en vous fournissant des ressources complémentaires pour mieux cerner les concepts expliqués.
+
+Hâte d'explorer; cliquez sur l'onglet **Blog**.
+
+## Lecture 📚
+
+Je nourris une passion constante pour la lecture (les livres sont mes amis fidèles). Toujours avide de connaissance, curieux et posant continuellement des questions, je rêve inlassablement de contribuer au changement dans mon pays (**Tchad**), en particulier, et en **AFRIQUE** en général.
+
+Je m'évade constamment en explorant une variété d'ouvrages littéraires et scientifiques provenant de divers auteurs et de vous les présenter en fournissant des résumés détaillés et des critiques ici-même (voire Blog). Ainsi, je vous invite à partager cette aventure littéraire et scientifique avec votre entourage, découvrant ensemble les richesses de la pensée des différents auteurs.
+
+Mon engagement envers l'apprentissage continu me pousse à explorer de nouvelles idées et à chercher des opportunités d'impact positif.
+:::
+
+------------------------------------------------------------------------
+
+`Data Vibes` ne se contente pas d'être une source d'information; il s'agit de créer une communauté où la donnée et l'IA deviennent un langage partagé, et où chacun peut trouver son rythme dans ce monde en constante évolution de l'information.
+
+::: callout-note
+Je vous plonge dans des analyses perspicaces, de découverte des tendances émergentes et avec une vibration au diapason des informations les plus captivantes.
+:::

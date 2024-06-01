@@ -1,0 +1,14 @@
+{
+  "hash": "a2ada3db793a17ee8c24987f717bed81",
+  "result": {
+    "markdown": "---\ntitle: \"Répertoires de données\"\nauthor: \"Abdel-aziz Harane\"\ndate: \"2024-02-20\"\ncategories: [news, tutorial, analysis]\nimage: \"image.jpg\"\n---\n\n\n#### Répertoires de données\n\nDans ce guide, je vous partage les repository de données accessibles gratuitement pour s'entrainer et réaliser vos projets en mettant en pratique vos compétences techniques.\n\n::: panel-tabset\n## citation\n\n## ddddddddddddd\n:::\n\n#### Comme le dit-on\n\n-   [Kaggle](https://www.kaggle.com/): télécarger les données, faire des compétitions avec des prix.\n\n-   [Registry of Open Data on AWS](https://registry.opendata.aws/)\n\n-   [UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php)\n\n-   [Visual data](https://www.visualdata.io/): Des données sur le traitement d’images.\n\nThis is a post with executable code.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

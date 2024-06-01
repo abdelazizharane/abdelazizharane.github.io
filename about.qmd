@@ -1,0 +1,102 @@
+---
+title: "About"
+#image: monProfile.jpeg
+about:
+  template: solana
+  links:
+    - icon: medium
+      text: medium
+      href: https://medium.com/@abdelaziz-harane
+---
+
+#### QUI SUIS JE ?
+
+![](images/profile.png){fig-align="center" width="177"}
+
+Je suis **`Abdel-aziz Harane Abounounou`**, ingénieur en IA et Big Data *spécialisé* en `Data Analystics et Machine Learning` et `Fondateur` de [`Chad AI Network`](https://chadainetwork.org "Communité tchadienne de l'IA et de la Data science.").
+
+Fasciné par les données (que vous consommez chaque jours à travers la télévision, les articles, les journaux ou les réseaux sociaux) guidant nos décisions, je navigue (eh bien sûr sur une mer des données) avec passion entre la statistique, la Data Science, la business intelligence (BI) et l’intelligence artificielle (IA). 
+Ayant une expertise, véritablement pétrie de curiosité (curieux de tout🕵🏿, questionnaire et hâte d'en savoir plus), dans la Data Science, le Machine Learning et le Deep Learning, je me suis immergé dans une multitude de projets concrets qui ont façonné et façonnent toujours ma compréhension. Aimez-vous la lecture 📚 (est-ce y a-t-il vraiment quelqu'un qui ne l'aime pas?) ? La lecture est ma passion ardente de vouloir apprendre et partager continuellement et constamment. Sachez qu'elle est la thérapie de votre cerveau; lisez ! Si vous partagez cette passion, je vous invite à intégrer le groupe WathsApp (écrivez moi via mon [LinkedIn](https://www.linkedin.com/in/abdel-aziz-harane)) de Club des Éclaireurs que j'ai fondée. Lest's go❕
+
+## Curriculum Vitae (CV)👇🏿
+
+::: panel-tabset
+## EXPERIENCE
+
+-   Fondateur de [**Chad AI Network**](https://chadainetwork.org "Community") **🤖\|** Nov 2023 **\|** N'Djamena-Tchad
+
+La 𝐜𝐨𝐦𝐦𝐮𝐧𝐚𝐮𝐭𝐞́ 𝐭𝐜𝐡𝐚𝐝𝐢𝐞𝐧𝐧𝐞 𝐝'𝐈𝐧𝐭𝐞𝐥𝐥𝐢𝐠𝐞𝐧𝐜𝐞 𝐀𝐫𝐭𝐢𝐟𝐢𝐜𝐢𝐞𝐥𝐥𝐞 (𝐈𝐀) 𝐞𝐭 𝐝𝐞 𝐃𝐚𝐭𝐚 𝐒𝐜𝐢𝐞𝐧𝐜𝐞 que j'ai fondée en 2023 vise à transformer durablement l'écosystème de l'IA au Tchad. Elle rassemble des éminents chercheurs, universitaires, des étudiants et des passionnés de la Data et de l'IA, tous animés par la volonté de faire du Tchad un hub régional et international dans ces domaines.
+Nous sommes déterminés à catalyser l'innovation et le progrès technologique au sein de notre nation et au-delà.
+
+𝐈𝐧𝐬𝐩𝐢𝐫𝐞́𝐬 𝐩𝐚𝐫 𝐥'𝐈𝐀, 𝐧𝐨𝐮𝐬 𝐟𝐚𝐜̧𝐨𝐧𝐧𝐨𝐧𝐬 𝐥𝐞 𝐟𝐮𝐭𝐮𝐫 !
+
+-   Co-Fondateur du cabinet de la collecte, d'analyse et traitement des données, [**DataStat Solutions**](https://www.linkedin.com/company/datastat-solutions "cabinet") **\|** Sept 2023 **\|** Dakar-Sénégal
+
+-   Formateur indépendant **\|** Nov 2022-Aujourd'hui
+Je forme les gens en `Staistique`, et les différents outils de traitement, analyse et visualisation des données tels que : `R`, `SQL`, `Python`, `PowerBI`, etc.
+
+-   Foundateur de [***Club des Eclaireurs***](https://www.linkedin.com/company/club-des-eclaireurs "club") 📚 **\|** Sept 2023 **\|** Partout
+
+Ce club réunit des passionnés de la littérature et du débat où chaque semaine ou deux nous nous réunissons (généralement en ligne) autour d'un livre pour échanger, argumenter, confronter nos idées, en bref, pour débattre.
+
+-   Freelancer
+
+Je travaille depuis 2019 dans le domaine du `design` et `développement web`, que j'ai appris en autodidacte qui est pratiquement mon quotidien. Depuis, il me sert énormément dans mes activités personnelles et professionnelles en commençant mon job entant que freelance d'où je collabore avec diverses plateformes comme `Glassdoor`, `Upwork`, `Welcome to the Jungle`, `Fiverr`, etc. pour continuer à apprendre et à progresser, afin de ne rien oublier et de toujours garder le cap de mon apprentissage et bien sûr l'offre de mes services. Voulez vous qu'on en parle, écrivez moi !?
+
+## EDUCATION
+
+-   **Ecole Supérieure Polytechnique** (ESP), Université Cheikh Anta Diop de Dakar **\|** Master en IA & Big Data **\|** 2022 - 2024
+
+-   **Université Cheikh Anta Diop** (UCAD) de Dakar **\|** Lience en Statistique **\|** Sept 2022
+
+## CERTFICATION
+
+-   Intermediate Deep Learning with PyTorch **\|** **DataCamp** **\|** Nov 2023
+-   [Introduction to Regression in R](https://www.datacamp.com/completed/statement-of-accomplishment/course/355c131c399a25f76056459cb259cb4f934ad4aa) **\|** **DataCamp** **\|** Sept 2023
+-   [Data science avec langage R](https://www.mindluster.com/student/certificate/7763512787) **\|** **MindLuster** **\|** Août 2023
+-   [Machine Learning Algorithms](https://www.mindluster.com/student/certificate/776351865) **\|** Août 2023
+-   [Fondamentaux de l’analyse des données](https://s3-us-west-2.amazonaws.com/udacity-printer/production/certificates/4b049149-c51d-4bb1-905f-edbad6db869a.pdf) **\|** **Udacity** **\|** Juin 2023
+-   [Marketing digital](https://formation.force-n.sn/mod/customcert/view.php?id=5512&downloadown=1) **\|** **FORCE-N Sénégal** **\|** Juin 2023
+-   [La communication interpersonnelle](https://www.linkedin.com/learning/certificates/e51ea0b2f91f50b1a0bb71e0b591ad3b90f0ba4987ad45a1d7988b0f949d1141) **\|** **LinkedIn** **\|** Mars 2021
+-   [Cultiver la pensée critique et la créativité avec des questions](https://www.linkedin.com/learning/certificates/d1a258ff2ddd25aedab8f2ad138d5971cbd502e465d8547030e05c38e57aa351) **\|** **LinkedIn** **\|** Mars 2021
+-   [Développer son intelligence émotionnelle](https://www.linkedin.com/learning/certificates/df3c1f841f8f9a23e5c590afd289d065bb58ee48eee5ad47e1049f0f33172141) **\|** **LinkedIn** **\|** Août 2020
+-   [Apprenez à apprendre](https://openclassrooms.com/fr/course-certificates/16954804) **\|** **OpenClassrooms** **\|** Janv 2021
+-   [Créez votre site web avec HTML5 et CSS3](https://openclassrooms.com/fr/course-certificates/2253586) **\|** **OpenClassrooms** **\|** Fév 2020
+
+## Outils
+
+![](images/mes_outils.png){fig-align="center" width="488"}
+
+## PROJET
+
+-   **Medi View Hub** \| Mai 2023
+
+    Création d'une plateforme (stockage et visualisation des images médicales) évoluant dans le domaine de téléradiologie et ayant pour but de centraliser le système d'imagerie médical sur une même plateforme, d'interconnecter les hôpitaux et enfin d'avoir une base de données large pour pourvoir utiliser les techniques d'IA. ***Stack :*** ORTHANC & OHIF.
+
+-   **R-MagicAI** \| sept 2023 - aujourd’hui
+
+    Ce projet est dedié à l'exploration passionnante de l'intelligence artificielle où la magie de l'apprentissage automatique et de la profondeur prend vie au moyen du langage de programmation R.
+
+## BENEVOLAT 🤝🏽
+
+-   Amicale des Etudiants Tchadiens en Economie et Statistique au Sénégal ([**AETES-SEN**](https://www.facebook.com/profile.php?id=100088864164489)) **\|** Secrétaire général **\|** *sept 2022 - déc 2023*
+
+-   Amicale des Etudiants de [**CREFDES-UCAD**](https://crefdes.ucad.sn/) **\|** Chargé des Formations **\|** *mars 2022 - avr 2023*
+:::
+
+------------------------------------------------------------------------
+
+**Ma conviction** est que l'accélération du développement de notre continent, l'AFRIQUE, passe par la mise en place d'un système éducatif scientifique efficace, fortement ancré dans nos réalités. La technologie doit être adoptée au summum, jouant ainsi un rôle crucial dans notre quête de progrès. En investissant dans une éducation orientée vers les sciences (**R**&**D**) et en intégrant les avancées technologiques, nous pourrons façonner un avenir prometteur et compétitif pour l'Afrique, ouvrant la voie à l'innovation et à la croissance durable.
+
+> "Ce n'est pas parce que les choses sont difficiles que nous n'osons pas, c'est parce que nous n'osons pas qu'elles sont difficiles." SENEQUE
+
+Osez, d'une manière ou d'une autre, contribuer au changement sur notre continent africain.
+
+C'est dans cette optique que j'ai créé la communauté [**Chad AI Network**](https://www.linkedin.com/company/chadainetwork "Community chadian in AI and Data") composée des passionnés, étudiants et professionnels et a pour mission de faire évoluer la Data et l'IA à travers diverses activités, allant de la sensibilisation à la formation des jeunes tchadiens, de la recherche à la résolution des problèmes locaux.
+
+
+`Chacun d'entre vous peut apporter sa pierre à l'édifice` pour le développement de son pays et notre Afrique, peu importe que vous pensiez que votre contribution est minime, elle compte. N'hésitez pas à agir, là où vous êtes, et à collaborer avec vos compatriotes et vos pairs en formant des équipes, que ce soit à 2, 3, 4, ou plus. Je suis convaincu que de cette manière que nous allons cultiver des `champions Africains` et changer l'image de notre continent, perçu trop souvent comme un éternel consommateur.
+Investissons dans les technologies de pointe comme l'intelligence artificielle et la data.
+
+**Agissons !**
+ 

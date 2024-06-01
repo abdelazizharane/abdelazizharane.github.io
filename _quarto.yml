@@ -1,0 +1,34 @@
+project:
+  type: website
+
+website:
+  title: "Data Vibes"
+  navbar:
+    right:
+      - index.qmd # Acceuil
+      - blog.qmd  # les posts
+      - about.qmd # A propos
+      - icon: linkedin
+        href: https://linkedin.com/in/abdel-aziz-harane
+      - icon: github
+        href: https://github.com/abdelazizharane
+      - icon: medium
+        href: https://medium.com/@abdelaziz-harane
+      - icon: youtube
+        href: https://www.youtube.com/@DataVibes235
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: styles.css
+    highlight-style: eiffel
+    
+output:
+  filter:
+    posts:
+      include: posts/*.qmd
+      
+editor: visual
+

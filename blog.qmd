@@ -1,0 +1,14 @@
+---
+title: "Blog 🗃️"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+---
+
+**Dans cet espace, vous découvrirez mes articles soigneusement rédigés ✍🏿 pour offrir une expérience de lecture enrichissante.**
+
+***Bonne lecture !*****🤗**
+
+------------------------------------------------------------------------

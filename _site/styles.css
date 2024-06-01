@@ -1,0 +1,17 @@
+/* css styles */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Pacifico&display=swap');
+
+h1.title {
+  font-family: "Roboto", sans-serif;;
+  font-size: 60px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+.navbar-title {
+  font-size: 1.5em; /* Ajustez la taille du titre du blog selon vos besoins */
+}
