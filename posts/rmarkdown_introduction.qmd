@@ -1,24 +1,12 @@
 ---
-title: "Initiation à R markdown"
-author: "Zoumana"
-date: ''
-output:
-  pdf_document: default
-  html_document: default
+title: "Répertoires de données"
+author: "Abdel-aziz Harane"
+date: "2024-06-03"
+categories: [Tutorial]
 ---
 
-# Titre 1 : Ceci est notre titre
+Dans ce guide, je partage avec vous des références de dépôts de données librement accessibles. Ces ressources sont une mine d'informations pour vous entraîner et concrétiser vos projets en mettant en œuvre vos compétences techniques acquises au fil de votre parcours académique.
 
-## Titre 2
-
-#### 
-
-```{r}
-library(report)
-
-gapminder
-
-```
 
 Mon premier paragraphe
 
@@ -83,5 +71,3 @@ ouvrage a[^1]
 # Titre 1
 
 Tire 1
-
-## 
