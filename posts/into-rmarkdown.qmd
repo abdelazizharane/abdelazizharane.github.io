@@ -1,0 +1,76 @@
+---
+title: "Répertoires de données"
+author: "Abdel-aziz Harane"
+date: "2024-02-20"
+categories: [Data, News, Tutorial]
+image: "data_repo.png"
+---
+
+Dans ce guide, je partage avec vous des références de dépôts de données librement accessibles. Ces ressources sont une mine d'informations pour vous entraîner et concrétiser vos projets en mettant en œuvre vos compétences techniques acquises au fil de votre parcours académique.
+
+
+Mon premier paragraphe
+
+```{r}
+
+a=2
+b=4
+
+print(a*b)
+```
+
+Liste à puces :
+
+-   Liste 1
+
+-   Liste 2
+
+-   Liste 3
+
+![](images/types%20LLMs.jpeg){width="422"}
+
+Statistique
+
+:   La statistique est un domaine de....
+
+    nani nana
+
+| Nom | age | Niveau instruction |
+|-----|-----|--------------------|
+|     |     |                    |
+|     |     |                    |
+|     |     |                    |
+|     |     |                    |
+|     |     |                    |
+
+[Reference 1](https://www.maxicours.com/se/cours/statistiques-effectifs-moyenne-frequences-diagrammes/)
+
+Le lien vers le cours de la [statistique](https://www.maxicours.com/se/cours/statistiques-effectifs-moyenne-frequences-diagrammes/)
+
+```{r}
+
+library(gapminder)
+
+gapminder
+```
+
+```{python}
+
+
+```
+
+> Une citation d'un éminent statisticien :
+
+Ceci est tiré d'un ouvrage de R
+
+ouvrage a[^1]
+
+[^1]: Référence de langage R
+
+![](images/blag devenir data analysis.jpg){width="240"}
+
+# Titre 1
+
+Tire 1
+
+## 
