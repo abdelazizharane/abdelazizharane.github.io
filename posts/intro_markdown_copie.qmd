@@ -1,0 +1,95 @@
+---
+title: "Répertoires de données"
+author: "Abdel-aziz Harane"
+date: "2024-02-20"
+categories: [Data, News, Tutorial]
+image: "data_repo.png"
+---
+
+Dans ce guide, je partage avec vous des références de dépôts de données librement accessibles. Ces ressources sont une mine d'informations pour vous entraîner et concrétiser vos projets en mettant en œuvre vos compétences techniques acquises au fil de votre parcours académique.
+
+![L'image ne liste pas tout ce qui est listé ci-dessous](/images/data_repo.png){fig-align="center" width="501"}
+
+Comme l'a souligné `Emmanuel Kant` dans sa "Critique de la raison pure",
+
+> la théorie dépourvue de pratique est dénuée de valeur, tout comme la pratique sans théorie est aveugle.
+
+Cette citation met en lumière l'importance cruciale de l'application concrète des connaissances acquises. Ainsi, il devient essentiel de transcender le cadre académique et de mettre en pratique les enseignements théoriques dans des projets réels.
+
+::: callout-important
+Adopter cette démarche vous permet de consolider vos compétences techniques, d'affiner votre compréhension des concepts étudiés, et surtout, de développer une expertise pratique.
+:::
+
+Les repositories de données que je vous propose dans ce guide représentent des opportunités pour vous exercer et perfectionner vos compétences dans des domaines spécifiques (économie, santé, agriculture, démographie, etc.).
+
+**Ci-dessous les différentes répertoires par catégorie 👇🏿**
+
+::: panel-tabset
+## Numérique
+
+-   [Kaggle](https://www.kaggle.com/): Apprendre à travers des tutos, télécharger des données, voir ce que les autres membres ont réalisé comme projet (accès aux scripts) et participer aux compétitions pour gagner des prix.
+
+-   [Hugging Face 🤗](https://huggingface.co/datasets) : Est la plateforme la plus grande (+ 110 450 datasets) dans laquelle vous pouvez apprendre, utiliser des modèles préentrainés open-source et télécharger des données.
+
+-   [Google Data Research](https://datasetsearch.research.google.com/) : Le plus important (mon favori) moteur de recherche d'ensemble de données.
+
+-   [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php): La grande base de machine learning (même les enseignants 😁 puisent ici les datasets pour leur cours)
+
+-   World Bank
+
+-   [Data Gouv fr](https://www.data.gouv.fr/fr/) : Est une plateforme ouverte des données (éducation, la santé, agriculture et alimentation, ...) publiques françaises.
+
+-   [Trading Economics](https://tradingeconomics.com/indicators) : Ici, vous trouvew des données économiques (Taux de chnage, PIB, Inflation, ...) de différents pays. Vous êtes en économie ? Cette plateforme vous sera d'une grande valeur.
+
+-   [Dataverse Harvard](https://dataverse.harvard.edu/) : Dans cette plateforme vous avez plusieurs données couvrant presque tous les domaines.
+
+-   [OpenML](https://www.openml.org/) : Plateforme open source de partage d'ensembles de données, d'algorithmes et d'expériences.
+
+-   [Data World 🗺](https://data.world/) : Constitue une base énorme où on s'inscrit pour avoir accès et on peut ajouter nos propres données en enrichissant la plateforme.
+
+-   [Registry of Open Data on AWS](https://registry.opendata.aws/): Registre des données disponibles via les ressources AWS.
+
+-   [Climate Data Online (CDO)](https://www.ncdc.noaa.gov/cdo-web/) : Données météorologiques et climatiques historiques mondiales.
+
+## Imagérie
+
+Les plateformes listées ci-dessous vous permettront d'entrainer vos modèles particulièment en `computer vision`.
+
+-   [Visual data](https://www.visualdata.io/): Des données sur le traitement d’images.
+
+-   [Hugging Face 🤗](https://huggingface.co/datasets) : Est la plateforme la plus grande (+ 110 450 datasets) dans laquelle vous pouvez apprendre, utiliser des modèles préentrainés open-source et télécharger des données.
+
+-   [World Health Organisation (WHO)](https://www.who.int/data) : Ensemble de données de l'Organisation Mondiale de la Santé (OMS).
+
+-   [NCI Imaging Data Commons (IDC)](https://datacommons.cancer.gov/): Est un référentiel de données d'imagerie du cancer accessibles au public.
+
+-   [Collaboration Internationale en Imagerie Cutanée (ISIC)](https://www.isic-archive.com/) : Imagerie de cancer de peau.
+
+-   [CDC (Centers for Disease Control)](https://data.cdc.gov/) : Ce centre constitue plusieurs statistiques de la médecine.
+
+-   [NCBI (National Center for Biotechnology Information)](https://www.ncbi.nlm.nih.gov/gds) : Le Centre national d'information sur la biotechnologie.
+
+-   [COCO](http://cocodataset.org/#home) Données de détection, de segmentation et d’annotation des images.
+
+-   [COIL-100](http://www1.cs.columbia.edu/CAVE/software/softlib/coil-100.php) des images de 100 objets différents prises sous tous les angles dans une rotation de 360.
+
+-   [ImageNet](http://image-net.org/) des images organisées selon la hiérarchie de [WordNet](http://wordnet.princeton.edu/)
+
+-   [Indoor Scene Recognition](http://web.mit.edu/torralba/www/indoor.html) reconnaissance de scènes d’intérieur.
+
+## Audio
+
+-   [Hugging Face 🤗](https://huggingface.co/datasets) : Est la plateforme la plus grande (+ 110 450 datasets) dans laquelle vous pouvez apprendre, utiliser des modèles préentrainés open-source et télécharger des données.
+
+-   [Shaip](https://www.shaip.com/offerings/speech-data-catalog/) : Ensemble de données audio, parole, voix, accessible gratuitement pour entrainer, finetuner votre modèle.
+
+-   [Papers with Code](https://paperswithcode.com/datasets) (mon favori) : Plus de **9,273** datasets (audios, images et vidéos).
+
+-   [AudioMNIST](https://github.com/soerenab/AudioMNIST): 30 000 échantillons audio de chiffres parlés (0-9) de 60 locuteurs différents.
+
+-   [Repository Yuan-Man](https://github.com/Yuan-ManX/ai-audio-datasets.git) : Ce repository github liste un ensemble de données audio qui est tellement utile.
+:::
+
+Ce guide vise à vous fournir les outils nécessaires (cette liste n'est pas exhaustive) pour passer de la théorie à la pratique, en exploitant les ressources de données accessibles. En suivant cette approche, vous pourrez pleinement tirer parti de vos compétences techniques et développer une expertise qui transcende le cadre académique, vous préparant ainsi de manière optimale pour relever les défis du monde professionnel.
+
+Esperant qu'il vous a aidé, N'hésitez pas de le partager avec vos pairs.
