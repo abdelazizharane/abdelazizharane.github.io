@@ -3,99 +3,93 @@ name: Deploy Quarto Site → GitHub Pages
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
-  workflow_dispatch:      # déclenchement manuel depuis l'interface GitHub
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Un seul déploiement en parallèle
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
   build:
-    name: Build Quarto Site
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout du dépôt
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
-      # 2. Installation de R (si tu utilises des chunks R)
+      # ── R ────────────────────────────────────────────────────
       - name: Setup R
         uses: r-lib/actions/setup-r@v2
         with:
-          r-version: '4.3.2'
+          r-version: '4.3.3'
           use-public-rspm: true
 
-      # 3. Cache des packages R
       - name: Cache R packages
-        uses: actions/cache@v4
+        uses: actions/cache@v4.2.3
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-r-${{ hashFiles('DESCRIPTION', 'renv.lock') }}
-          restore-keys: ${{ runner.os }}-r-
+          key: r-${{ runner.os }}-${{ hashFiles('setup.R') }}
+          restore-keys: r-${{ runner.os }}-
 
-      # 4. Installation des packages R nécessaires
       - name: Install R packages
         run: |
           install.packages(c(
-            "tidyverse", "ggplot2", "knitr", "rmarkdown",
-            "plotly", "DT", "leaflet", "htmlwidgets"
-          ), repos = "https://cloud.r-project.org")
+            "knitr", "rmarkdown", "quarto",
+            "tidyverse", "ggplot2", "plotly",
+            "DT", "gt", "kableExtra",
+            "leaflet", "htmlwidgets",
+            "jsonlite", "yaml", "here"
+          ), repos = "https://cloud.r-project.org", quiet = TRUE)
         shell: Rscript {0}
 
-      # 5. Installation de Python (pour les chunks Python)
+      # ── Python (sans pip cache — pas de requirements.txt) ────
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5.4.0
         with:
           python-version: '3.11'
-          cache: 'pip'
+          # pas de cache: 'pip' ici — évite le warning "no requirements.txt"
 
-      # 6. Installation des dépendances Python
       - name: Install Python packages
-        run: |
-          pip install jupyter matplotlib numpy pandas seaborn
-          # Ajoute tes dépendances ici selon les notebooks
+        run: pip install jupyter matplotlib numpy pandas seaborn
 
-      # 7. Installation de Quarto
+      # ── Quarto ───────────────────────────────────────────────
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
-          version: '1.4.557'   # mettre à jour vers la dernière version stable
+          version: 'release'
 
-      # 8. Vérification de la version Quarto
-      - name: Check Quarto version
-        run: quarto --version
+      # ── Cache _freeze ────────────────────────────────────────
+      - name: Restore _freeze cache
+        uses: actions/cache@v4.2.3
+        with:
+          path: _freeze
+          key: freeze-${{ runner.os }}-${{ hashFiles('**/*.qmd') }}
+          restore-keys: freeze-${{ runner.os }}-
 
-      # 9. Rendu du site (avec cache _freeze pour éviter de ré-exécuter le code)
-      - name: Render Quarto Site
+      # ── Build ────────────────────────────────────────────────
+      - name: Render site
         run: quarto render
-        env:
-          QUARTO_PRINT_STACK: true
 
-      # 10. Upload des artefacts pour GitHub Pages
+      # ── Upload ───────────────────────────────────────────────
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v3.0.1
         with:
           path: '_site'
 
   deploy:
-    name: Deploy to GitHub Pages
+    name: Deploy
     needs: build
     runs-on: ubuntu-latest
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4.0.5
