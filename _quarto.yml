@@ -1,0 +1,79 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+    - "blog/*.qmd"
+    - "articles/*.qmd"
+    - "about/*.qmd"
+
+website:
+  title: "Abdel-aziz Harane"
+  description: "ML/NLP Engineer & AI Researcher — Chad AI Network"
+  favicon: assets/img/favicon.svg
+  site-url: "https://abdelazizharane.github.io"
+
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Blog"
+        href: blog/index.qmd
+      - text: "Articles"
+        href: articles/index.qmd
+      - text: "À propos"
+        href: about/index.qmd
+    right:
+      - icon: github
+        href: https://github.com/abdelazizharane
+        aria-label: GitHub
+      - icon: linkedin
+        href: https://www.linkedin.com/in/abdel-aziz-harane/
+        aria-label: LinkedIn
+
+  page-footer:
+    left: "© 2025 Abdel-aziz Harane · [Chad AI Network](https://chadainetwork.org)"
+    right: "Construit avec [Quarto](https://quarto.org)"
+
+  open-graph:
+    title: "Abdel-aziz Harane"
+    description: "ML/NLP Engineer, fondateur du Chad AI Network."
+  twitter-card:
+    title: "Abdel-aziz Harane"
+    card-style: summary
+
+format:
+  html:
+    theme:
+      light: [flatly, assets/css/harane-light.scss]
+      dark:  [darkly, assets/css/harane-dark.scss]
+    css: assets/css/harane.css
+    include-in-header: assets/html/head-extra.html
+    include-after-body: assets/html/body-extra.html
+    toc: true
+    toc-depth: 3
+    toc-title: "Sur cette page"
+    number-sections: false
+    smooth-scroll: true
+    code-fold: true
+    code-tools: true
+    code-copy: true
+    highlight-style: github
+    fig-align: center
+    fig-cap-location: bottom
+    df-print: paged
+    link-external-icon: true
+    link-external-newwindow: true
+
+execute:
+  freeze: auto
+  cache: false
+  warning: false
+  message: false
+  echo: true
+
+bibliography: references.bib
+csl: assets/csl/apa.csl
+link-citations: true
+
+lang: fr

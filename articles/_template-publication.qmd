@@ -1,0 +1,107 @@
+---
+title: "Titre de la publication"
+description: "Résumé court pour le SEO et les listings."
+author: "Abdel-aziz Harane"
+date: "YYYY-MM-DD"
+categories: [Speech AI, NLP]   # champs libres
+toc: false
+draft: true
+---
+
+```{=html}
+<div class="h-card h-pub-card" style="margin-bottom:2rem;">
+  <div class="h-pub-meta-top">
+    <!-- Type : Conférence | Preprint | Workshop | Rapport -->
+    <span class="h-venue-badge">Conférence</span>
+    <span class="h-year">2025</span>
+  </div>
+
+  <h1 style="font-size:1.4rem; margin:.5rem 0 .75rem;">
+    Titre complet de la publication
+  </h1>
+
+  <div class="h-pub-authors">
+    <strong>Abdel-aziz Harane</strong>, Co-auteur 1, Co-auteur 2
+  </div>
+
+  <div class="h-pub-venue">
+    Nom de la conférence / revue — Ville, Pays, Année
+  </div>
+
+  <div class="h-keywords" style="margin-top:.75rem;">
+    <span class="h-kw">mot-clé 1</span>
+    <span class="h-kw">mot-clé 2</span>
+    <span class="h-kw">mot-clé 3</span>
+  </div>
+
+  <div class="h-pub-actions" style="margin-top:1rem;">
+    <!-- Ajoute les liens disponibles -->
+    <a href="#" class="h-icon-btn" target="_blank">PDF ↗</a>
+    <a href="#" class="h-icon-btn" target="_blank">Code ↗</a>
+    <a href="#" class="h-icon-btn" target="_blank">Données ↗</a>
+    <a href="#" class="h-icon-btn" target="_blank">Poster ↗</a>
+    <a href="#" class="h-icon-btn" target="_blank">Slides ↗</a>
+    <a href="#" class="h-icon-btn" target="_blank">DOI ↗</a>
+  </div>
+
+  <div class="h-bibtex" style="margin-top:1rem;">
+    <details>
+      <summary>BibTeX</summary>
+      <pre>@inproceedings{harane-YYYY-shortname,
+  title     = {Titre complet},
+  author    = {Abdel-aziz Harane and Co-auteur},
+  booktitle = {Nom de la conférence},
+  year      = {2025},
+  doi       = {10.xxxx/xxxxx}
+}</pre>
+    </details>
+  </div>
+</div>
+```
+
+## Abstract
+
+[Copie ici l'abstract officiel de la publication.]
+
+## Résumé vulgarisé
+
+[Explication accessible en français pour un public non-spécialiste.]
+
+## Points clés
+
+- **Point 1** : [Contribution principale]
+- **Point 2** : [Résultat notable]
+- **Point 3** : [Implication pratique]
+
+## Figures principales
+
+```{=html}
+<!-- Pour insérer une figure avec légende soignée -->
+<figure style="margin: 1.5rem 0; text-align:center;">
+  <img src="../../assets/img/figure-nom.png" alt="Description de la figure"
+       style="max-width:100%; border-radius:8px; border:1px solid var(--h-border);" />
+  <figcaption style="font-size:.78rem; color:var(--h-muted); margin-top:.5rem;">
+    Figure 1 : Description de la figure.
+  </figcaption>
+</figure>
+```
+
+## Données & Code
+
+```{=html}
+<div class="h-card" style="padding:1.25rem; margin:1.5rem 0;">
+  <div style="font-size:.75rem; font-weight:700; text-transform:uppercase;
+              letter-spacing:.08em; color:var(--h-green); margin-bottom:.75rem;">
+    Ressources
+  </div>
+  <div style="display:flex; gap:.75rem; flex-wrap:wrap;">
+    <a href="#" class="h-btn h-btn-primary" target="_blank">📁 Corpus (HuggingFace)</a>
+    <a href="#" class="h-btn h-btn-outline" target="_blank">🐙 Code (GitHub)</a>
+    <a href="#" class="h-btn h-btn-outline" target="_blank">📊 Modèle (HuggingFace)</a>
+  </div>
+</div>
+```
+
+## Remerciements
+
+[Remerciements aux collaborateurs, financeurs, communautés linguistiques.]

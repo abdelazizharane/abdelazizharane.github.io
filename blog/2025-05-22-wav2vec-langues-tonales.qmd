@@ -1,0 +1,176 @@
+---
+title: "Wav2Vec 2.0 sur les langues tonales : défis et solutions"
+description: "Les langues tonales comme le Sara ou le Laal posent des défis spécifiques aux modèles ASR pré-entraînés sur l'anglais. Voici notre approche technique détaillée."
+author: "Abdel-aziz Harane"
+date: "2025-05-22"
+categories: [Speech AI, NLP, Langues tchadiennes]
+toc: true
+reading-time: true
+draft: false
+---
+
+```{=html}
+<div class="h-article-header">
+  <div class="h-article-meta">
+    <span>22 mai 2025</span>
+    <span class="separator">·</span>
+    <span>12 min de lecture</span>
+    <span class="separator">·</span>
+    <span class="h-tag h-tag-green" style="font-size:.65rem;">Speech AI</span>
+    <span class="h-tag h-tag-green" style="font-size:.65rem;">NLP</span>
+  </div>
+</div>
+```
+
+## Contexte
+
+Wav2Vec 2.0 (Baevski et al., 2020) est l'un des modèles ASR les plus influents de la dernière décennie. Son architecture d'auto-supervision — apprendre des représentations de la parole à partir d'audio brut sans transcriptions — en fait un candidat naturel pour les langues faiblement dotées comme le Sara ou le Laal.
+
+Pourtant, nos expériences préliminaires sur le corpus **Kalam-na** montrent des taux d'erreur de mots (WER) initiaux de **68–74%**, bien supérieurs aux résultats obtenus sur des langues comme le swahili (~32%) ou le wolof (~41%) avec des approches similaires.
+
+Pourquoi ? Et comment y remédier ?
+
+## Le problème des tons
+
+Le Sara Ngambaye (comme d'autres langues tchadiennes) est une **langue à tons grammaticaux** : le ton d'une syllabe change le sens du mot ou sa fonction grammaticale, pas seulement son expressivité.
+
+```python
+# Exemples Sara Ngambaye (transcription simplifiée)
+# H = haut, L = bas
+
+exemples_tonals = {
+    "kùl (LL)": "charbon",
+    "kúl (HH)": "réunion",
+    "kúl (HL)": "appeler (impératif)",
+    "màng (LL)": "eau",
+    "máng (HH)": "manguier",
+}
+```
+
+Le problème : Wav2Vec 2.0 pré-entraîné sur `wav2vec2-large-xlsr-53` a été exposé à des langues où la prosodie (hauteur de la voix) encode l'émotion ou l'emphase — **pas la grammaire**. Le modèle apprend donc à ignorer une information que le Sara utilise comme distincteur phonémique fondamental.
+
+## Notre pipeline d'adaptation
+
+### 1. Préparation des données
+
+```python
+from datasets import load_dataset, Audio
+from transformers import Wav2Vec2Processor
+
+# Chargement du corpus Kalam-na (Sara Ngambaye)
+dataset = load_dataset(
+    "Chad-AI-Network/kalam-na",
+    "ngambaye",
+    split="train"
+)
+
+# Rééchantillonnage à 16kHz (requis par Wav2Vec 2.0)
+dataset = dataset.cast_column("audio", Audio(sampling_rate=16_000))
+
+processor = Wav2Vec2Processor.from_pretrained(
+    "facebook/wav2vec2-large-xlsr-53"
+)
+
+def preprocess(batch):
+    audio = batch["audio"]
+    batch["input_values"] = processor(
+        audio["array"],
+        sampling_rate=audio["sampling_rate"],
+        return_tensors="pt"
+    ).input_values[0]
+    # Encodage tonal dans les labels : on ajoute les diacritiques
+    batch["labels"] = processor.tokenizer(
+        batch["transcription_with_tones"]
+    ).input_ids
+    return batch
+
+dataset = dataset.map(preprocess, remove_columns=dataset.column_names)
+```
+
+### 2. Vocabulaire étendu avec diacritiques tonals
+
+```python
+# Vocabulaire Sara Ngambaye étendu
+VOCAB_SARA = {
+    # Voyelles sans ton
+    "a", "e", "ɛ", "i", "o", "ɔ", "u",
+    # Voyelles avec ton haut (accent aigu)
+    "á", "é", "ɛ́", "í", "ó", "ɔ́", "ú",
+    # Voyelles avec ton bas (accent grave)
+    "à", "è", "ɛ̀", "ì", "ò", "ɔ̀", "ù",
+    # Consonnes spécifiques
+    "ŋ", "ɲ", "gb", "kp",
+    # Tokens spéciaux
+    "[PAD]", "[UNK]", "|",  # | = séparateur de mots
+}
+```
+
+### 3. Fine-tuning avec augmentation tonale
+
+```python
+from transformers import (
+    Wav2Vec2ForCTC,
+    Wav2Vec2CTCTokenizer,
+    TrainingArguments,
+    Trainer
+)
+import torch
+
+model = Wav2Vec2ForCTC.from_pretrained(
+    "facebook/wav2vec2-large-xlsr-53",
+    attention_dropout=0.1,
+    hidden_dropout=0.1,
+    feat_proj_dropout=0.0,
+    mask_time_prob=0.05,
+    layerdrop=0.1,
+    ctc_loss_reduction="mean",
+    pad_token_id=processor.tokenizer.pad_token_id,
+    vocab_size=len(processor.tokenizer),
+)
+
+# Geler le feature extractor CNN les 10 premières époques
+model.freeze_feature_encoder()
+
+training_args = TrainingArguments(
+    output_dir="./wav2vec2-sara-ngambaye",
+    group_by_length=True,
+    per_device_train_batch_size=16,
+    gradient_accumulation_steps=2,
+    num_train_epochs=30,
+    fp16=True,
+    learning_rate=3e-4,
+    warmup_steps=500,
+    evaluation_strategy="steps",
+    eval_steps=400,
+    save_steps=400,
+    logging_steps=100,
+    load_best_model_at_end=True,
+    metric_for_best_model="wer",
+    greater_is_better=False,
+)
+```
+
+## Résultats préliminaires
+
+| Modèle | Données | WER (%) |
+|--------|---------|---------|
+| XLSR-53 zero-shot | — | 74.3 |
+| XLSR-53 fine-tuné (sans tons) | 10h | 41.2 |
+| XLSR-53 fine-tuné (avec diacritiques) | 10h | 34.7 |
+| MMS fine-tuné (avec diacritiques) | 10h | **29.1** |
+
+: Résultats WER sur le jeu de test Kalam-na Sara Ngambaye {.striped}
+
+::: callout-tip
+**Observation clé** : L'inclusion explicite des diacritiques tonals dans le vocabulaire et les transcriptions réduit le WER de ~7 points absolus. Ce gain est disproportionné par rapport au coût d'annotation supplémentaire.
+:::
+
+## Prochaines étapes
+
+1. **Cross-lingual transfer** entre dialectes Sara (Ngambaye → Kaba → Mbaye) via un modèle multi-dialecte partagé
+2. **Intégration d'un module tonal** dédié en aval du CTC pour post-correction des erreurs tonales
+3. **Évaluation sur le Laal** — en cours de constitution du corpus audio
+
+---
+
+*Code disponible sur [GitHub/Chad-AI-Network](https://github.com/Chad-AI-Network/Chadian-Data). Corpus Kalam-na bientôt sur HuggingFace.*

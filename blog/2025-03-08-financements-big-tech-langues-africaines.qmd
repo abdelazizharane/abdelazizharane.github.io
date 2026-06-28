@@ -1,0 +1,127 @@
+---
+title: "Pourquoi nous refusons certains financements Big Tech pour les langues africaines"
+description: "Quand Microsoft, Google et Meta financent la recherche sur les langues africaines, qui en bénéficie réellement ? Réflexions sur la souveraineté des données et les stratégies de protection."
+author: "Abdel-aziz Harane"
+date: "2025-03-08"
+categories: [Open Science, Réflexions]
+toc: true
+reading-time: true
+draft: false
+---
+
+```{=html}
+<div class="h-article-header">
+  <div class="h-article-meta">
+    <span>8 mars 2025</span>
+    <span class="separator">·</span>
+    <span>10 min de lecture</span>
+    <span class="separator">·</span>
+    <span class="h-tag h-tag-ocre" style="font-size:.65rem;">Open Science</span>
+    <span class="h-tag h-tag-ocre" style="font-size:.65rem;">Réflexions</span>
+  </div>
+</div>
+```
+
+> *"Le risque n'est pas que les grandes entreprises technologiques s'intéressent aux langues africaines. C'est qu'elles le fassent en extrayant de la valeur sans créer les conditions de leur propre remplacement par des acteurs locaux."*
+
+## Le contexte : une ruée vers les langues africaines
+
+Depuis 2022, il y a eu une prolifération remarquable d'initiatives Big Tech autour des langues africaines :
+
+- **Microsoft LINGUA Africa** (en partenariat avec la Fondation Gates et Masakhane)
+- **Meta MMS** (Massively Multilingual Speech) — 1100+ langues dont plusieurs dizaines africaines
+- **Google MMS** et le programme **Woolaroo**
+- **OpenAI** qui commence à s'y intéresser via des partenariats NGO
+
+Ces initiatives ne sont pas toutes identiques, et certaines ont produit des résultats genuinement utiles. Mais elles partagent une structure économique commune qui mérite examen critique.
+
+## La mécanique de l'extraction
+
+Quand une grande entreprise technologique finance la collecte de données linguistiques en Afrique, voici ce qui se passe typiquement :
+
+**Ce que la communauté donne :**
+- Le temps des locuteurs (souvent bénévole ou sous-rémunéré)
+- L'accès à des connaissances culturelles irremplaçables
+- La légitimité scientifique des partenaires locaux
+- Les données elles-mêmes
+
+**Ce que l'entreprise garde :**
+- La propriété ou le contrôle effectif des modèles entraînés
+- Le droit de commercialiser les applications dérivées
+- La réputation académique associée aux publications
+- La capacité de déprécier l'accès aux modèles à tout moment
+
+C'est une forme de **néo-extractivisme numérique** — différent dans ses mécanismes du colonialisme classique, mais similaire dans sa logique de captation de valeur.
+
+## Notre ligne directrice : 4 questions avant tout engagement
+
+Au Chad AI Network, avant d'accepter tout financement externe (Big Tech ou autre), nous posons systématiquement ces quatre questions :
+
+### 1. Qui possède les données finales ?
+
+Les corpus linguistiques que nous collectons représentent le patrimoine culturel des communautés Laal, Sara, et des autres peuples tchadiens. La propriété de ces données ne peut pas être transférée à une entité externe.
+
+**Notre règle** : toutes les données restent sous licence CC-BY-SA ou CC-BY-NC-SA, déposées dans un dépôt pérenne (ELAR/SOAS, Zenodo) avec une copie souveraine contrôlée par la communauté.
+
+### 2. Les modèles seront-ils ouverts ?
+
+Un modèle ASR pour le Sara entraîné avec nos données, mais déployé derrière une API propriétaire, ne bénéficie pas aux communautés locales.
+
+**Notre règle** : tout modèle entraîné sur nos corpus doit être publié sous licence Apache 2.0 ou plus permissive sur HuggingFace, avec le code d'entraînement.
+
+### 3. Quel transfert de capacités est prévu ?
+
+Le financement doit inclure un volet explicite de **renforcement des capacités locales** : formation de chercheurs tchadiens, documentation accessible, infrastructure maintenable localement.
+
+### 4. Y a-t-il une clause de dépréciation ?
+
+Certains partenariats incluent des clauses permettant à l'entreprise de cesser l'accès aux outils développés conjointement. C'est inacceptable pour des outils destinés à la préservation linguistique sur 50+ ans.
+
+## Ce que nous acceptons
+
+Notre position n'est pas "zéro partenariat externe". C'est "partenariat à nos conditions".
+
+```{=html}
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1.5rem 0;">
+  <div class="h-card" style="border-left:3px solid var(--h-green);">
+    <div style="font-size:.75rem; font-weight:700; color:var(--h-green); margin-bottom:.5rem; text-transform:uppercase; letter-spacing:.06em;">✓ Acceptable</div>
+    <ul style="font-size:.8rem; color:var(--h-muted); padding-left:1.2rem; margin:0; line-height:1.8;">
+      <li>Compute credits (Azure, GCP) sans contrôle des données</li>
+      <li>Partenariats avec fondations (Gates, Wellcome) si données ouvertes</li>
+      <li>Collaborations académiques avec publications libres</li>
+      <li>Masakhane (gouvernance communautaire réelle)</li>
+      <li>Subventions gouvernementales (ANR, DFG, NSF)</li>
+    </ul>
+  </div>
+  <div class="h-card" style="border-left:3px solid #B91C1C;">
+    <div style="font-size:.75rem; font-weight:700; color:#B91C1C; margin-bottom:.5rem; text-transform:uppercase; letter-spacing:.06em;">✗ Refusé</div>
+    <ul style="font-size:.8rem; color:var(--h-muted); padding-left:1.2rem; margin:0; line-height:1.8;">
+      <li>Tout contrat cédant propriété des corpus</li>
+      <li>Modèles exclusivement propriétaires</li>
+      <li>Clauses de confidentialité sur les méthodes</li>
+      <li>Partenariats sans volet formation locale</li>
+      <li>Accords permettant la revente des données</li>
+    </ul>
+  </div>
+</div>
+```
+
+## La voie alternative : financement diversifié
+
+Notre stratégie de financement repose sur cinq piliers pour éviter la dépendance à un seul acteur :
+
+1. **Fondations académiques** (Masakhane Lingua Africa, ELDP, DoBeS)
+2. **Compute grants** (HuggingFace, Google TPU Research Cloud, Microsoft AFMF)
+3. **Financements institutionnels tchadiens** (CNRS-Tchad, Ministère de l'Enseignement Supérieur)
+4. **Coopération internationale** (IRD, DAAD, British Council)
+5. **Communauté** (Substack, GitHub Sponsors pour les outils open-source)
+
+## Conclusion
+
+La ruée vers les langues africaines par les grandes entreprises technologiques n'est pas une mauvaise nouvelle en soi. C'est une opportunité — à condition que les communautés africaines définissent les termes de l'engagement.
+
+Notre travail au Chad AI Network est de construire suffisamment de capacités locales, de données ouvertes et d'infrastructure souveraine pour être en position de négociation — pas de dépendance — vis-à-vis de tout partenaire externe.
+
+---
+
+*Ces positions sont celles du Chad AI Network et engagent uniquement son fondateur. Des discussions informées et contradictoires sont les bienvenues via [email](mailto:harane@chadainetwork.org).*

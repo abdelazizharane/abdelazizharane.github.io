@@ -1,0 +1,309 @@
+---
+title: ""
+page-layout: full
+toc: false
+---
+
+```{=html}
+<!-- ── HERO ─────────────────────────────────────────────────── -->
+<section class="h-hero">
+  <div class="h-hero-bg-text" aria-hidden="true">ﻟﻐﺎﺕ · Langues · Languages · لال · Sara · Laal</div>
+  <div class="h-hero-inner">
+    <div class="h-avatar" aria-label="A">A</div>
+    <div class="h-hero-text">
+      <div class="greeting">Chercheur &amp; Bâtisseur</div>
+      <h1>Abdel-aziz Harane</h1>
+      <p class="lead">
+        ML/NLP Engineer et fondateur du <strong>Chad AI Network</strong> —
+        je construis l'infrastructure numérique pour les langues africaines
+        sous-dotées, avec un focus sur le Tchad : Speech AI, traduction
+        automatique, documentation linguistique et souveraineté des données.
+      </p>
+      <div class="h-tags">
+        <span class="h-tag h-tag-green">Speech AI</span>
+        <span class="h-tag h-tag-green">NLP</span>
+        <span class="h-tag h-tag-green">Langues tchadiennes</span>
+        <span class="h-tag h-tag-ocre">Open Science</span>
+        <span class="h-tag h-tag-ocre">Laal · isolat</span>
+        <span class="h-tag">Masakhane</span>
+        <span class="h-tag">AfricaNLP</span>
+      </div>
+      <div class="h-hero-actions">
+        <a href="https://github.com/abdelazizharane" class="h-btn h-btn-primary" target="_blank">
+          GitHub
+        </a>
+        <a href="articles/index.qmd" class="h-btn h-btn-outline">Publications</a>
+        <a href="https://chadainetwork.org" class="h-btn h-btn-outline" target="_blank">Chad AI Network ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+## Domaines de recherche {.h-section-head}
+
+```{=html}
+<div class="h-research-grid">
+  <div class="h-card h-research-card h-fade">
+    <div class="h-research-icon">🔊</div>
+    <h3>Speech AI &amp; ASR</h3>
+    <p>Reconnaissance automatique de la parole pour les langues tonales tchadiennes — Wav2Vec 2.0, Whisper, corpus audio.</p>
+  </div>
+  <div class="h-card h-research-card h-fade">
+    <div class="h-research-icon">🌍</div>
+    <h3>Traduction Automatique</h3>
+    <p>Systèmes MT pour les paires de langues africaines faiblement dotées : Sara↔Français, Arabe tchadien↔Français.</p>
+  </div>
+  <div class="h-card h-research-card h-fade">
+    <div class="h-research-icon">📖</div>
+    <h3>Documentation Linguistique</h3>
+    <p>Infrastructure numérique pour le Laal (isolat, ~750 locuteurs, UNESCO niveau 5 en danger critique).</p>
+  </div>
+  <div class="h-card h-research-card h-fade">
+    <div class="h-research-icon">🧠</div>
+    <h3>NLP &amp; Language Models</h3>
+    <p>Fine-tuning de LLMs pour les langues africaines, tokenisation multilingue, représentations tonales.</p>
+  </div>
+  <div class="h-card h-research-card h-fade">
+    <div class="h-research-icon">📊</div>
+    <h3>Data Engineering</h3>
+    <p>Pipelines open-source pour la gouvernance des données linguistiques — MinIO, OpenSearch, principes FAIR/CARE.</p>
+  </div>
+  <div class="h-card h-research-card h-fade">
+    <div class="h-research-icon">⚖️</div>
+    <h3>Éthique &amp; Souveraineté</h3>
+    <p>Cadres de gouvernance communautaires, droits linguistiques, politiques d'IA responsable pour l'Afrique.</p>
+  </div>
+</div>
+```
+
+## Projets phares {.h-section-head}
+
+```{=html}
+<div class="h-project-list">
+
+  <div class="h-card h-project-card h-fade">
+    <div>
+      <span class="h-project-badge">En cours</span>
+      <span class="h-project-badge h-project-badge-ocre">Masakhane · Lingua Africa</span>
+      <h3>Laal-Yəw Project</h3>
+      <p>Première infrastructure numérique complète pour le Laal (ISO: gdm), isolat linguistique probable du sud du Tchad (~750 locuteurs). Lexique numérique, corpus audio, ASR baseline et embeddings tonal via géométrie riemannienne.</p>
+      <div class="h-stack">
+        <span class="h-stack-tag">Wav2Vec 2.0</span>
+        <span class="h-stack-tag">Whisper</span>
+        <span class="h-stack-tag">ELAR/SOAS</span>
+        <span class="h-stack-tag">Riemannian Geometry</span>
+      </div>
+    </div>
+    <div>
+      <a href="https://github.com/abdelazizharane/Corpus-Chadian-Languages" class="h-icon-btn" target="_blank">Code ↗</a>
+    </div>
+  </div>
+
+  <div class="h-card h-project-card h-fade">
+    <div>
+      <span class="h-project-badge">Actif</span>
+      <h3>Atlas Linguistique Interactif du Tchad</h3>
+      <p>Application web Leaflet.js cartographiant 127 langues tchadiennes avec clustering géographique, filtres régionaux et zones colorées. Sources : Ethnologue 27e éd., SIL Chad, CNRS/LLACAN, UNESCO.</p>
+      <div class="h-stack">
+        <span class="h-stack-tag">Leaflet.js</span>
+        <span class="h-stack-tag">GeoJSON</span>
+        <span class="h-stack-tag">Ethnologue 27</span>
+      </div>
+    </div>
+    <div>
+      <a href="https://github.com/Chad-AI-Network" class="h-icon-btn" target="_blank">Code ↗</a>
+    </div>
+  </div>
+
+  <div class="h-card h-project-card h-fade">
+    <div>
+      <span class="h-project-badge">Design</span>
+      <span class="h-project-badge h-project-badge-ocre">Mobile AI</span>
+      <h3>KalamBot — Assistant Linguistique Sara</h3>
+      <p>Assistant mobile IA pour les dialectes Sara (Ngambaye, Kaba, Mbaye, Gor, Laka). Architecture offline-first pour appareils Android bas de gamme. Stack Flutter/ONNX/Whisper-tiny/VITS.</p>
+      <div class="h-stack">
+        <span class="h-stack-tag">Flutter</span>
+        <span class="h-stack-tag">ONNX</span>
+        <span class="h-stack-tag">Whisper-tiny</span>
+        <span class="h-stack-tag">VITS TTS</span>
+      </div>
+    </div>
+    <div></div>
+  </div>
+
+  <div class="h-card h-project-card h-fade">
+    <div>
+      <span class="h-project-badge h-project-badge-neutral">Open Source</span>
+      <h3>TchadData Explorer</h3>
+      <p>Moteur de recherche open-source pour les données tchadiennes. Stack sans LLM API payant : MiniSearch, TF-IDF custom, NLP multilingue FR/EN/AR, correction Levenshtein, Docker/Nginx.</p>
+      <div class="h-stack">
+        <span class="h-stack-tag">MiniSearch</span>
+        <span class="h-stack-tag">TF-IDF</span>
+        <span class="h-stack-tag">Docker</span>
+        <span class="h-stack-tag">MIT License</span>
+      </div>
+    </div>
+    <div>
+      <a href="https://github.com/Chad-AI-Network" class="h-icon-btn" target="_blank">Code ↗</a>
+    </div>
+  </div>
+
+  <div class="h-card h-project-card h-fade">
+    <div>
+      <span class="h-project-badge">Corpus</span>
+      <h3>Kalam-na — Corpus Speech Sara</h3>
+      <p>~37 000 utterances audio, 12 langues Sara, 16 dialectes, ~19 heures, 16-bit/16kHz. Feuille de route ASR 16 jalons (2025–2029) ciblant INTERSPEECH et AfricaNLP @ ACL.</p>
+      <div class="h-stack">
+        <span class="h-stack-tag">HuggingFace</span>
+        <span class="h-stack-tag">Zenodo</span>
+        <span class="h-stack-tag">Wav2Vec 2.0</span>
+        <span class="h-stack-tag">Whisper</span>
+      </div>
+    </div>
+    <div>
+      <a href="https://github.com/Chad-AI-Network/Chadian-Data" class="h-icon-btn" target="_blank">Données ↗</a>
+    </div>
+  </div>
+
+</div>
+```
+
+## Collaborations & Partenaires {.h-section-head}
+
+```{=html}
+<div class="h-collab-list">
+  <div class="h-card h-collab-item h-fade">
+    <div class="h-collab-dot">🎓</div>
+    <div>
+      <h4>Dr. Florian Lionnet — Princeton University</h4>
+      <p>Principal expert mondial du Laal — collaboration sur la documentation phonologique et la structuration du corpus audio.</p>
+    </div>
+  </div>
+  <div class="h-card h-collab-item h-fade">
+    <div class="h-collab-dot">🔬</div>
+    <div>
+      <h4>Prof. Pascal Boyeldieu — CNRS/LLACAN</h4>
+      <p>Linguiste de référence sur les langues tchadiennes ; partenaire pour les données typologiques et la validation scientifique.</p>
+    </div>
+  </div>
+  <div class="h-card h-collab-item h-fade">
+    <div class="h-collab-dot">🏛️</div>
+    <div>
+      <h4>ELAR / SOAS University of London</h4>
+      <p>Partenaire d'archivage pour la préservation long-terme des ressources linguistiques du Laal.</p>
+    </div>
+  </div>
+  <div class="h-card h-collab-item h-fade">
+    <div class="h-collab-dot">🌐</div>
+    <div>
+      <h4>Masakhane Research Foundation</h4>
+      <p>Candidature Lingua Africa pour le Projet Laal-Yəw ; communauté AfricaNLP pour la recherche NLP africaine ouverte.</p>
+    </div>
+  </div>
+  <div class="h-card h-collab-item h-fade">
+    <div class="h-collab-dot">🏫</div>
+    <div>
+      <h4>Université de N'Djaména / INSH</h4>
+      <p>Partenaire institutionnel pour la recherche linguistique et la collecte de données communautaires au Tchad.</p>
+    </div>
+  </div>
+</div>
+```
+
+## Compétences techniques {.h-section-head}
+
+```{=html}
+<div class="h-skills-grid">
+  <div class="h-card h-skill-item"><span class="h-skill-icon">🐍</span><div><div class="h-skill-name">Python</div><div class="h-skill-lvl">Expert</div></div></div>
+  <div class="h-card h-skill-item"><span class="h-skill-icon">🔥</span><div><div class="h-skill-name">PyTorch</div><div class="h-skill-lvl">Avancé</div></div></div>
+  <div class="h-card h-skill-item"><span class="h-skill-icon">🤗</span><div><div class="h-skill-name">HuggingFace</div><div class="h-skill-lvl">Avancé</div></div></div>
+  <div class="h-card h-skill-item"><span class="h-skill-icon">🎙️</span><div><div class="h-skill-name">Wav2Vec / Whisper</div><div class="h-skill-lvl">Avancé</div></div></div>
+  <div class="h-card h-skill-item"><span class="h-skill-icon">🗺️</span><div><div class="h-skill-name">Leaflet.js</div><div class="h-skill-lvl">Avancé</div></div></div>
+  <div class="h-card h-skill-item"><span class="h-skill-icon">📦</span><div><div class="h-skill-name">Docker / Nginx</div><div class="h-skill-lvl">Intermédiaire</div></div></div>
+  <div class="h-card h-skill-item"><span class="h-skill-icon">🗄️</span><div><div class="h-skill-name">MinIO / OpenSearch</div><div class="h-skill-lvl">Intermédiaire</div></div></div>
+  <div class="h-card h-skill-item"><span class="h-skill-icon">🌐</span><div><div class="h-skill-name">JavaScript / HTML</div><div class="h-skill-lvl">Avancé</div></div></div>
+  <div class="h-card h-skill-item"><span class="h-skill-icon">📊</span><div><div class="h-skill-name">R / ggplot2</div><div class="h-skill-lvl">Intermédiaire</div></div></div>
+  <div class="h-card h-skill-item"><span class="h-skill-icon">📱</span><div><div class="h-skill-name">Flutter / ONNX</div><div class="h-skill-lvl">Débutant</div></div></div>
+  <div class="h-card h-skill-item"><span class="h-skill-icon">🔡</span><div><div class="h-skill-name">Phonologie / IPA</div><div class="h-skill-lvl">Intermédiaire</div></div></div>
+  <div class="h-card h-skill-item"><span class="h-skill-icon">⚙️</span><div><div class="h-skill-name">TensorFlow</div><div class="h-skill-lvl">Intermédiaire</div></div></div>
+</div>
+```
+
+## Récompenses & Reconnaissances {.h-section-head}
+
+```{=html}
+<div class="h-awards-list">
+  <div class="h-card h-award-item h-fade">
+    <span class="h-award-star">★</span>
+    <div>
+      <h4>Developer Program Member — GitHub</h4>
+      <p>Reconnaissance du niveau de contribution open-source sur la plateforme GitHub.</p>
+    </div>
+  </div>
+  <div class="h-card h-award-item h-fade">
+    <span class="h-award-star">★</span>
+    <div>
+      <h4>Candidature Lingua Africa — Masakhane</h4>
+      <p>Projet Laal-Yəw sélectionné dans le processus compétitif de financement de Masakhane pour les langues africaines.</p>
+    </div>
+  </div>
+  <div class="h-card h-award-item h-fade">
+    <span class="h-award-star">★</span>
+    <div>
+      <h4>Fondateur — Chad AI Network</h4>
+      <p>Création et direction de la première communauté nationale dédiée à l'IA et aux langues africaines au Tchad.</p>
+    </div>
+  </div>
+  <div class="h-card h-award-item h-fade">
+    <span class="h-award-star">★</span>
+    <div>
+      <h4>IndabaX Chad — Co-organisateur</h4>
+      <p>Organisation de la conférence IndabaX au Tchad, partie du réseau Deep Learning Indaba panafricain.</p>
+    </div>
+  </div>
+</div>
+```
+
+## Publications récentes {.h-section-head}
+
+Voir la [liste complète des articles →](articles/index.qmd)
+
+```{=html}
+<div class="h-pub-list">
+  <div class="h-card h-pub-card h-fade">
+    <div class="h-pub-meta-top">
+      <span class="h-venue-badge">Conférence</span>
+      <span class="h-year">2025 · AfricaNLP @ ACL</span>
+    </div>
+    <h3>Kalam-na: A Speech Corpus for the Sara Language Family of Chad</h3>
+    <div class="h-pub-authors"><strong>Abdel-aziz Harane</strong>, Chad AI Network Consortium</div>
+  </div>
+  <div class="h-card h-pub-card h-fade">
+    <div class="h-pub-meta-top">
+      <span class="h-venue-badge h-venue-badge-preprint">Preprint</span>
+      <span class="h-year">2025 · En préparation</span>
+    </div>
+    <h3>Towards Digital Infrastructure for Laal: A Critically Endangered Language Isolate of Chad</h3>
+    <div class="h-pub-authors"><strong>Abdel-aziz Harane</strong>, Florian Lionnet, Pascal Boyeldieu</div>
+  </div>
+  <div class="h-card h-pub-card h-fade">
+    <div class="h-pub-meta-top">
+      <span class="h-venue-badge h-venue-badge-workshop">Rapport</span>
+      <span class="h-year">2024 · Chad AI Network</span>
+    </div>
+    <h3>Linguistic Atlas of Chad: Mapping 127 Languages with Open Data</h3>
+    <div class="h-pub-authors"><strong>Abdel-aziz Harane</strong></div>
+  </div>
+</div>
+```
+
+## Vision {.h-section-head}
+
+```{=html}
+<div class="h-vision">
+  <p>Les langues africaines ne sont pas des données brutes en attente d'extraction par des entreprises technologiques extérieures. Ce sont des systèmes de connaissance vivants, porteurs de l'histoire, de la philosophie et de la science de leurs communautés.</p>
+  <p>Mon travail vise à bâtir une infrastructure numérique pour les langues tchadiennes qui appartienne à ses communautés : données gouvernées localement, modèles accessibles, recherche publiée en open access, et technologie qui amplifie — plutôt que remplace — la transmission intergénérationnelle.</p>
+  <p>D'ici 2030, je veux que le Laal, le Sara, l'Arabe tchadien et les langues du bassin du Lac Tchad aient chacun un corpus structuré, un ASR fonctionnel et une communauté de chercheurs locaux capables de les maintenir.</p>
+</div>
+```

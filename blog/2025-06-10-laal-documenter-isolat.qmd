@@ -1,0 +1,132 @@
+---
+title: "Laal : documenter un isolat linguistique à 750 locuteurs"
+description: "Pourquoi le Laal est peut-être la langue la plus fascinante du Tchad — et comment nous construisons son infrastructure numérique avant qu'il soit trop tard."
+author: "Abdel-aziz Harane"
+date: "2025-06-10"
+categories: [Langues tchadiennes, Documentation, Open Science]
+image: "../../assets/img/blog-laal.svg"
+toc: true
+reading-time: true
+draft: false
+---
+
+```{=html}
+<div class="h-article-header">
+  <div class="h-article-meta">
+    <span>10 juin 2025</span>
+    <span class="separator">·</span>
+    <span>8 min de lecture</span>
+    <span class="separator">·</span>
+    <span class="h-tag h-tag-green" style="font-size:.65rem;">Langues tchadiennes</span>
+    <span class="h-tag h-tag-green" style="font-size:.65rem;">Documentation</span>
+  </div>
+</div>
+```
+
+## Introduction
+
+Le Laal est une langue parlée dans un petit groupe de villages le long de la rivière Bahr Sara, dans la région de Moyen-Chari au sud du Tchad. Avec environ **750 locuteurs restants**, elle est classée au **niveau 5 de l'échelle UNESCO** — "en danger critique d'extinction".
+
+Ce qui rend le Laal particulièrement remarquable — et urgent à documenter — c'est son statut probable d'**isolat linguistique** : une langue qui n'appartient à aucune famille connue. Comme le basque en Europe, le Laal pourrait représenter le dernier vestige d'une proto-langue préhistorique du bassin du Lac Tchad.
+
+::: callout-note
+**Isolat linguistique** : Une langue est dite "isolat" quand elle ne présente aucune parenté génétique démontrable avec d'autres langues. Ce statut est rare et scientifiquement très précieux — chaque isolat est une fenêtre unique sur la diversité cognitive et historique de l'humanité.
+:::
+
+## Ce que nous savons du Laal
+
+La majorité de nos connaissances actuelles sur le Laal provient des travaux de **Dr. Florian Lionnet** (Princeton) et de **Prof. Pascal Boyeldieu** (CNRS/LLACAN), qui ont publié les premières descriptions structurées de la langue.
+
+### Caractéristiques phonologiques
+
+Le Laal possède un système tonal complexe qui joue un rôle grammatical — et pas seulement lexical. C'est précisément ce qui pose des défis spécifiques aux systèmes ASR modernes, entraînés massivement sur des langues non-tonales.
+
+```python
+# Exemple : représentation d'un contour tonal en Laal
+# H = ton haut, L = ton bas, M = ton moyen, F = ton flottant
+
+tonemes = {
+    "HL": "contour descendant (fréquent en position finale)",
+    "LH": "contour montant (marqueur aspectuel)",
+    "H":  "ton haut simple",
+    "L":  "ton bas simple",
+}
+
+# Un même segment phonémique avec des tons différents =
+# deux mots distincts avec des sens complètement différents
+```
+
+### Morphologie verbale
+
+La morphologie verbale du Laal est remarquablement complexe, avec des systèmes d'accord, d'aspect et de modalité entrelacés. Boyeldieu (1987) identifie plus de 15 paradigmes verbaux distincts.
+
+## Pourquoi maintenant ?
+
+La dynamique sociolinguistique au Tchad favorise massivement le **Sara**, le **Français** et l'**Arabe tchadien** comme langues de communication inter-ethnique. Les enfants des communautés Laal grandissent en milieu plurilingue et choisissent souvent le Sara comme première langue fonctionnelle.
+
+Sans intervention documentaire active, le Laal pourrait disparaître dans les **20 à 30 prochaines années**.
+
+## Notre approche : le Projet Laal-Yəw
+
+Le projet **Laal-Yəw** (candidature Masakhane Lingua Africa 2025) vise à construire la première infrastructure numérique complète pour la langue :
+
+```{=html}
+<div class="h-card" style="margin: 1.5rem 0; padding: 1.5rem;">
+  <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); gap: 1rem;">
+    <div>
+      <div style="font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--h-green); margin-bottom:.4rem;">Phase 1</div>
+      <div style="font-size:.82rem; font-weight:600; margin-bottom:.3rem;">Corpus & Lexique</div>
+      <div style="font-size:.75rem; color:var(--h-muted);">500+ entrées lexicales annotées, 10h d'audio transcrit, dictionnaire numérique open-source.</div>
+    </div>
+    <div>
+      <div style="font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--h-green); margin-bottom:.4rem;">Phase 2</div>
+      <div style="font-size:.82rem; font-weight:600; margin-bottom:.3rem;">ASR Baseline</div>
+      <div style="font-size:.75rem; color:var(--h-muted);">Fine-tuning Whisper et Wav2Vec 2.0, avec approche riemannienne pour les tons.</div>
+    </div>
+    <div>
+      <div style="font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--h-green); margin-bottom:.4rem;">Phase 3</div>
+      <div style="font-size:.82rem; font-weight:600; margin-bottom:.3rem;">Archivage & Accès</div>
+      <div style="font-size:.75rem; color:var(--h-muted);">Dépôt ELAR/SOAS, licence CC-BY-SA, copies souveraines gérées par la communauté.</div>
+    </div>
+  </div>
+</div>
+```
+
+### La géométrie riemannienne pour les tons
+
+Une des innovations techniques du projet est l'utilisation de **variétés riemanniennes** pour représenter les structures tonales grammaticales. L'idée : les contours tonaux du Laal ne sont pas bien représentés dans les espaces euclidiens habituels des embeddings linguistiques.
+
+```python
+import torch
+import geoopt  # bibliothèque pour la géométrie riemannienne en PyTorch
+
+# Espace hyperbolique de Poincaré pour les tons
+manifold = geoopt.PoincareBall(c=1.0)
+
+# Un vecteur représentant un contour tonal HL
+# dans l'espace euclidien standard
+tone_HL_euclidean = torch.tensor([0.3, -0.7, 0.1])
+
+# Projection vers la variété de Poincaré
+tone_HL_hyperbolic = manifold.expmap0(tone_HL_euclidean)
+print(f"Représentation hyperbolique : {tone_HL_hyperbolic}")
+
+# La distance hyperbolique capture mieux
+# les relations hiérarchiques entre contours tonaux
+```
+
+## Implications pour l'IA africaine
+
+Le Laal illustre un défi général dans le développement de l'IA pour les langues africaines : **la plupart des techniques standard ont été conçues pour des langues bien dotées avec des propriétés typologiques proches de l'anglais ou du mandarin**.
+
+Les solutions que nous développons pour le Laal — représentations tonales non-euclidiennes, transfert d'apprentissage cross-lingue, governance communautaire des données — ont vocation à bénéficier à toutes les langues tchadiennes et, plus largement, à la communauté AfricaNLP.
+
+## Conclusion
+
+Documenter le Laal, ce n'est pas seulement sauver une langue. C'est préserver une façon unique de conceptualiser le temps, l'espace, les relations sociales et le monde naturel. C'est contribuer à notre compréhension collective de la diversité cognitive humaine.
+
+Et c'est prouver que des chercheurs basés au Tchad, avec des partenaires internationaux mais une gouvernance locale, peuvent produire une science de classe mondiale sur leurs propres langues.
+
+---
+
+*Le code du projet Laal-Yəw sera disponible sur [GitHub](https://github.com/abdelazizharane/Corpus-Chadian-Languages) au fur et à mesure de son avancement. Les corpus audio seront déposés sur ELAR/SOAS sous licence CC-BY-SA.*

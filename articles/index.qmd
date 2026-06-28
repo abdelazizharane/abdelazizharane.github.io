@@ -1,0 +1,196 @@
+---
+title: "Publications scientifiques"
+subtitle: "Articles, rapports techniques et travaux de recherche sur les langues africaines, le NLP et le Speech AI."
+page-layout: full
+toc: false
+---
+
+```{=html}
+<!-- Stats -->
+<div class="h-stats">
+  <div><div class="h-stat-num">4+</div><div class="h-stat-label">Publications</div></div>
+  <div><div class="h-stat-num">2</div><div class="h-stat-label">Conférences</div></div>
+  <div><div class="h-stat-num">127</div><div class="h-stat-label">Langues cartographiées</div></div>
+  <div><div class="h-stat-num">37k+</div><div class="h-stat-label">Utterances corpus</div></div>
+  <div><div class="h-stat-num">19h</div><div class="h-stat-label">Audio annoté</div></div>
+</div>
+
+<!-- Filtres -->
+<div class="h-controls">
+  <div class="h-search">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="articleSearch" placeholder="Rechercher une publication…" oninput="filterArticles()" />
+  </div>
+  <div class="h-filter-tabs">
+    <button class="h-filter-tab h-active" onclick="setArticleCat('all',this)">Tout</button>
+    <button class="h-filter-tab" onclick="setArticleCat('conference',this)">Conférence</button>
+    <button class="h-filter-tab" onclick="setArticleCat('preprint',this)">Preprint</button>
+    <button class="h-filter-tab" onclick="setArticleCat('workshop',this)">Workshop</button>
+    <button class="h-filter-tab" onclick="setArticleCat('report',this)">Rapport</button>
+  </div>
+</div>
+
+<!-- Publications -->
+<div class="h-pub-list" id="pubList">
+
+  <!-- ── PUB 1 ──────────────────────────────────────────── -->
+  <div class="h-card h-pub-card h-fade" data-type="conference">
+    <div class="h-pub-meta-top">
+      <span class="h-venue-badge">Conférence</span>
+      <span class="h-year">2025</span>
+    </div>
+    <h3>Kalam-na: A Speech Corpus for the Sara Language Family of Chad</h3>
+    <div class="h-pub-authors"><strong>Abdel-aziz Harane</strong>, Chad AI Network Consortium</div>
+    <div class="h-pub-venue">AfricaNLP Workshop @ ACL 2025</div>
+    <details>
+      <summary style="font-size:.78rem; color:var(--h-green); cursor:pointer; list-style:none; padding:.25rem 0;">▸ Abstract</summary>
+      <p style="font-size:.82rem; color:var(--h-muted); line-height:1.65; margin:.75rem 0;">
+        Nous présentons Kalam-na, le premier corpus de parole structuré pour la famille de langues Sara du Tchad, comprenant ~37 000 utterances audio sur 12 langues (16 dialectes, ~19 heures, 16-bit/16kHz). Nous décrivons la méthodologie de collecte en milieu communautaire, les défis spécifiques aux langues tonales sous-dotées, et établissons des baselines ASR avec Wav2Vec 2.0 et Whisper fine-tuné. Le corpus est déposé sur HuggingFace et Zenodo sous licence CC-BY-4.0.
+      </p>
+    </details>
+    <div class="h-keywords">
+      <span class="h-kw">corpus</span><span class="h-kw">sara</span><span class="h-kw">ASR</span>
+      <span class="h-kw">speech</span><span class="h-kw">chad</span><span class="h-kw">low-resource</span>
+    </div>
+    <div class="h-pub-actions">
+      <a href="https://github.com/Chad-AI-Network/Chadian-Data" class="h-icon-btn" target="_blank">Code ↗</a>
+      <a href="https://github.com/Chad-AI-Network/Chadian-Data" class="h-icon-btn" target="_blank">Données ↗</a>
+    </div>
+    <div class="h-bibtex">
+      <details>
+        <summary>BibTeX</summary>
+        <pre>@inproceedings{harane-2025-kalam,
+  title     = {Kalam-na: A Speech Corpus for the Sara Language Family of Chad},
+  author    = {Abdel-aziz Harane and {Chad AI Network Consortium}},
+  booktitle = {Proceedings of the AfricaNLP Workshop at ACL 2025},
+  year      = {2025}
+}</pre>
+      </details>
+    </div>
+  </div>
+
+  <!-- ── PUB 2 ──────────────────────────────────────────── -->
+  <div class="h-card h-pub-card h-fade" data-type="preprint">
+    <div class="h-pub-meta-top">
+      <span class="h-venue-badge h-venue-badge-preprint">Preprint</span>
+      <span class="h-year">2025</span>
+    </div>
+    <h3>Towards Digital Infrastructure for Laal: A Critically Endangered Language Isolate of Chad</h3>
+    <div class="h-pub-authors"><strong>Abdel-aziz Harane</strong>, Florian Lionnet, Pascal Boyeldieu</div>
+    <div class="h-pub-venue" style="color:var(--h-ocre);">Preprint — En préparation · Cible : Language Documentation & Conservation</div>
+    <details>
+      <summary style="font-size:.78rem; color:var(--h-green); cursor:pointer; list-style:none; padding:.25rem 0;">▸ Abstract</summary>
+      <p style="font-size:.82rem; color:var(--h-muted); line-height:1.65; margin:.75rem 0;">
+        Le Laal (ISO: gdm) est un isolat linguistique probable du sud du Tchad avec environ 750 locuteurs restants (UNESCO niveau 5). Cet article décrit les premiers travaux de construction d'une infrastructure numérique complète : lexique numérique, corpus audio, système de transcription phonologique, et une approche innovante basée sur la géométrie riemannienne pour représenter les structures tonales grammaticales dans des espaces non-euclidiens adaptés.
+      </p>
+    </details>
+    <div class="h-keywords">
+      <span class="h-kw">laal</span><span class="h-kw">language isolate</span>
+      <span class="h-kw">endangered</span><span class="h-kw">chad</span>
+      <span class="h-kw">riemannian</span><span class="h-kw">tonal</span>
+    </div>
+    <div class="h-pub-actions">
+      <a href="https://github.com/abdelazizharane/Corpus-Chadian-Languages" class="h-icon-btn" target="_blank">Code ↗</a>
+    </div>
+    <div class="h-bibtex">
+      <details>
+        <summary>BibTeX</summary>
+        <pre>@misc{harane-2025-laal,
+  title  = {Towards Digital Infrastructure for Laal},
+  author = {Abdel-aziz Harane and Florian Lionnet and Pascal Boyeldieu},
+  year   = {2025},
+  note   = {En préparation}
+}</pre>
+      </details>
+    </div>
+  </div>
+
+  <!-- ── PUB 3 ──────────────────────────────────────────── -->
+  <div class="h-card h-pub-card h-fade" data-type="workshop">
+    <div class="h-pub-meta-top">
+      <span class="h-venue-badge h-venue-badge-workshop">Workshop</span>
+      <span class="h-year">2024</span>
+    </div>
+    <h3>Data Governance Frameworks for Community-Owned Language Resources in Africa</h3>
+    <div class="h-pub-authors"><strong>Abdel-aziz Harane</strong></div>
+    <div class="h-pub-venue" style="color:var(--h-muted);">Workshop Éthique de l'IA — Chad AI Network · N'Djaména</div>
+    <details>
+      <summary style="font-size:.78rem; color:var(--h-green); cursor:pointer; list-style:none; padding:.25rem 0;">▸ Abstract</summary>
+      <p style="font-size:.82rem; color:var(--h-muted); line-height:1.65; margin:.75rem 0;">
+        Nous proposons un cadre de gouvernance pour les ressources linguistiques appartenant aux communautés africaines, inspiré des principes FAIR/CARE, de l'UNESCO et du RGPD. Le cadre couvre le cycle complet : documentation, numérisation, dépôt, accès et révocation du consentement, avec une attention particulière à la séparation entre financement externe et propriété des données.
+      </p>
+    </details>
+    <div class="h-keywords">
+      <span class="h-kw">gouvernance</span><span class="h-kw">FAIR</span>
+      <span class="h-kw">CARE</span><span class="h-kw">communauté</span><span class="h-kw">éthique</span>
+    </div>
+    <div class="h-bibtex">
+      <details>
+        <summary>BibTeX</summary>
+        <pre>@inproceedings{harane-2024-governance,
+  title     = {Data Governance Frameworks for Community-Owned Language Resources in Africa},
+  author    = {Abdel-aziz Harane},
+  booktitle = {Workshop on AI Ethics, Chad AI Network},
+  year      = {2024}
+}</pre>
+      </details>
+    </div>
+  </div>
+
+  <!-- ── PUB 4 ──────────────────────────────────────────── -->
+  <div class="h-card h-pub-card h-fade" data-type="report">
+    <div class="h-pub-meta-top">
+      <span class="h-venue-badge h-venue-badge-workshop">Rapport Technique</span>
+      <span class="h-year">2024</span>
+    </div>
+    <h3>Linguistic Atlas of Chad: Mapping 127 Languages with Open Data</h3>
+    <div class="h-pub-authors"><strong>Abdel-aziz Harane</strong></div>
+    <div class="h-pub-venue" style="color:var(--h-muted);">Rapport Technique — Chad AI Network</div>
+    <details>
+      <summary style="font-size:.78rem; color:var(--h-green); cursor:pointer; list-style:none; padding:.25rem 0;">▸ Abstract</summary>
+      <p style="font-size:.82rem; color:var(--h-muted); line-height:1.65; margin:.75rem 0;">
+        Ce rapport présente la méthodologie de création de l'Atlas Linguistique Interactif du Tchad, une application web cartographiant 127 langues tchadiennes avec clustering géographique, filtres régionaux et zones colorées. Sources : Ethnologue 27e édition, SIL Chad, CNRS/LLACAN, UNESCO. L'application utilise Leaflet.js avec design responsive adapté aux contraintes de connectivité africaines.
+      </p>
+    </details>
+    <div class="h-keywords">
+      <span class="h-kw">atlas</span><span class="h-kw">chad</span>
+      <span class="h-kw">leaflet</span><span class="h-kw">127 langues</span><span class="h-kw">ethnologue</span>
+    </div>
+    <div class="h-pub-actions">
+      <a href="https://github.com/Chad-AI-Network" class="h-icon-btn" target="_blank">Code ↗</a>
+    </div>
+    <div class="h-bibtex">
+      <details>
+        <summary>BibTeX</summary>
+        <pre>@techreport{harane-2024-atlas,
+  title       = {Linguistic Atlas of Chad: Mapping 127 Languages with Open Data},
+  author      = {Abdel-aziz Harane},
+  institution = {Chad AI Network},
+  year        = {2024}
+}</pre>
+      </details>
+    </div>
+  </div>
+
+</div><!-- /pubList -->
+
+<script>
+let currentArticleCat = 'all';
+
+function setArticleCat(cat, btn) {
+  currentArticleCat = cat;
+  document.querySelectorAll('.h-filter-tab').forEach(b => b.classList.remove('h-active'));
+  btn.classList.add('h-active');
+  filterArticles();
+}
+
+function filterArticles() {
+  const q = document.getElementById('articleSearch').value.toLowerCase();
+  document.querySelectorAll('#pubList .h-pub-card').forEach(card => {
+    const typeMatch = currentArticleCat === 'all' || card.dataset.type === currentArticleCat;
+    const textMatch = !q || card.innerText.toLowerCase().includes(q);
+    card.style.display = typeMatch && textMatch ? '' : 'none';
+  });
+}
+</script>
+```

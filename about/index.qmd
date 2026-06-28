@@ -1,0 +1,90 @@
+---
+title: "À propos"
+page-layout: article
+toc: true
+---
+
+```{=html}
+<div class="h-hero" style="padding:2.5rem 0 2rem; margin-bottom:2rem;">
+  <div class="h-hero-inner">
+    <div class="h-avatar">A</div>
+    <div class="h-hero-text">
+      <div class="greeting">ML/NLP Engineer · Fondateur · Chercheur</div>
+      <h1 style="font-size:1.8rem;">Abdel-aziz Harane</h1>
+      <p class="lead" style="font-size:.9rem;">
+        Basé à N'Djaména, Tchad. Fondateur du <strong>Chad AI Network</strong>.
+        Chercheur en NLP, Speech AI et documentation des langues africaines sous-dotées.
+      </p>
+      <div class="h-hero-actions" style="margin-top:1rem;">
+        <a href="mailto:harane@chadainetwork.org" class="h-btn h-btn-primary">Contact</a>
+        <a href="../assets/cv/cv-harane.pdf" class="h-btn h-btn-outline">CV (PDF)</a>
+        <a href="https://github.com/abdelazizharane" class="h-btn h-btn-outline" target="_blank">GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## Parcours
+
+Je suis ML/NLP Engineer et fondateur du **Chad AI Network** ([chadainetwork.org](https://chadainetwork.org)), la première communauté nationale dédiée à la data science et à l'IA au Tchad.
+
+Mon travail se situe à l'intersection de trois domaines :
+
+- **Recherche en NLP/Speech AI** : construction de systèmes de reconnaissance de la parole et de traduction automatique pour les langues tchadiennes
+- **Documentation linguistique** : infrastructure numérique pour les langues en danger, notamment le Laal (~750 locuteurs, isolat linguistique probable)
+- **Science ouverte** : gouvernance communautaire des données, licences ouvertes, infrastructure déployable dans des contextes à faible connectivité
+
+## Chad AI Network
+
+Fondé en 2022, le Chad AI Network est une organisation ouverte réunissant des chercheurs, étudiants et praticiens tchadiens autour de l'IA et des données.
+
+Nos axes de travail :
+
+| Axe | Description |
+|-----|-------------|
+| Corpus linguistiques | Collecte et annotation de données audio et texte pour 127+ langues tchadiennes |
+| Outils open-source | Développement d'outils NLP adaptés aux contraintes locales (offline-first, faible mémoire) |
+| Formation | Ateliers, IndabaX Chad, école d'été sur l'IA africaine |
+| Politique publique | Plaidoyer pour une gouvernance nationale des données linguistiques |
+
+## Collaborateurs
+
+Je travaille en étroite collaboration avec :
+
+- **Dr. Florian Lionnet** (Princeton) — expert mondial du Laal
+- **Prof. Pascal Boyeldieu** (CNRS/LLACAN) — langues tchadiennes  
+- **ELAR/SOAS** (University of London) — archivage linguistique
+- **Masakhane Research Foundation** — NLP africain ouvert
+- **Université de N'Djaména / INSH** — partenaire institutionnel local
+
+## Vision
+
+Je crois que les langues africaines ont besoin d'une infrastructure numérique construite **par** les communautés africaines, **pour** les communautés africaines.
+
+Cela signifie des données qui restent souveraines, des modèles publiés en open-source, une recherche publiée en accès libre, et une technologie conçue pour amplifier — pas remplacer — la transmission intergénérationnelle des langues.
+
+## Contact
+
+```{=html}
+<div class="h-card" style="max-width:480px; padding:1.5rem;">
+  <div style="display:flex; flex-direction:column; gap:.75rem;">
+    <div style="display:flex; align-items:center; gap:.75rem; font-size:.85rem;">
+      <span>📧</span>
+      <a href="mailto:harane@chadainetwork.org">harane@chadainetwork.org</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:.75rem; font-size:.85rem;">
+      <span>🐙</span>
+      <a href="https://github.com/abdelazizharane" target="_blank">github.com/abdelazizharane</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:.75rem; font-size:.85rem;">
+      <span>💼</span>
+      <a href="https://www.linkedin.com/in/abdel-aziz-harane/" target="_blank">linkedin.com/in/abdel-aziz-harane</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:.75rem; font-size:.85rem;">
+      <span>📍</span>
+      <span>N'Djaména, Tchad</span>
+    </div>
+  </div>
+</div>
+```

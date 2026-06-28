@@ -1,0 +1,101 @@
+name: Deploy Quarto Site → GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:      # déclenchement manuel depuis l'interface GitHub
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un seul déploiement en parallèle
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build Quarto Site
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout du dépôt
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2. Installation de R (si tu utilises des chunks R)
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.3.2'
+          use-public-rspm: true
+
+      # 3. Cache des packages R
+      - name: Cache R packages
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-r-${{ hashFiles('DESCRIPTION', 'renv.lock') }}
+          restore-keys: ${{ runner.os }}-r-
+
+      # 4. Installation des packages R nécessaires
+      - name: Install R packages
+        run: |
+          install.packages(c(
+            "tidyverse", "ggplot2", "knitr", "rmarkdown",
+            "plotly", "DT", "leaflet", "htmlwidgets"
+          ), repos = "https://cloud.r-project.org")
+        shell: Rscript {0}
+
+      # 5. Installation de Python (pour les chunks Python)
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      # 6. Installation des dépendances Python
+      - name: Install Python packages
+        run: |
+          pip install jupyter matplotlib numpy pandas seaborn
+          # Ajoute tes dépendances ici selon les notebooks
+
+      # 7. Installation de Quarto
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: '1.4.557'   # mettre à jour vers la dernière version stable
+
+      # 8. Vérification de la version Quarto
+      - name: Check Quarto version
+        run: quarto --version
+
+      # 9. Rendu du site (avec cache _freeze pour éviter de ré-exécuter le code)
+      - name: Render Quarto Site
+        run: quarto render
+        env:
+          QUARTO_PRINT_STACK: true
+
+      # 10. Upload des artefacts pour GitHub Pages
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

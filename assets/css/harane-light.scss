@@ -1,0 +1,47 @@
+/*-- scss:defaults --*/
+
+// ── Couleurs de base ─────────────────────────────────────────
+$body-bg:           #FAFAF8;
+$body-color:        #1C1C1A;
+$link-color:        #1B5E3B;
+$link-hover-color:  #145030;
+
+// ── Typographie ──────────────────────────────────────────────
+$font-family-sans-serif: 'Inter', system-ui, -apple-system, sans-serif;
+$font-family-monospace:  'JetBrains Mono', 'Fira Code', monospace;
+$font-size-root:         15px;
+$line-height-base:       1.65;
+$headings-font-family:   'DM Serif Display', Georgia, serif;
+$headings-font-weight:   400;
+$headings-color:         #1C1C1A;
+
+// ── Navbar ───────────────────────────────────────────────────
+$navbar-bg:              #FFFFFF;
+$navbar-fg:              #1C1C1A;
+$navbar-hl:              #1B5E3B;
+$navbar-border:          #E5E3DE;
+
+// ── Sidebar ──────────────────────────────────────────────────
+$sidebar-bg:             #FFFFFF;
+$sidebar-fg:             #6B6860;
+$sidebar-hl:             #1B5E3B;
+
+// ── Code ─────────────────────────────────────────────────────
+$code-bg:                #F3F2EF;
+$code-color:             #1B5E3B;
+$pre-bg:                 #F3F2EF;
+$pre-color:              #1C1C1A;
+
+// ── Accents ──────────────────────────────────────────────────
+$primary:                #1B5E3B;
+$secondary:              #C8963E;
+$success:                #1B5E3B;
+$info:                   #0369A1;
+
+// ── Bordures / ombres ────────────────────────────────────────
+$border-color:           #E5E3DE;
+$border-radius:          10px;
+$box-shadow:             0 1px 3px rgba(0,0,0,.06);
+
+/*-- scss:rules --*/
+// Les règles spécifiques sont dans harane.css

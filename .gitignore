@@ -1,0 +1,30 @@
+/.quarto/
+/_site/
+/_freeze/
+/assets/img/*.png
+/assets/img/*.jpg
+
+# R
+.Rproj.user/
+.Rhistory
+*.RData
+*.Rproj
+
+# Python
+__pycache__/
+.venv/
+*.pyc
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Environment
+.env
+.env.local

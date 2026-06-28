@@ -1,0 +1,108 @@
+---
+title: "Titre de l'article"
+description: "Une phrase ou deux décrivant l'article — utilisée dans les listings et les aperçus SEO."
+author: "Abdel-aziz Harane"
+date: "YYYY-MM-DD"
+# Catégories disponibles :
+# NLP | Speech AI | Machine Translation | Langues tchadiennes
+# Open Science | Data Engineering | Documentation | Réflexions
+# R | Python | Tutorial
+categories: [NLP, Langues tchadiennes]
+image: "../../assets/img/blog-placeholder.svg"   # optionnel
+toc: true
+reading-time: true
+draft: true    # ← changer en false quand l'article est prêt
+bibliography: ../../references.bib
+---
+
+```{=html}
+<div class="h-article-header">
+  <div class="h-article-meta">
+    <span>DD mois YYYY</span>
+    <span class="separator">·</span>
+    <span>X min de lecture</span>
+    <span class="separator">·</span>
+    <span class="h-tag h-tag-green" style="font-size:.65rem;">Catégorie</span>
+  </div>
+</div>
+```
+
+## Introduction
+
+[Ton introduction ici. Commence par accrocher le lecteur avec une question, un fait surprenant, ou une observation concrète.]
+
+## Section principale
+
+[Contenu. Tu peux utiliser des blocs callout, du code, des figures, des tableaux...]
+
+::: callout-note
+**Note** : Ceci est une note d'information.
+:::
+
+::: callout-tip
+**Astuce** : Conseil pratique.
+:::
+
+### Sous-section avec code Python
+
+```python
+# Exemple de code Python
+import numpy as np
+
+data = np.array([1, 2, 3, 4, 5])
+print(f"Moyenne : {data.mean():.2f}")
+```
+
+### Sous-section avec code R
+
+```{r}
+#| echo: true
+#| fig-cap: "Exemple de figure avec ggplot2"
+#| fig-width: 7
+#| fig-height: 4
+
+library(ggplot2)
+
+# Exemple de données
+df <- data.frame(
+  langue = c("Sara Ngambaye", "Laal", "Arabe tchadien", "Ngama", "Tupuri"),
+  locuteurs = c(700000, 750, 1200000, 80000, 215000)
+)
+
+ggplot(df, aes(x = reorder(langue, locuteurs), y = locuteurs)) +
+  geom_col(fill = "#1B5E3B", alpha = 0.85) +
+  coord_flip() +
+  scale_y_log10(labels = scales::comma) +
+  labs(
+    title = "Locuteurs estimés — langues tchadiennes",
+    x = NULL,
+    y = "Nombre de locuteurs (échelle log)"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_text(size = 13, face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+```
+
+### Tableau de données
+
+| Colonne A | Colonne B | Colonne C |
+|-----------|-----------|-----------|
+| Valeur 1  | Valeur 2  | Valeur 3  |
+| Valeur 4  | Valeur 5  | Valeur 6  |
+
+: Légende du tableau {.striped .hover}
+
+## Références bibliographiques
+
+<!-- Les citations BibTeX s'insèrent avec [@cle-bib] -->
+<!-- Exemple : Wav2Vec 2.0 [@baevski-2020-wav2vec] -->
+
+## Conclusion
+
+[Résumé et perspectives. Lien vers les prochains articles ou projets liés.]
+
+---
+
+*[Note de bas de page facultative, lien vers code, remerciements...]*
