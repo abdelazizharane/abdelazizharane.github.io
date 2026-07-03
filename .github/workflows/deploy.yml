@@ -23,6 +23,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.2.2
 
+      # ── Python ───────────────────────────────────────────────
+      - name: Setup Python
+        uses: actions/setup-python@v5.4.0
+        with:
+          python-version: '3.11'
+
+      - name: Install Python packages
+        run: pip install jupyter matplotlib numpy pandas seaborn
+
+      # ── Traduction automatique DeepL ─────────────────────────
+      # Actif uniquement si DEEPL_API_KEY est configuré dans les secrets
+      - name: Translate articles (DeepL)
+        if: ${{ env.DEEPL_API_KEY != '' }}
+        env:
+          DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
+        run: python scripts/translate_articles.py --key "$DEEPL_API_KEY"
+
       # ── R ────────────────────────────────────────────────────
       - name: Setup R
         uses: r-lib/actions/setup-r@v2
@@ -48,23 +65,12 @@ jobs:
           ), repos = "https://cloud.r-project.org", quiet = TRUE)
         shell: Rscript {0}
 
-      # ── Python (sans pip cache — pas de requirements.txt) ────
-      - name: Setup Python
-        uses: actions/setup-python@v5.4.0
-        with:
-          python-version: '3.11'
-          # pas de cache: 'pip' ici — évite le warning "no requirements.txt"
-
-      - name: Install Python packages
-        run: pip install jupyter matplotlib numpy pandas seaborn
-
       # ── Quarto ───────────────────────────────────────────────
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: 'release'
 
-      # ── Cache _freeze ────────────────────────────────────────
       - name: Restore _freeze cache
         uses: actions/cache@v4.2.3
         with:
@@ -72,11 +78,9 @@ jobs:
           key: freeze-${{ runner.os }}-${{ hashFiles('**/*.qmd') }}
           restore-keys: freeze-${{ runner.os }}-
 
-      # ── Build ────────────────────────────────────────────────
       - name: Render site
         run: quarto render
 
-      # ── Upload ───────────────────────────────────────────────
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3.0.1
         with:

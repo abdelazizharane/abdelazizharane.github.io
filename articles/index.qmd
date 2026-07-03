@@ -6,6 +6,9 @@ toc: false
 ---
 
 ```{=html}
+<h1 data-i18n="articles-title" style="font-family:var(--h-font-serif);font-size:1.8rem;font-weight:400;margin-bottom:.4rem;">Publications scientifiques</h1>
+<p data-i18n="articles-subtitle" style="font-size:.88rem;color:var(--h-muted);margin-bottom:1.8rem;">Articles, rapports techniques et travaux de recherche sur les langues africaines, le NLP et le Speech AI.</p>
+
 <!-- Stats -->
 <div class="h-stats">
   <div><div class="h-stat-num">4+</div><div class="h-stat-label">Publications</div></div>
@@ -19,7 +22,7 @@ toc: false
 <div class="h-controls">
   <div class="h-search">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-    <input type="text" id="articleSearch" placeholder="Rechercher une publication…" oninput="filterArticles()" />
+    <input type="text" id="articleSearch" data-i18n-ph="search-ph" placeholder="Rechercher une publication…" oninput="filterArticles()" />
   </div>
   <div class="h-filter-tabs">
     <button class="h-filter-tab h-active" onclick="setArticleCat('all',this)">Tout</button>

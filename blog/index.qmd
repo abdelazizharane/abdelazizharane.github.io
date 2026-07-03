@@ -14,26 +14,26 @@ listing:
   filter-ui: true
   fields: [date, title, description, categories, reading-time]
   date-format: "DD MMM YYYY"
-  image-placeholder: "../assets/img/blog-placeholder.svg"
   feed: true
 ---
 
 ```{=html}
+<h1 data-i18n="blog-title" style="font-family:var(--h-font-serif);font-size:1.8rem;font-weight:400;margin-bottom:.4rem;">Blog</h1>
+<p data-i18n="blog-subtitle" style="font-size:.88rem;color:var(--h-muted);margin-bottom:1.8rem;">Notes de recherche, réflexions sur l'IA africaine, tutoriels techniques et chroniques depuis N'Djaména.</p>
+
 <div class="h-controls" id="blog-controls">
   <div class="h-search">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-    <input type="text" id="blogSearchInput" placeholder="Rechercher un article…" oninput="filterBlogCards(this.value)" />
+    <input type="text" id="blogSearchInput" data-i18n-ph="search-ph" placeholder="Rechercher un article…" oninput="filterBlogCards(this.value)" />
   </div>
   <div class="h-filter-tabs" id="blogCatTabs">
-    <button class="h-filter-tab h-active" onclick="setBlogCat('all',this)">Tout</button>
+    <button class="h-filter-tab h-active" data-i18n="filter-all" onclick="setBlogCat('all',this)">Tout</button>
     <button class="h-filter-tab" onclick="setBlogCat('NLP',this)">NLP</button>
     <button class="h-filter-tab" onclick="setBlogCat('Speech AI',this)">Speech AI</button>
     <button class="h-filter-tab" onclick="setBlogCat('Langues tchadiennes',this)">Langues tchadiennes</button>
     <button class="h-filter-tab" onclick="setBlogCat('Machine Translation',this)">Machine Translation</button>
     <button class="h-filter-tab" onclick="setBlogCat('Open Science',this)">Open Science</button>
-    <button class="h-filter-tab" onclick="setBlogCat('Data Engineering',this)">Data Engineering</button>
     <button class="h-filter-tab" onclick="setBlogCat('Réflexions',this)">Réflexions</button>
-    <button class="h-filter-tab" onclick="setBlogCat('Documentation',this)">Documentation</button>
   </div>
 </div>
 
@@ -49,8 +49,8 @@ function filterBlogCards(q) { applyBlogFilter(q); }
 function applyBlogFilter(q) {
   const query = (q || document.getElementById('blogSearchInput').value).toLowerCase();
   document.querySelectorAll('.quarto-listing .listing-item').forEach(item => {
-    const text  = item.innerText.toLowerCase();
-    const cats  = item.querySelectorAll('.listing-category');
+    const text = item.innerText.toLowerCase();
+    const cats = item.querySelectorAll('.listing-category');
     const catMatch = currentCat === 'all' || Array.from(cats).some(c => c.textContent.trim() === currentCat);
     const textMatch = !query || text.includes(query);
     item.style.display = (catMatch && textMatch) ? '' : 'none';

@@ -1,6 +1,12 @@
+# Quarto build output (généré automatiquement, ne pas commiter)
 /.quarto/
 /_site/
-/_freeze/
+
+# _freeze : COMMITER ce dossier ! Il cache les résultats des chunks R/Python
+# Ne pas l'ignorer sauf si tu veux re-exécuter tout le code à chaque build CI
+# /_freeze/
+
+# Images uploadées (optionnel)
 /assets/img/*.png
 /assets/img/*.jpg
 
@@ -8,7 +14,6 @@
 .Rproj.user/
 .Rhistory
 *.RData
-*.Rproj
 
 # Python
 __pycache__/
@@ -25,6 +30,6 @@ Thumbs.db
 .idea/
 *.swp
 
-# Environment
+# Secrets
 .env
 .env.local
