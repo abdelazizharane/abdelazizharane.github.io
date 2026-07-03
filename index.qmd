@@ -17,7 +17,7 @@ toc: false
     <div class="h-profile-avatar h-profile-avatar-fallback" id="av-fb" style="display:none;">A</div>
 
     <div class="h-profile-id">
-      <h1 class="h-profile-name">Abdel-aziz Harane</h1>
+      <h1 class="h-profile-name">Abdel-aziz Harane Abounounou</h1>
 
       <div class="h-ticker-wrap" aria-label="Spécialités">
         <div class="h-ticker">
@@ -57,23 +57,28 @@ toc: false
           <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
           Substack
         </a>
-        <a href="https://chadainetwork.org" class="h-social-btn h-social-btn-green" target="_blank">🌍 Chad AI Network</a>
+        <a href="https://chadainetwork.org" class="h-social-btn h-social-btn-green" target="_blank">📰 Chad AI Network</a>
       </div>
     </div>
   </div>
 
   <div class="h-profile-bio">
-    <p data-i18n="bio">ML/NLP Engineer et fondateur du <strong>Chad AI Network</strong> — je construis l'infrastructure numérique pour les langues africaines sous-dotées, avec un focus sur le Tchad : Speech AI, traduction automatique, documentation linguistique et souveraineté des données communautaires.</p>
+    <p data-i18n="bio">ML/NLP Engineer et fondateur de <strong>Chad AI Network</strong>.
+
+    Je travaille principalement dans les domaines de l’apprentissage automatique et du traitement du langage naturel, avec un intérêt particulier pour les secteurs de l’agriculture, de la santé (radiologie et épidémiologie) et de la linguistique (intégration des langues tchadiennes dans les outils d’IA).
+    Je suis également fermement convaincu que l’IA, et par extension le génie logiciel, ne peuvent être utiles que s’ils résolvent les problèmes auxquels nous sommes confrontés (pour chaque pays et pour notre société), répondent véritablement aux besoins des gens, et ne sont pas simplement des outils mal compris et utilisés à tort et à travers par n’importe qui.
+
+    Mon objectif principal est de contribuer à la transformation durable de l’écosystème de l’IA et du génie logiciel au Tchad à travers la communauté Chad AI Network (chadainetwork.org) que j’ai fondée. Elle rassemble des passionnés, des étudiants, des universitaires, des chercheurs, des ingénieurs et des professionnels animés par la volonté de faire progresser collectivement ce secteur stratégique dans notre pays.
+
+    Résoudre les problèmes locaux à l’aide du génie logiciel, de l’IA et de la science des données est ma préoccupation constante.</p>
   </div>
 
   <div class="h-tags">
     <span class="h-tag h-tag-green" data-i18n="tag-speech">Speech AI</span>
     <span class="h-tag h-tag-green">NLP</span>
+    <span class="h-tag">Linguistic computational</span>    
     <span class="h-tag h-tag-green" data-i18n="tag-chadian">Langues tchadiennes</span>
     <span class="h-tag h-tag-ocre" data-i18n="tag-riem">Géométrie Riemannienne</span>
-    <span class="h-tag h-tag-ocre" data-i18n="tag-laal">Laal · isolat</span>
-    <span class="h-tag">Masakhane</span>
-    <span class="h-tag">AfricaNLP</span>
     <span class="h-tag" data-i18n="tag-open">Open Science</span>
   </div>
 </div>
@@ -97,7 +102,7 @@ toc: false
 
     <div class="h-card h-research-item h-fade">
       <div class="h-ri-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="url(#g1)"/><path d="M16 24 Q20 16 24 24 Q28 32 32 24" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="16" cy="24" r="2.5" fill="white"/><circle cx="32" cy="24" r="2.5" fill="white"/><defs><linearGradient id="g1" x1="4" y1="4" x2="44" y2="44"><stop stop-color="#C8963E"/><stop offset="1" stop-color="#f9e2a8"/></linearGradient></defs></svg></div>
-      <div class="h-ri-body"><h3 data-i18n="r1-title">Speech AI & ASR</h3><p data-i18n="r1-desc">Reconnaissance automatique de la parole pour les langues tonales tchadiennes — Wav2Vec 2.0, Whisper, corpus audio.</p></div>
+      <div class="h-ri-body"><h3 data-i18n="r1-title">Speech AI & ASR</h3><p data-i18n="r1-desc">Machine Translation</p></div>
     </div>
 
     <div class="h-card h-research-item h-fade">
