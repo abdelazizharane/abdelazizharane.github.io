@@ -1,0 +1,856 @@
+<div id="lsw" class="notranslate" translate="no" style="display:none"><button type="button" class="lsw-btn"
+        aria-haspopup="true" aria-expanded="false" aria-controls="lsw-menu" aria-label="Langue / Language"><svg
+            class="lsw-globe" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6" />
+            <path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"
+                fill="none" stroke="currentColor" stroke-width="1.6" />
+        </svg><span class="lsw-cur">FR</span><svg class="lsw-chev" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg></button>
+    <div class="lsw-menu" id="lsw-menu" role="menu" hidden><button type="button" role="menuitemradio"
+            aria-checked="true" class="lb on" onclick="sL('fr')" data-l="fr" data-s="FR" lang="fr"><span
+                class="lsw-name">Français</span><svg class="lsw-ck" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg></button><button type="button" role="menuitemradio" aria-checked="false" class="lb" onclick="sL('en')"
+            data-l="en" data-s="EN" lang="en"><span class="lsw-name">English</span><svg class="lsw-ck"
+                viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg></button><button type="button" role="menuitemradio" aria-checked="false" class="lb" onclick="sL('ar')"
+            data-l="ar" data-s="ع" lang="ar"><span class="lsw-name" dir="rtl">العربية</span><svg class="lsw-ck"
+                viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg></button></div>
+</div>
+<button id="stt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut"><svg
+        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="18,15 12,9 6,15" />
+    </svg></button>
+<div id="gt-el" style="position:fixed;left:-9999px;height:0;overflow:hidden"></div>
+<script>
+    (function () {
+
+        /* ===================================================================
+           1. TERMINOLOGY PROTECTION
+           -------------------------------------------------------------------
+           The page is translated client-side by Google Translate from an
+           English source. Machine translation has no concept of a proper
+           noun, so the French version was rendering model, framework and
+           platform names as ordinary vocabulary:
+        
+           Every term below is wrapped in <span translate="no"
+           class="notranslate"> before the Google Translate script is even
+           loaded, which makes it verbatim in every target language, FR and
+           AR alike. Add new tools/brands/models/people here — this list is
+           the single place that decides what is never translated.
+           =================================================================== */
+        var PROTECTED = [
+            /* people */
+            "Abdel-aziz Harane Abounounou", "Abdel-aziz Harane", "Abounounou",
+            "Florian Lionnet", "Pascal Boyeldieu",
+            /* organisations, venues, archives */
+            "Chad AI Network", "Chad Research Portal", "CNRS/LLACAN", "LLACAN", "CNRS",
+            "ELAR/SOAS", "ELAR", "SOAS", "ESP / UCAD", "UCAD", "ESP",
+            "AfricaNLP", "ACL", "Deep Learning Indaba", "Wangari Maathai Impact Award", "IndabaX Chad", "IndabaX",
+            /* platforms, brands, tools */
+            "Hugging Face", "HuggingFace", "Google Scholar", "GitHub", "Git",
+            "LinkedIn", "Twitter/X", "Facebook", "WhatsApp", "ORCID", "Zenodo", "Docker", "OpenSearch", "FastAPI", "NLLB-200",
+            "R/Quarto", "Quarto", "Flutter", "Python", "PyTorch", "ONNX",
+            "MiniSearch", "Leaflet.js", "GeoJSON", "BibTeX", "ELAN", "FLEx",
+            "Glottolog", "Ethnologue", "Montreal Forced Aligner", "CREPE",
+            /* models, architectures, formats, licences */
+            "Whisper-tiny", "Whisper", "Wav2Vec 2.0", "Wav2Vec", "wav2vec 2.0", "wav2vec",
+            "VITS TTS", "VITS", "mBART/NLLB", "mBART", "NLLB", "TF-IDF",
+            "CC-BY 4.0", "MIT", "ASR", "TTS", "WER", "F0",
+            /* project names */
+            "Laal-Yəw", "Laal", "KalamBot", "Kalam-na Voice", "Kalam-na",
+            "TchadData Explorer", "TchadData",
+            /* language and place names that must not be re-spelled */
+            "Ngambay", "Sara", "Chari"
+        ];
+
+        /* Interface labels (navigation, pills, card labels, buttons). The site is written
+           in FRENCH: these keys are the exact French source strings, and the values are
+           the English and Arabic wording we chose on purpose (rather than whatever the
+           machine-translation engine would guess: "Accueil" -> "Home", not "Reception";
+           "TAL" -> "NLP", not "PNL"). Everything else (pages, articles, lists) is written
+           only in French and machine-translated by the Google Translate widget below. */
+        var UI_STRINGS = {
+            /* navigation */
+            "Accueil": {en: "Home", ar: "الرئيسية"},
+            "Recherche": {en: "Research", ar: "البحوث"},
+            "Projets": {en: "Projects", ar: "المشاريع"},
+            "CV": {en: "CV", ar: "السيرة الذاتية"},
+            "Blog": {en: "Blog", ar: "المدونة"},
+            "Essais": {en: "Essays", ar: "مقالات"},
+            "Médias": {en: "Media", ar: "في الإعلام"},
+            "Écrits": {en: "Writing", ar: "كتابات"},
+            /* status pills */
+            "En cours": {en: "Ongoing", ar: "قيد التنفيذ"},
+            "En ligne": {en: "Live", ar: "متاح"},
+            "Actif": {en: "Active", ar: "نشط"},
+            "En conception": {en: "Design stage", ar: "مرحلة التصميم"},
+            "Axe de recherche doctorale": {en: "Doctoral research direction", ar: "مسار بحوث الدكتوراة"},
+            "En préparation": {en: "In preparation", ar: "قيد الإعداد"},
+            /* card eyebrows / categories */
+            "Projet phare": {en: "Featured project", ar: "مشروع مميّز"},
+            "Axe de recherche": {en: "Research area", ar: "محور بحثي"},
+            "Documentation": {en: "Documentation", ar: "التوثيق"},
+            "IA vocale": {en: "Speech AI", ar: "الذكاء الاصطناعي الصوتي"},
+            "Infrastructure": {en: "Infrastructure", ar: "البنية التحتية"},
+            "Données": {en: "Data", ar: "البيانات"},
+            "TAL": {en: "NLP", ar: "معالجة اللغات"},
+            "Réflexions": {en: "Reflections", ar: "تأملات"},
+            "Politiques publiques": {en: "Public policy", ar: "السياسات العامة"},
+            /* writing: article types (card labels, filter options) */
+            "Tutoriel": {en: "Tutorial", ar: "درس تطبيقي"},
+            "Note de recherche": {en: "Research note", ar: "مذكرة بحثية"},
+            "Annonce": {en: "Announcement", ar: "إعلان"},
+            "Essai": {en: "Essay", ar: "مقال"},
+            "À la une": {en: "Featured", ar: "مميّز"},
+            /* actions and link labels */
+            "Visiter": {en: "Visit", ar: "زيارة"},
+            "Lire l'article": {en: "Read article", ar: "قراءة المقال"},
+            "Détails": {en: "Details", ar: "التفاصيل"},
+            "Précédent": {en: "Previous", ar: "السابق"},
+            "Suivant": {en: "Next", ar: "التالي"},
+            "Jeu de données": {en: "Dataset", ar: "مجموعة بيانات"},
+            "Brouillon": {en: "Draft", ar: "مسودة"},
+            "Rapport": {en: "Report", ar: "تقرير"},
+            "E-mail": {en: "Email", ar: "البريد الإلكتروني"},
+            "Question de recherche": {en: "Research question", ar: "سؤال البحث"},
+            /* CV language proficiency */
+            "Natif": {en: "Native", ar: "لغة أم"},
+            "Professionnel": {en: "Professional", ar: "مستوى مهني"}
+        };
+
+        /* Only these elements are eligible for the manual dictionary. Restricting
+           it by selector is what makes short, ambiguous keys ("Data", "Research",
+           "All") safe: they can only ever match a chrome label, never a word that
+           happens to appear in a sentence of body copy. */
+        var UI_SEL = ".navbar .menu-text, .status-pill, .gcard-eyebrow, .gcard-cat," +
+            ".post-cat, .essay-cat, .fchip, .filter-group-label, .rq-label, .pub-badge," +
+            ".link-btn, .cta-pill, .gcard-more, .link-arrow, .rcard summary," +
+            ".pbtn, .lvl-w, .lk, .sbar-label, .sb";
+
+        var SKIP_TAGS = /^(SCRIPT|STYLE|NOSCRIPT|CODE|PRE|TEXTAREA|SVG|IFRAME|OPTION)$/;
+
+        function isWordChar(c) {return !!c && /[A-Za-z0-9À-ɏ]/.test(c);}
+        function escRe(t) {return t.replace(/[.*+?^${}()|[\]\\\/]/g, "\\$&");}
+
+        /* Collected first, mutated after: replacing a text node while a
+           TreeWalker is positioned on it invalidates the walk. */
+        function textNodes(root) {
+            var out = [], w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), n;
+            while ((n = w.nextNode())) {
+                if (!n.nodeValue || !/\S/.test(n.nodeValue)) continue;
+                var skip = false;
+                for (var p = n.parentNode; p && p.nodeType === 1; p = p.parentNode) {
+                    if (SKIP_TAGS.test(p.nodeName.toUpperCase())) {skip = true; break;}
+                    if (p.classList && p.classList.contains("notranslate")) {skip = true; break;}
+                    if (p.getAttribute && p.getAttribute("translate") === "no") {skip = true; break;}
+                }
+                if (!skip) out.push(n);
+            }
+            return out;
+        }
+
+        function protectTerms() {
+            /* Longest first: the regex alternation takes the first branch that
+               matches at a position, so "Whisper-tiny" must be offered before
+               "Whisper" and "GitHub" before "Git". */
+            var terms = PROTECTED.slice().sort(function (a, b) {return b.length - a.length;});
+            var re = new RegExp(terms.map(escRe).join("|"), "g");
+
+            textNodes(document.body).forEach(function (node) {
+                var s = node.nodeValue, frag = null, last = 0, m;
+                re.lastIndex = 0;
+                while ((m = re.exec(s))) {
+                    var i = m.index, j = i + m[0].length;
+                    /* Reject a match that is part of a longer word ("MIT" in
+                       "MITigate"); step one character on so the scan cannot stall. */
+                    if (isWordChar(s.charAt(i - 1)) || isWordChar(s.charAt(j))) {
+                        re.lastIndex = i + 1;
+                        continue;
+                    }
+                    frag = frag || document.createDocumentFragment();
+                    if (i > last) frag.appendChild(document.createTextNode(s.slice(last, i)));
+                    var span = document.createElement("span");
+                    span.className = "notranslate";
+                    span.setAttribute("translate", "no");
+                    span.textContent = m[0];
+                    frag.appendChild(span);
+                    last = j;
+                }
+                if (frag) {
+                    if (last < s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+                    node.parentNode.replaceChild(frag, node);
+                }
+            });
+        }
+
+        /* The French source HTML of each adopted element is cached in
+           data-i18n-src on first sight, so switching FR -> EN -> AR -> FR always
+           substitutes from the original rather than from an already-translated
+           string. Elements are also marked translate="no", which keeps Google
+           Translate from touching (or re-ordering) them at all. */
+        function applyUiStrings(lang) {
+            document.querySelectorAll(UI_SEL).forEach(function (el) {
+                /* An article carries its own language: its labels follow the article,
+                   never the interface language. */
+                if (el.closest && el.closest(".article-body, .i18n")) return;
+                if (el.dataset.i18nSrc === undefined) {
+                    var owns = Array.prototype.some.call(el.childNodes, function (n) {
+                        return n.nodeType === 3 && UI_STRINGS[n.nodeValue.trim()];
+                    });
+                    if (!owns) return;            /* not a dictionary label — leave it to the engine */
+                    el.dataset.i18nSrc = el.innerHTML;
+                    el.classList.add("notranslate");
+                    el.setAttribute("translate", "no");
+                }
+                var html = el.dataset.i18nSrc;
+                if (lang !== "fr") {
+                    /* Each top-level text run of the cached HTML, i.e. everything
+                       between tags. Nested markup (the "→" span, a count badge, an
+                       inline <svg>) is left exactly as it was. */
+                    html = html.replace(/(^|>)([^<>]+)(?=<|$)/g, function (all, lead, txt) {
+                        var key = txt.trim(), t = UI_STRINGS[key];
+                        return t && t[lang] ? lead + txt.replace(key, t[lang]) : all;
+                    });
+                }
+                if (el.innerHTML !== html) el.innerHTML = html;
+            });
+        }
+
+        /* ===================================================================
+           2. LANGUAGE SWITCH (Google Translate driver)
+           =================================================================== */
+        /* ---- Articles : la langue choisie s'applique aussi au texte ----------------
+           1) une version écrite à la main existe dans la langue choisie → on y va ;
+           2) sinon → traduction automatique du texte de l'article (Google Translate).
+           Les pages du site (Accueil, Recherche…) gardent leur règle : FR et EN écrits à la
+           main, l'arabe traduit automatiquement depuis le français. */
+        function articleInfo() {
+            var body = document.querySelector(".article-body[data-article-lang]");
+            if (!body) return null;
+            var path = location.pathname;
+            var m = path.match(/\/(fr|en|ar)\/(index\.html)?$/);
+            return {
+                body: body,
+                lang: body.getAttribute("data-article-lang"),
+                trs: (body.getAttribute("data-translations") || "").split(",").filter(Boolean),
+                isTranslation: !!m && m[1] === body.getAttribute("data-article-lang")
+            };
+        }
+        /* Où aller (ou quoi faire) pour lire cet article dans la langue l. */
+        function articleRoute(l) {
+            var a = articleInfo();
+            if (!a) return null;
+            if (l === a.lang) return {mode: "orig", src: a.lang};
+            var stay = null;
+            try {stay = sessionStorage.getItem("lang-stay");} catch (e) { }
+            if (stay === location.pathname.replace(/index\.html$/, "")) return {mode: "orig", src: a.lang};   /* lien « lire l'original » suivi exprès */
+            if (a.trs.indexOf(l) !== -1) {
+                /* Sur une traduction, data-translations ne contient que la langue de l'original. */
+                var href = a.isTranslation ? "../index.html" : l + "/index.html";
+                return {mode: "go", href: href, src: a.lang};
+            }
+            return {mode: "mt", src: a.lang};
+        }
+        var ART = null;   /* route de l'article pour la langue courante */
+        function srcLang() {return (ART && ART.src) || "fr";}
+        function targetLang(l) {
+            /* Tout le site est écrit en français : pour toute autre langue, traduction automatique. */
+            if (ART) return ART.mode === "mt" ? l : ART.src;
+            return l;
+        }
+        function gc(l) {
+            var v = "/" + srcLang() + "/" + targetLang(l);
+            document.cookie = "googtrans=" + v + ";path=/;domain=" + location.hostname;
+            document.cookie = "googtrans=" + v + ";path=/";
+        }
+        /* Ouvre ou ferme le texte de l'article à la traduction automatique. */
+        function setArticleMT(on, l) {
+            var a = articleInfo();
+            if (!a) return;
+            window.__mtArticle = !!on;
+            if (on) {
+                a.body.removeAttribute("translate");
+                a.body.querySelectorAll("pre, code, .sourceCode, .csl-entry, .art-share, .sb").forEach(function (e) {e.classList.add("notranslate");});
+            } else {
+                a.body.setAttribute("translate", "no");
+            }
+        }
+        function nb() {
+            document.body.style.top = "0";
+            var b = document.querySelector(".goog-te-banner-frame");
+            if (b) b.style.display = "none";
+            document.querySelectorAll("body>.skiptranslate").forEach(function (e) {
+                e.style.display = "none"; e.style.height = "0";
+            });
+        }
+        setInterval(nb, 400);
+
+        window.__gtInit = function () {
+            try {
+                new google.translate.TranslateElement(
+                    {pageLanguage: srcLang(), includedLanguages: "fr,en,ar", autoDisplay: false, gaTrack: false},
+                    "gt-el"
+                );
+                setTimeout(nb, 100);
+            } catch (e) { }
+        };
+
+        var curLang = "fr";
+        try {var _sl = localStorage.getItem("sl"); if (_sl === "en" || _sl === "ar") curLang = _sl;} catch (e) { }
+
+        /* tries: caps retries at 25 (~10s at 400ms) so a blocked/offline Google
+           Translate script (common with ad/privacy blockers) doesn't poll forever.
+           dir/lang/cookie/button state and our own manual labels are applied
+           immediately regardless of whether the widget ever loads.
+        
+           gen: every user-initiated switch takes the next generation number, and a
+           retry belonging to an older generation returns immediately. Without this
+           the pending retries of the *previous* language keep running for up to ten
+           seconds and each one re-applies that language's labels — clicking FR then
+           EN left the interface in French, and FR -> AR -> FR left it in Arabic,
+           because the losing chain had the last word. */
+        var langGen = 0;
+
+        window.sL = function (l, tries, gen) {
+            tries = tries || 0;
+            if (gen === undefined) gen = ++langGen;   /* a fresh switch supersedes any in flight */
+            else if (gen !== langGen) return;         /* superseded — abandon this chain */
+            curLang = l;
+            if (tries === 0) {
+                ART = articleRoute(l);
+                if (ART && ART.mode === "go") {
+                    try {localStorage.setItem("sl", l);} catch (e) { }
+                    location.replace(ART.href);
+                    return;
+                }
+                setArticleMT(ART && ART.mode === "mt", l);
+                /* Listes Blog / Essais : titres et résumés traduits automatiquement eux aussi. */
+                document.querySelectorAll("[data-item] [translate], [data-item] [data-trl]").forEach(function (e) {
+                    e.setAttribute("data-trl", "");
+                    if (l !== "fr") e.removeAttribute("translate"); else e.setAttribute("translate", "no");
+                });
+            }
+            document.querySelectorAll(".lb").forEach(function (b) {
+                var on = b.dataset.l === l;
+                b.classList.toggle("on", on);
+                b.setAttribute("aria-checked", on ? "true" : "false");
+                if (on) {var cur = document.querySelector("#lsw .lsw-cur"); if (cur) cur.textContent = b.dataset.s;}
+            });
+            gc(l);
+            /* On an article page <html lang/dir> describe the ARTICLE (set by the
+               article itself); the interface language and direction are applied to the
+               header and footer instead, so a French reader of an English essay still
+               gets a correct lang attribute on the text and a French menu. */
+            if (window.__articleLang) {
+                ["#quarto-header", "footer.footer"].forEach(function (sel) {
+                    var n = document.querySelector(sel);
+                    if (n) {n.setAttribute("lang", l); n.setAttribute("dir", l === "ar" ? "rtl" : "ltr");}
+                });
+            } else {
+                document.documentElement.setAttribute("dir", l === "ar" ? "rtl" : "ltr");
+                document.documentElement.setAttribute("lang", l);
+            }
+            try {localStorage.setItem("sl", l);} catch (e) { }
+            applyUiStrings(l);
+            document.dispatchEvent(new CustomEvent("sitelang", {detail: {lang: l}}));
+            var s = document.querySelector(".goog-te-combo");
+            if (s) {
+                s.value = targetLang(l);
+                s.dispatchEvent(new Event("change"));
+                setTimeout(nb, 300);
+                /* The engine rebuilds parts of the DOM as it translates; re-assert the
+                   manual labels once it has settled. Idempotent, and skipped if the
+                   visitor has moved on to another language in the meantime. */
+                setTimeout(function () {if (gen === langGen) applyUiStrings(l);}, 900);
+            } else if (tries < 25) {
+                setTimeout(function () {window.sL(l, tries + 1, gen);}, 400);
+            }
+        };
+
+        /* Re-apply after content is generated at runtime (blog pagination buttons). */
+        window.__i18n = {refresh: function () {applyUiStrings(curLang);}};
+
+        /* ===================================================================
+           3. RUN PROTECTION FIRST, THEN LOAD GOOGLE TRANSLATE
+           -------------------------------------------------------------------
+           Two orderings matter here.
+        
+           Protection before the engine: this is why the <script src> is
+           injected from JS instead of sitting in the markup as an async tag.
+           As a tag it could win the race and translate the page before a
+           single term had been marked, which is how "Chuchoter" and "Visage
+           câlin" reached production in the first place.
+        
+           Protection after the document is parsed: Quarto injects
+           include-after-body *inside* div.quarto-container, which comes
+           BEFORE the page footer element in the document. Running at parse
+           time therefore left the footer ("Chad AI Network", the location
+           line) unprotected — it did not exist yet. Waiting for
+           DOMContentLoaded covers the whole page and still happens long
+           before the remote engine script can load.
+           =================================================================== */
+        function ready(fn) {
+            if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn, {once: true});
+            else fn();
+        }
+
+        /* ---- Signature du nom (en-tête) : « Abdel-aziz » + « Harane » en couleur d'accent ---- */
+        function splitBrand() {
+            var t = document.querySelector(".navbar-brand .navbar-title");
+            if (!t || t.querySelector(".brand-last")) return;
+            var name = t.textContent.trim(), i = name.lastIndexOf(" ");
+            if (i < 1) return;
+            t.classList.add("notranslate"); t.setAttribute("translate", "no");
+            t.textContent = "";
+            var a = document.createElement("span"); a.className = "brand-first"; a.textContent = name.slice(0, i);
+            var b = document.createElement("span"); b.className = "brand-last"; b.textContent = name.slice(i + 1);
+            t.appendChild(a); t.appendChild(b);
+        }
+
+        /* ---- Onglets [data-tabs] (section « Mes principes ») ------------------------
+           Clic sur un bouton → son texte s'affiche, les autres se masquent. Clavier :
+           ←/→ (ou ↑/↓) changent de principe, Début/Fin vont au premier/dernier. */
+        function initTabs() {
+            document.querySelectorAll("[data-tabs]").forEach(function (box) {
+                var tabs = Array.prototype.slice.call(box.querySelectorAll('[role="tab"]'));
+                if (!tabs.length) return;
+                function show(tab, focus) {
+                    tabs.forEach(function (t) {
+                        var on = t === tab, panel = document.getElementById(t.getAttribute("aria-controls"));
+                        t.setAttribute("aria-selected", on ? "true" : "false");
+                        t.tabIndex = on ? 0 : -1;
+                        if (!panel) return;
+                        if (on) {
+                            panel.hidden = false;
+                            panel.classList.remove("is-in"); void panel.offsetWidth; panel.classList.add("is-in");
+                        } else {
+                            panel.hidden = true; panel.classList.remove("is-in");
+                        }
+                    });
+                    if (focus) tab.focus();
+                }
+                /* data-tabs-hash : l'onglet ouvert suit l'adresse (#photos), pour pouvoir partager un lien direct. */
+                var useHash = box.hasAttribute("data-tabs-hash");
+                function syncHash(tab) {
+                    if (!useHash || !history.replaceState) return;
+                    var id = tab.getAttribute("aria-controls");
+                    var url = location.pathname + location.search + (tab === tabs[0] ? "" : "#" + id);
+                    history.replaceState(null, "", url);
+                }
+                var start = tabs.filter(function (t) {return t.getAttribute("aria-selected") === "true";})[0] || tabs[0];
+                if (useHash && location.hash) {
+                    tabs.forEach(function (t) {if ("#" + t.getAttribute("aria-controls") === location.hash) start = t;});
+                }
+                tabs.forEach(function (t) {
+                    var panel = document.getElementById(t.getAttribute("aria-controls"));
+                    if (panel && t !== start) panel.hidden = true;
+                });
+                if (start !== tabs[0] || start.getAttribute("aria-selected") !== "true") show(start, false);
+                tabs.forEach(function (t, i) {
+                    t.addEventListener("click", function () {show(t, false); syncHash(t);});
+                    t.addEventListener("keydown", function (e) {
+                        var k = e.key, j = null;
+                        if (k === "ArrowRight" || k === "ArrowDown") j = (i + 1) % tabs.length;
+                        else if (k === "ArrowLeft" || k === "ArrowUp") j = (i - 1 + tabs.length) % tabs.length;
+                        else if (k === "Home") j = 0;
+                        else if (k === "End") j = tabs.length - 1;
+                        if (document.documentElement.dir === "rtl" && (k === "ArrowRight" || k === "ArrowLeft")) j = (k === "ArrowRight") ? (i - 1 + tabs.length) % tabs.length : (i + 1) % tabs.length;
+                        if (j === null) return;
+                        e.preventDefault(); show(tabs[j], true); syncHash(tabs[j]);
+                    });
+                });
+                box.classList.add("is-ready");
+            });
+        }
+
+        /* ---- Accueil : profil fixé à gauche pendant le défilement ------------------------
+           Grand écran (≥ 1000 px de large et ≥ 600 px de haut) : le profil passe en position fixe,
+           aligné sur la colonne gauche (mesurée sur .home-side-slot). Quand le pied de page arrive,
+           il remonte avec lui pour ne jamais le recouvrir. Ailleurs : bloc normal en haut de page. */
+        function initHomeSide() {
+            var layout = document.querySelector(".home-layout"), side = layout && layout.querySelector(".home-side"),
+                slot = layout && layout.querySelector(".home-side-slot");
+            if (!layout || !side || !slot) return;
+            var footer = document.querySelector("footer.footer"), ticking = false;
+            var nav = document.querySelector("#quarto-header .navbar");
+            function stopLine() {return (nav ? Math.max(0, nav.getBoundingClientRect().bottom) : 0) + 24;}
+            /* Fixé dès que l'écran est assez large et que le profil tient en hauteur sous l'en-tête.
+               (Plus de seuil de hauteur fixe : avec un zoom ou une mise à l'échelle Windows de 150 %,
+               la fenêtre ne fait parfois que 590 px de haut, et le profil — compact sur ces écrans,
+               voir main.css — y tient très bien.) */
+            function wide() {
+                if (window.innerWidth < 1000) return false;
+                return side.offsetHeight + stopLine() + 16 <= window.innerHeight;
+            }
+            function place() {
+                ticking = false;
+                if (!wide()) {
+                    layout.classList.remove("is-pinned");
+                    side.style.left = side.style.right = side.style.width = side.style.transform = "";
+                    return;
+                }
+                layout.classList.add("is-pinned");
+                var r = slot.getBoundingClientRect();
+                /* En haut de page, le profil reste aligné sur le début du texte ; ensuite il s'arrête sous l'en-tête. */
+                side.style.top = Math.max(stopLine(), r.top) + "px";
+                side.style.width = r.width + "px";
+                if (document.documentElement.dir === "rtl") {side.style.left = ""; side.style.right = (document.documentElement.clientWidth - r.right) + "px";}
+                else {side.style.right = ""; side.style.left = r.left + "px";}
+                /* Ne pas recouvrir le pied de page : remonter le profil quand il approche. */
+                side.style.transform = "";
+                if (footer) {
+                    var over = side.getBoundingClientRect().bottom + 32 - footer.getBoundingClientRect().top;
+                    if (over > 0) side.style.transform = "translateY(" + (-over) + "px)";
+                }
+                /* La colonne de droite doit être au moins aussi haute que le profil. */
+                layout.style.minHeight = side.offsetHeight + "px";
+            }
+            function req() {if (!ticking) {ticking = true; requestAnimationFrame(place);} }
+            window.addEventListener("scroll", req, {passive: true});
+            window.addEventListener("resize", req);
+            if (document.fonts && document.fonts.ready) document.fonts.ready.then(req);
+            window.addEventListener("load", req);
+            place();
+        }
+
+        /* ---- Galerie Photos [data-gallery] + grand format [data-lightbox] ----------------
+           Ordinateur : la couleur et la légende apparaissent au survol (CSS) ; clic → grand format.
+           Écran tactile : 1er toucher → couleur + légende ; 2e toucher sur la même photo → grand format.
+           Grand format : précédent / suivant (boutons, flèches ←/→, glisser du doigt), Échap ou clic
+           sur le fond pour fermer ; le focus revient sur la photo d'origine. */
+        function initGallery() {
+            var gal = document.querySelector("[data-gallery]"), lb = document.querySelector("[data-lightbox]");
+            if (!gal || !lb) return;
+            var btns = Array.prototype.slice.call(gal.querySelectorAll(".gal-btn"));
+            if (!btns.length) return;
+            var touch = window.matchMedia && window.matchMedia("(hover: none)").matches;
+            var img = lb.querySelector(".gal-lb-img"), cur = 0, opener = null;
+            var el = function (c) {return lb.querySelector(c);};
+            var hasDialog = typeof lb.showModal === "function";
+
+            function fill(i) {
+                cur = (i + btns.length) % btns.length;
+                var d = btns[cur].dataset;
+                lb.classList.add("is-swapping");
+                var next = new Image();
+                next.onload = next.onerror = function () {
+                    img.src = d.src; img.alt = d.alt || d.title;
+                    lb.classList.remove("is-swapping");
+                };
+                next.src = d.src;
+                el(".gal-lb-title").textContent = d.title;
+                el(".gal-lb-meta").textContent = [d.meta, d.place].filter(Boolean).join(" · ");
+                el(".gal-lb-desc").textContent = d.desc || "";
+                el(".gal-lb-desc").hidden = !d.desc;
+                el(".gal-lb-count").textContent = String(cur + 1).padStart(2, "0") + " / " + String(btns.length).padStart(2, "0");
+                /* Précharge les voisines pour un passage instantané. */
+                [cur - 1, cur + 1].forEach(function (k) {var b = btns[(k + btns.length) % btns.length]; (new Image()).src = b.dataset.src;});
+            }
+            function open(i) {
+                opener = btns[i];
+                fill(i);
+                document.documentElement.classList.add("gal-lb-open");
+                if (hasDialog) lb.showModal(); else lb.setAttribute("open", "");
+                requestAnimationFrame(function () {lb.classList.add("is-open");});
+                el(".gal-lb-close").focus({preventScroll: true});
+            }
+            function close() {
+                lb.classList.remove("is-open");
+                document.documentElement.classList.remove("gal-lb-open");
+                if (hasDialog && lb.open) lb.close(); else lb.removeAttribute("open");
+                if (opener) opener.focus({preventScroll: true});
+            }
+            function reveal(b) {
+                btns.forEach(function (x) {if (x !== b) x.classList.remove("is-on");});
+                b.classList.add("is-on");
+            }
+
+            btns.forEach(function (b, i) {
+                b.addEventListener("click", function () {
+                    if (touch && !b.classList.contains("is-on")) {reveal(b); return;}   /* 1er toucher : révéler */
+                    open(i);
+                });
+            });
+            /* Toucher en dehors des photos : retour au noir et blanc. */
+            document.addEventListener("click", function (e) {
+                if (touch && !e.target.closest(".gal-btn")) btns.forEach(function (x) {x.classList.remove("is-on");});
+            });
+
+            lb.addEventListener("click", function (e) {
+                var a = e.target.closest("[data-lb]");
+                if (a) {var k = a.getAttribute("data-lb"); if (k === "close") close(); else fill(cur + (k === "next" ? 1 : -1)); return;}
+                if (!e.target.closest(".gal-lb-img, .gal-lb-cap")) close();       /* clic sur le fond */
+            });
+            lb.addEventListener("cancel", function (e) {e.preventDefault(); close();});   /* Échap */
+            lb.addEventListener("keydown", function (e) {
+                var rtl = document.documentElement.dir === "rtl";
+                if (e.key === "ArrowRight") {e.preventDefault(); fill(cur + (rtl ? -1 : 1));}
+                else if (e.key === "ArrowLeft") {e.preventDefault(); fill(cur + (rtl ? 1 : -1));}
+                else if (e.key === "Escape" && !hasDialog) {close();}
+            });
+            var x0 = null, y0 = null;
+            lb.addEventListener("touchstart", function (e) {x0 = e.touches[0].clientX; y0 = e.touches[0].clientY;}, {passive: true});
+            lb.addEventListener("touchend", function (e) {
+                if (x0 === null) return;
+                var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+                if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) fill(cur + (dx < 0 ? 1 : -1));
+                x0 = y0 = null;
+            }, {passive: true});
+        }
+
+        /* ---- Cartes empilées [data-stack] (Accueil, Recherche) -----------------------
+           1) Position d'arrêt de chaque carte (--stack-top) : sous l'en-tête flottant, avec
+              un décalage croissant pour laisser voir le bord des cartes recouvertes. Si une
+              carte est plus haute que l'écran, on remonte son arrêt (valeur négative) : elle
+              défile alors entièrement avant de se figer, et rien n'est jamais caché.
+           2) Profondeur (--p de 0 à 1) : part de la carte recouverte par la suivante.
+           Recalculé au redimensionnement, au zoom et quand le contenu change (onglets). */
+        function initStacks() {
+            var stacks = Array.prototype.slice.call(document.querySelectorAll("[data-stack]"));
+            if (!stacks.length) return;
+            function layout() {
+                var vh = window.innerHeight, small = window.innerWidth < 600;
+                var base = Math.round((document.querySelector("#quarto-header .navbar") ? 66 : 0) + (small ? 10 : 18));
+                var peek = small ? 8 : 14;
+                stacks.forEach(function (st) {
+                    Array.prototype.forEach.call(st.children, function (card, i) {
+                        var top = base + i * peek, room = vh - top - 16;
+                        /* Hauteur minimale = espace visible sous le point d'arrêt : une carte courte recouvre
+                           alors entièrement la précédente (sinon le bas d'une carte plus haute dépasserait). */
+                        card.style.minHeight = "";
+                        var h = card.offsetHeight;
+                        if (h < room) card.style.minHeight = room + "px";
+                        else top = Math.round(vh - h - 16);
+                        card.style.setProperty("--stack-top", top + "px");
+                    });
+                });
+                depth();
+            }
+            var ticking = false;
+            function depth() {
+                ticking = false;
+                var vh = window.innerHeight;
+                stacks.forEach(function (st) {
+                    var cards = st.children;
+                    for (var i = 0; i < cards.length; i++) {
+                        var p = 0, next = cards[i + 1];
+                        if (next) {
+                            var r = cards[i].getBoundingClientRect(), nr = next.getBoundingClientRect();
+                            var visible = Math.max(1, Math.min(r.height, vh - Math.max(r.top, 0)));
+                            p = Math.min(1, Math.max(0, (Math.min(r.bottom, vh) - nr.top) / visible));
+                        }
+                        cards[i].style.setProperty("--p", p.toFixed(3));
+                    }
+                });
+            }
+            window.addEventListener("scroll", function () {if (!ticking) {ticking = true; requestAnimationFrame(depth);} }, {passive: true});
+            window.addEventListener("resize", layout);
+            if (window.ResizeObserver) {
+                var pending = false;
+                var ro = new ResizeObserver(function () {
+                    if (pending) return; pending = true;
+                    requestAnimationFrame(function () {pending = false; layout();});
+                });
+                stacks.forEach(function (st) {Array.prototype.forEach.call(st.children, function (c) {ro.observe(c);});});
+            }
+            if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+            layout();
+        }
+
+        ready(function () {
+            splitBrand();
+            initTabs();
+            initStacks();
+            initGallery();
+            initHomeSide();
+
+            ART = articleRoute(curLang);
+            if (ART && ART.mode === "go") {location.replace(ART.href); return;}
+            setArticleMT(ART && ART.mode === "mt", curLang);
+            gc(curLang);
+            protectTerms();
+            applyUiStrings(curLang);
+
+            var gts = document.createElement("script");
+            gts.src = "https://translate.google.com/translate_a/element.js?cb=__gtInit";
+            gts.async = true;
+            document.head.appendChild(gts);
+
+            if (window.__articleLang) {
+                /* Interface language for the header/footer of an article page, applied
+                   immediately (before the optional machine-translation engine loads). */
+                ["#quarto-header", "footer.footer"].forEach(function (sel) {
+                    var n = document.querySelector(sel);
+                    if (n) {n.setAttribute("lang", curLang); n.setAttribute("dir", curLang === "ar" ? "rtl" : "ltr");}
+                });
+            }
+            /* Liens « lire l'original / la traduction » : on respecte le choix du lecteur sur la page visée. */
+            document.addEventListener("click", function (e) {
+                var a = e.target.closest && e.target.closest(".art-head a[hreflang], .art-translation a[hreflang], .lang-note a[hreflang]");
+                if (!a) return;
+                try {sessionStorage.setItem("lang-stay", new URL(a.href, location.href).pathname.replace(/index\.html$/, ""));} catch (err) { }
+            });
+            try {var st = sessionStorage.getItem("lang-stay"); if (st && st !== location.pathname.replace(/index\.html$/, "")) sessionStorage.removeItem("lang-stay");} catch (e) { }
+            if (curLang !== "fr" || (ART && ART.mode !== "orig")) setTimeout(function () {window.sL(curLang);}, 300);
+
+            initChrome();
+            loadWriting();
+        });
+
+        /* Writing platform behaviours (lists, filters, search, share, language
+           badges). Separate cached file; path computed from Quarto's offset meta so
+           it resolves from any page depth. */
+        function loadWriting() {
+            var m = document.querySelector('meta[name="quarto:offset"]');
+            var s = document.createElement("script");
+            s.src = (m && m.getAttribute("content") || "./") + "assets/js/writing.js";
+            s.defer = true;
+            document.body.appendChild(s);
+        }
+
+        /* ===================================================================
+           4. CHROME: language switch placement, back-to-top, reveals,
+              slogan rotator, filter affordance, sidebar collapse
+           =================================================================== */
+        function initChrome() {
+
+            (function mv(tries) {
+                /* Le sélecteur de langue va dans les outils de l'en-tête, juste avant le bouton clair/sombre
+                   (visible aussi sur téléphone, sans ouvrir le menu). */
+                tries = tries || 0;
+                var sw = document.getElementById("lsw"),
+                    tools = document.querySelector(".navbar .quarto-navbar-tools");
+                if (sw && tools && !tools.contains(sw)) {
+                    sw.style.display = "inline-flex";
+                    tools.insertBefore(sw, tools.firstChild);
+                } else if (tries < 25) {
+                    setTimeout(function () {mv(tries + 1);}, 200);
+                }
+            })();
+
+            /* Rubrique active : sur un article du Blog ou des Essais, le lien de la rubrique reste surligné. */
+            (function () {
+                var m = location.pathname.match(/\/(blog|essais)\//);
+                if (!m) return;
+                document.querySelectorAll(".navbar .nav-link").forEach(function (a) {
+                    /* « Écrits » pointe vers /blog/ : il reste allumé aussi dans /essais/. */
+                    if (/\/blog\/(index\.html)?$/.test(a.href.split("#")[0]) && !a.classList.contains("active")) {
+                        a.classList.add("active"); a.setAttribute("aria-current", "page");
+                    }
+                });
+            })();
+
+            /* Sélecteur de langue : liste déroulante (ouvre au clic, se ferme au choix, au clic
+               extérieur ou avec Échap ; flèches haut/bas pour naviguer). */
+            (function () {
+                var sw = document.getElementById("lsw");
+                if (!sw) return;
+                var btn = sw.querySelector(".lsw-btn"), menu = sw.querySelector(".lsw-menu");
+                var items = Array.prototype.slice.call(menu.querySelectorAll(".lb"));
+                function open(focusItem) {
+                    menu.hidden = false; sw.classList.add("open"); btn.setAttribute("aria-expanded", "true");
+                    if (focusItem) {(menu.querySelector(".lb.on") || items[0]).focus();}
+                }
+                function close(refocus) {
+                    if (menu.hidden) return;
+                    menu.hidden = true; sw.classList.remove("open"); btn.setAttribute("aria-expanded", "false");
+                    if (refocus) btn.focus();
+                }
+                btn.addEventListener("click", function (e) {e.stopPropagation(); menu.hidden ? open(e.detail === 0) : close(false);});
+                items.forEach(function (it) {it.addEventListener("click", function () {close(true);});});
+                document.addEventListener("click", function (e) {if (!sw.contains(e.target)) close(false);});
+                sw.addEventListener("keydown", function (e) {
+                    if (e.key === "Escape") {close(true); return;}
+                    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+                        e.preventDefault();
+                        if (menu.hidden) {open(true); return;}
+                        var i = items.indexOf(document.activeElement);
+                        i = e.key === "ArrowDown" ? (i + 1) % items.length : (i - 1 + items.length) % items.length;
+                        items[i].focus();
+                    }
+                });
+            })();
+
+            var st = document.getElementById("stt");
+            window.addEventListener("scroll", function () {
+                if (st) st.classList.toggle("on", window.scrollY > 300);
+            }, {passive: true});
+
+            var ro = new IntersectionObserver(function (e) {
+                e.forEach(function (x) {if (x.isIntersecting) {x.target.classList.add("in"); ro.unobserve(x.target);} });
+            }, {threshold: .06, rootMargin: "0px 0px -25px 0px"});
+            function obs() {document.querySelectorAll(".rv:not(.in)").forEach(function (el) {ro.observe(el);});}
+            obs(); setTimeout(obs, 400);
+
+            /* ===================================================================
+               5. MULTILINGUAL SLOGAN ROTATOR (Home)
+               -------------------------------------------------------------------
+               Phrases live in the markup (index.qmd) inside a translate="no"
+               container, one .slogan-item per language, all stacked in a single
+               grid cell so the block is sized by the tallest phrase and a swap can
+               never reflow the page. This only moves the .is-on class; each item
+               carries its own lang/dir, so the Arabic line renders right-to-left
+               even while the rest of the page is left-to-right.
+               =================================================================== */
+            (function () {
+                var box = document.getElementById("slogan");
+                if (!box) return;
+                var items = Array.prototype.slice.call(box.querySelectorAll(".slogan-item"));
+                if (items.length < 2) return;
+                if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+                var i = 0, timer = null;
+                function show(next) {
+                    items[i].classList.remove("is-on");
+                    items[i].setAttribute("aria-hidden", "true");
+                    i = next;
+                    items[i].classList.add("is-on");
+                    items[i].removeAttribute("aria-hidden");
+                }
+                function start() {if (!timer) timer = setInterval(function () {show((i + 1) % items.length);}, 3800);}
+                function stop() {if (timer) {clearInterval(timer); timer = null;} }
+
+                items.forEach(function (el, n) {if (n !== i) el.setAttribute("aria-hidden", "true");});
+                /* Don't animate in a background tab, and pause on hover so a phrase can
+                   actually be read. */
+                document.addEventListener("visibilitychange", function () {document.hidden ? stop() : start();});
+                box.addEventListener("mouseenter", stop);
+                box.addEventListener("mouseleave", start);
+                start();
+            })();
+
+            /* ===================================================================
+               7. Desktop sidebar collapse/expand (blog articles with a left TOC)
+               Quarto's own CSS forces #quarto-sidebar to display:flex unconditionally
+               at >=992px (its collapse toggle is wired for the mobile drawer only),
+               so Bootstrap's collapse events fire but have no visual effect on
+               desktop by default. Listen for them and drive a body class instead —
+               the matching CSS override lives in main.css.
+               =================================================================== */
+            var qsb = document.getElementById("quarto-sidebar");
+            if (qsb) {
+                /* Bootstrap's collapse component tracks its own shown/hidden state from
+                   the presence of the .show class in the initial HTML, which Quarto does
+                   NOT set even though the sidebar is visually shown on desktop. Without
+                   this, Bootstrap starts internally "collapsed", so the very first
+                   toggle click is a no-op and only the second click does anything. */
+                if (window.bootstrap && window.bootstrap.Collapse && window.matchMedia("(min-width: 992px)").matches) {
+                    window.bootstrap.Collapse.getOrCreateInstance(qsb, {toggle: false}).show();
+                }
+                qsb.addEventListener("hidden.bs.collapse", function () {document.body.classList.add("sidebar-collapsed");});
+                qsb.addEventListener("shown.bs.collapse", function () {document.body.classList.remove("sidebar-collapsed");});
+            }
+
+        } /* end initChrome */
+
+    })();
+</script>

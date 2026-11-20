@@ -1,0 +1,1211 @@
+/* ================================================================
+   Abdel-aziz Harane — Personal Site
+   Design system v2: academic-editorial, not portfolio.
+   Reference point (approach only, not copied): drganghe.github.io —
+   plain-text nav, generous whitespace, serif body, no cards/badges/stats.
+   Fonts loaded via <link> in assets/html/head.html — keep in sync.
+   Dark mode: Quarto flatly/darkly theme swap + .quarto-dark overrides here.
+   RTL (Arabic): dedicated [dir="rtl"] section near the end.
+   ================================================================ */
+
+:root{
+  --serif: "Newsreader", "Source Serif 4", Georgia, "Times New Roman", serif;   /* police éditoriale : changer ici (et le lien Google Fonts dans assets/html/head.html) */
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  --bg: #FCFCFA;
+  --surface: #FFFFFF;
+  --surface-elevated: #FFFFFF;
+  --text: #1B1A17;
+  --text-secondary: #55534D;
+  /* #83807A (3.8:1) → #6B6860 : 5.4:1 sur le fond, AA (4,5:1) aussi sur les surfaces teintées. */
+  --text-tertiary: #6B6860;
+  --border: #E4E2DC;
+  --border-strong: #CFCCC3;
+  --accent: #0F766E;
+  --accent-soft: #E8F1F0;
+  --amber: #B45309;
+}
+[data-theme="dark"], .quarto-dark{
+  /* Mode sombre : noir véritable, surfaces à peine relevées pour garder les cartes lisibles. */
+  --bg: #000000;
+  --surface: #0A0A0A;
+  --surface-elevated: #111111;
+  --text: #EDEDED;
+  --text-secondary: #A6A6A6;
+  --text-tertiary: #8F8F8F;   /* 6:1 sur le noir */
+  --border: #222222;
+  --border-strong: #3A3A3A;
+  --accent: #6BB3AA;
+  --accent-soft: #0D1F1D;
+  --amber: #FBBF24;
+}
+.quarto-dark{ background: var(--bg); color: var(--text); }
+
+*{ transition: background-color .2s ease, border-color .2s ease, color .2s ease; }
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; }
+}
+
+/* ── Base ── */
+body{
+  font-family: var(--serif);
+  font-size: 1.12rem;   /* Newsreader a un œil plus petit : texte un peu plus grand */
+  line-height: 1.65;
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color .15s ease, color .15s ease;
+}
+/* Everything below reads colors from the tokens above — nothing here is a
+   hardcoded hex value, so there's nothing left that can independently "miss"
+   a theme switch the way body's background/color literally did before (see
+   git history: it used a `.quarto-dark body{...}` descendant selector, which
+   can never match — Quarto puts the `quarto-dark` class ON body itself, not
+   on an ancestor of it). `data-theme="dark"` is supported too in case this
+   project ever adds a toggle that isn't Quarto's own. */
+
+h1, h2, h3, h4{
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+p { max-width: 640px; }
+a{ color: var(--accent); text-decoration: none; background-image: linear-gradient(var(--accent), var(--accent)); background-position: 0 100%; background-repeat: no-repeat; background-size: 0% 1px; transition: background-size .18s cubic-bezier(.2,.7,.3,1), color .2s ease; }
+a:hover{ background-size: 100% 1px; }
+/* Links styled as chrome (nav, cards, buttons, TOC) opt back out of the
+   underline-grow treatment above — it's for inline prose links only. */
+.navbar a, .gcard a, .lk, .btn-xs, #TOC a, .eitem-links a, footer a, .cv-contacts a, .role a, .link-arrow{
+  background-image: none;
+}
+.link-arrow{ display: inline-flex; align-items: center; gap: .3rem; font-size: .92rem; }
+.link-arrow .arrow, .gcard-more .arrow{ display: inline-block; transition: transform .18s cubic-bezier(.2,.7,.3,1); }
+.link-arrow:hover .arrow, .gcard-more:hover .arrow{ transform: translateX(3px); }
+code, pre, kbd, samp{ font-family: var(--mono); font-size: .88em; }
+pre{ padding: .9rem 1rem; border: 1px solid var(--border); border-radius: 4px; overflow-x: auto; background: rgba(0,0,0,.02); }
+.quarto-dark pre{ background: rgba(255,255,255,.03); }
+
+::selection{ background: color-mix(in srgb, var(--accent) 25%, transparent); }
+
+/* ── Layout ── */
+.page{ max-width: 680px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+.page-wide{ max-width: 960px; }
+@media (min-width: 640px){
+  .page{ padding-left: 2rem; padding-right: 2rem; }
+}
+@media (min-width: 1024px){
+  .page{ padding-left: 0; padding-right: 0; }
+}
+.eyebrow{
+  font-family: var(--sans);
+  font-size: .8rem;
+  color: var(--text-tertiary);
+  margin-bottom: .3rem;
+}
+h2{ font-size: 1.3rem; margin: var(--space-2xl) 0 var(--space-lg); }
+h2:first-of-type{ margin-top: 0; }
+hr.rule{ border: none; border-top: 1px solid var(--border); margin: 2.4rem 0; }
+
+/* ── En-tête flottant arrondi ──────────────────────────────────────────
+   Une « pilule » centrée, translucide (flou d'arrière-plan), détachée du haut de
+   la page. Contenu : nom · rubriques · langue · clair/sombre. Rien d'autre :
+   les réseaux sont sur l'Accueil et dans le pied de page, la recherche dans
+   les pages Blog et Essais (touche « / » pour la recherche globale). */
+:root{ --hdr-h: 52px; --hdr-gap: 12px; }
+#quarto-header{
+  background: transparent !important; border: 0 !important; box-shadow: none !important;
+  padding: var(--hdr-gap) 16px 0;
+  pointer-events: none;            /* seule la pilule reçoit les clics, pas la bande autour */
+}
+#quarto-header .navbar{ pointer-events: auto; }
+.navbar{
+  max-width: 64rem; margin: 0 auto;
+  min-height: var(--hdr-h); height: auto !important;
+  padding: 0 .55rem 0 1.25rem !important;
+  background-color: color-mix(in srgb, var(--bg) 88%, transparent) !important;
+  -webkit-backdrop-filter: saturate(160%) blur(14px); backdrop-filter: saturate(160%) blur(14px);
+  border: 1px solid var(--border) !important;
+  border-radius: 999px;
+  box-shadow: 0 8px 28px -18px rgba(0,0,0,.35) !important;
+  transition: border-radius .2s ease, background-color .2s ease;
+}
+.quarto-dark .navbar{ box-shadow: 0 8px 28px -14px rgba(0,0,0,.9) !important; }
+.navbar > .container-fluid{ padding: 0 !important; min-height: var(--hdr-h); }
+.navbar-brand{
+  font-family: var(--serif) !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: var(--text) !important;
+  margin-inline-end: 1rem !important;
+}
+/* Nom en signature : Fraunces (serif à caractère, cousine de Newsreader), « Harane » en vert pétrole.
+   Le découpage prénom / nom est fait par foot.html (« Signature du nom »). */
+.navbar-brand .navbar-title{
+  font-family: "Fraunces", var(--serif) !important;
+  font-optical-sizing: auto;
+  font-weight: 560; font-size: 1.12rem; letter-spacing: -.012em;
+  line-height: 1; white-space: nowrap;
+}
+.brand-first{ color: var(--text); }
+.brand-last{ color: var(--accent); font-weight: 620; margin-inline-start: .22em; }
+.navbar-brand:hover .brand-last{ color: var(--text); }
+.navbar-brand:hover .brand-first{ color: var(--accent); }
+.brand-first, .brand-last{ transition: color .2s ease; }
+.navbar .nav-link{
+  font-family: var(--sans) !important;
+  font-size: .84rem !important;
+  color: var(--text-secondary) !important;
+  padding: .38rem .8rem !important;
+  margin: 0 .05rem !important;
+  border-radius: 999px;
+  transition: color .15s ease, background-color .15s ease;
+}
+.navbar .nav-link:hover{ color: var(--text) !important; background: var(--surface); }
+.navbar .nav-link.active{ color: var(--accent) !important; background: var(--accent-soft); box-shadow: none; font-weight: 600; }
+.quarto-dark .navbar .nav-link.active{ background: #12302C; }
+.quarto-navbar-tools .quarto-color-scheme-toggle .bi{ opacity: .8; }
+.navbar-toggler{ border: none !important; padding: .4rem !important; }
+.navbar-toggler:focus{ box-shadow: none !important; }
+#quarto-search{ display: none !important; }
+@media (min-width: 992px){
+  .navbar-collapse .navbar-nav.me-auto{ margin-inline: auto !important; }   /* rubriques au centre de la pilule */
+}
+.navbar .navbar-brand-container{ margin: 0 !important; }
+.quarto-navbar-tools{ display: flex; align-items: center; gap: .15rem; margin-inline-start: .35rem; }
+.quarto-navbar-tools .quarto-color-scheme-toggle{
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; padding: 0 !important; border-radius: 999px;
+}
+.quarto-navbar-tools .quarto-color-scheme-toggle:hover{ background: var(--surface); }
+/* Les ancres et le sommaire collant tiennent compte de l'en-tête flottant. */
+html{ scroll-padding-top: calc(var(--hdr-h) + var(--hdr-gap) + 20px); }
+
+@media (max-width: 991.98px){
+  #quarto-header{ padding: 10px 12px 0; }
+  .navbar{ border-radius: 22px; padding: 0 .5rem 0 1rem !important; }
+  .navbar-collapse .navbar-nav .nav-link{ padding: .6rem .8rem !important; }
+}
+@media (max-width: 991.98px){
+  .navbar-collapse.show, .navbar-collapse.collapsing{
+    background-color: transparent !important;
+    border-top: 1px solid var(--border);
+    padding: .4rem 0 .8rem;
+  }
+  .navbar-collapse .navbar-nav .nav-link,
+  .navbar-collapse .navbar-nav .menu-text{ color: var(--text) !important; }
+}
+
+/* ── Language switch / social links (discreet, plain text) ── */
+#lsw{ position: relative; font-family: var(--sans); display: inline-flex; align-items: center; }
+.lsw-btn{
+  -webkit-appearance: none; appearance: none; cursor: pointer;
+  display: inline-flex; align-items: center; gap: .35rem;
+  height: 30px; padding: 0 .55rem 0 .5rem;
+  background: transparent; border: 1px solid var(--border); border-radius: 999px;
+  font-family: var(--sans); font-size: .74rem; font-weight: 600; letter-spacing: .02em;
+  color: var(--text-secondary);
+  transition: color .15s ease, border-color .15s ease, background-color .15s ease;
+}
+.lsw-btn:hover, #lsw.open .lsw-btn{ color: var(--text); border-color: var(--border-strong); background: var(--surface); }
+.lsw-btn:focus-visible, .lb:focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; }
+.lsw-globe{ width: 15px; height: 15px; flex: none; }
+.lsw-chev{ width: 12px; height: 12px; flex: none; transition: transform .2s ease; }
+#lsw.open .lsw-chev{ transform: rotate(180deg); }
+.lsw-menu{
+  position: absolute; top: calc(100% + 8px); inset-inline-end: 0; z-index: 1050;
+  min-width: 10.5rem; padding: .3rem;
+  background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 12px;
+  box-shadow: 0 12px 32px -12px rgba(0,0,0,.28);
+  transform-origin: top right;
+  animation: lswIn .16s cubic-bezier(.2,.7,.3,1);
+}
+.lsw-menu[hidden]{ display: none; }
+@keyframes lswIn{ from{ opacity: 0; transform: translateY(-4px) scale(.98); } to{ opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce){ .lsw-menu{ animation: none; } .lsw-chev{ transition: none; } }
+.lb{
+  -webkit-appearance: none; appearance: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: .8rem; width: 100%;
+  background: none; border: none; border-radius: 8px;
+  font-family: var(--sans); font-size: .86rem; font-weight: 500; text-align: start;
+  color: var(--text-secondary); padding: .5rem .65rem;
+  transition: color .12s ease, background-color .12s ease;
+}
+.lb[lang="ar"] .lsw-name{ font-size: .95rem; }
+.lb:hover, .lb:focus-visible{ color: var(--text); background: var(--accent-soft); }
+.lb.on{ color: var(--accent); font-weight: 600; }
+.lsw-ck{ width: 15px; height: 15px; flex: none; opacity: 0; }
+.lb.on .lsw-ck{ opacity: 1; }
+
+/* ── Buttons / plain links used as CTAs ── */
+.btn-xs, .lk{
+  font-family: var(--sans);
+  font-size: .82rem;
+  color: var(--text-secondary);
+  transition: color .15s ease, transform .1s ease;
+}
+.btn-xs:hover, .lk:hover{ color: var(--accent); text-decoration: none; }
+.btn-xs:active, .lk:active{ transform: scale(.97); }
+a:focus-visible, button:focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.links{ display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-sm); }
+.lk{
+  display: inline-flex; align-items: center; gap: var(--space-sm);
+  height: 36px; padding: 0 var(--space-md);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.lk svg{ opacity: .75; width: 15px; height: 15px; flex: none; }
+.lk:hover{ border-color: var(--accent); background: var(--accent-soft); }
+.lk:hover svg{ opacity: 1; }
+
+/* ── Home: two-column hero ── */
+.hero-grid{ display: grid; grid-template-columns: 176px 1fr; gap: 2.2rem; align-items: start; margin-bottom: .5rem; }
+.hero-photo{
+  width: 176px; height: 176px; border-radius: 12px; overflow: hidden;
+  border: 1px solid var(--border); background: var(--surface); flex: none;
+}
+.hero-photo img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Portrait détouré en cercle (assets/img/AbdelH-*.webp) : pas de cadre carré autour. */
+.hero-photo.is-round{ border-radius: 50%; border: 0; background: transparent; }
+/* Placeholder state until the real photo is added — deliberately looks like
+   a dev note, not a finished design element, so it can't be mistaken for
+   the real thing if this ships by accident. Swap by dropping a photo at
+   assets/img/profile.jpg and replacing the .hero-photo div's contents with
+   <img src="assets/img/profile.jpg" alt="Abdel-aziz Harane Abounounou">. */
+.hero-photo.is-placeholder{
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .4rem;
+  border-style: dashed; border-color: var(--border-strong);
+  font-family: var(--sans); font-size: .68rem; color: var(--text-tertiary); text-align: center; padding: 1rem;
+}
+.hero-photo.is-placeholder svg{ width: 22px; height: 22px; opacity: .5; }
+.profile{ margin-bottom: 0; }
+.name{
+  font-family: var(--serif);
+  font-size: 2.1rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  margin-bottom: .35rem;
+}
+.role{
+  font-family: var(--sans);
+  font-size: .96rem;
+  color: var(--text-secondary);
+  margin-bottom: .9rem;
+  line-height: 1.6;
+}
+.role a{ color: var(--text-secondary); text-decoration: underline; text-decoration-color: var(--border-strong); }
+.role a:hover{ color: var(--accent); text-decoration-color: var(--accent); }
+.hero-statement{ font-family: var(--serif); font-size: 1.15rem; line-height: 1.5; color: var(--text); margin: 0 0 .9rem; max-width: 46ch; }
+@media (max-width: 680px){
+  .hero-grid{ grid-template-columns: 1fr; gap: 1.2rem; }
+  .hero-photo{ width: 108px; height: 108px; }
+}
+
+/* ── Home: headline block (accroche + XXL title + CTAs) ── */
+.hero-headline{ margin: var(--space-2xl) 0 var(--space-xl); }
+.hero-kicker{ font-family: var(--sans); font-size: .85rem; color: var(--accent); font-weight: 600; margin-bottom: .6rem; }
+.hero-xxl{ font-family: var(--serif); font-size: clamp(2.1rem, 5vw, 3.2rem); font-weight: 600; line-height: 1.12; letter-spacing: -0.02em; margin: 0 0 var(--space-lg); max-width: 15ch; }
+.cta-row{ display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+.cta-pill{
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .6rem 1.15rem; border-radius: 24px;
+  font-family: var(--sans); font-size: .86rem; font-weight: 600;
+  border: 1px solid var(--border-strong);
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+.cta-pill.is-primary{ background: var(--text); color: var(--bg); border-color: var(--text); }
+.cta-pill.is-primary:hover{ background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.cta-pill:not(.is-primary):hover{ border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+/* ── Home: principles ── */
+.principles-grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin: var(--space-md) 0 0; }
+@media (max-width: 680px){ .principles-grid{ grid-template-columns: 1fr; } }
+.principle-num{ font-family: var(--mono); font-size: .72rem; color: var(--accent); margin-bottom: .4rem; }
+.principle h4{ font-family: var(--serif); font-size: 1rem; margin: 0 0 .3rem; }
+.principle p{ font-size: .88rem; color: var(--text-secondary); margin: 0; }
+
+/* ── Home: open questions ── */
+.question-list{ margin: var(--space-md) 0 0; padding: 0; list-style: none; }
+.question-list li{ padding: var(--space-md) 0; border-top: 1px solid var(--border); font-family: var(--serif); font-size: 1.05rem; font-style: italic; color: var(--text); }
+.question-list li:first-child{ border-top: none; }
+
+/* ── Home: key figures + distinction ── */
+.stats-grid{ display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); margin: var(--space-lg) 0 var(--space-md); padding: var(--space-lg) 0; border-block: 1px solid var(--border); }
+.stat-n{ font-family: var(--serif); font-size: 1.85rem; font-weight: 600; line-height: 1.1; letter-spacing: -.01em; color: var(--text); font-variant-numeric: tabular-nums; }
+.stat-l{ font-family: var(--sans); font-size: .8rem; line-height: 1.4; color: var(--text-secondary); margin-top: .3rem; }
+@media (max-width: 680px){ .stats-grid{ grid-template-columns: repeat(2, 1fr); row-gap: var(--space-lg); } }
+.home-award{ font-family: var(--sans); font-size: .92rem; color: var(--text-secondary); margin: var(--space-md) 0 var(--space-xl); }
+.home-award .pub-badge{ margin-inline-end: .45rem; }
+
+/* ── Card grid (Research areas / Projects / Blog) ──
+   Restrained by design: hairline border, no shadow at rest, subtle lift and
+   glow on hover — a card here is a compact list item elevated just enough
+   to feel alive, never a SaaS feature tile. */
+.grid{ display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: var(--space-lg); margin: var(--space-lg) 0 var(--space-xl); }
+.gcard{
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: var(--space-lg) var(--space-lg);
+  background: var(--surface);
+  transition: transform .22s cubic-bezier(.2,.7,.3,1), border-color .22s ease, box-shadow .22s ease, background-color .2s ease;
+  will-change: transform;
+}
+.gcard:hover{
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 24px -12px rgba(0,0,0,.16);
+}
+.quarto-dark .gcard:hover{ box-shadow: 0 10px 24px -12px rgba(0,0,0,.5); }
+@media (prefers-reduced-motion: reduce){
+  .gcard{ transition: border-color .15s ease; }
+  .gcard:hover{ transform: none; }
+}
+.gcard-eyebrow{ font-family: var(--sans); font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); margin-bottom: .6rem; }
+.gcard h3{ font-size: 1.05rem; margin: 0 0 .5rem; line-height: 1.3; }
+.gcard p{ font-size: .92rem; color: var(--text-secondary); margin: 0 0 .7rem; max-width: none; }
+.gcard-meta{ font-family: var(--sans); font-size: .76rem; color: var(--text-tertiary); }
+.gcard-more{
+  font-family: var(--sans); font-size: .82rem; display: inline-flex; align-items: center; gap: .3rem;
+  margin-top: .3rem; color: var(--accent); text-decoration: none;
+}
+.gcard-featured{ grid-column: span 2; background: var(--surface-elevated); }
+@media (max-width: 680px){ .gcard-featured{ grid-column: span 1; } }
+
+/* Blog cards */
+.gcard-date{ font-family: var(--sans); font-size: .76rem; color: var(--text-tertiary); margin-bottom: .3rem; }
+.gcard-cat{ font-family: var(--sans); font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: var(--accent); }
+
+/* ── Pagination ── */
+.pagination{ display: flex; flex-wrap: wrap; gap: var(--space-xs); margin-top: var(--space-xl); align-items: center; }
+.pbtn{
+  -webkit-appearance: none; appearance: none; cursor: pointer;
+  background: none; border: 1px solid var(--border-strong); border-radius: 6px;
+  font-family: var(--sans); font-size: .82rem; color: var(--text-secondary);
+  padding: .4rem .75rem; min-width: 2.2rem; text-align: center;
+  transition: color .15s ease, background-color .15s ease, border-color .15s ease;
+}
+.pbtn:hover:not(:disabled){ border-color: var(--accent); color: var(--accent); }
+.pbtn.on{ background: var(--text); color: var(--bg); border-color: var(--text); }
+.pbtn:disabled{ opacity: .35; cursor: default; }
+
+/* ── Project icon tiles ──
+   Pure CSS/SVG "soft 3D" treatment: a rounded tile with a gentle top-light
+   gradient, a hairline border, an inset highlight, and a real drop shadow —
+   enough depth to read as an object, not a flat glyph, without becoming an
+   illustration. One consistent recipe across every project for coherence. */
+.gtile{
+  width: 40px; height: 40px; border-radius: 10px; margin-bottom: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(155deg, var(--accent-soft), var(--surface) 65%);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 6px 14px -8px rgba(0,0,0,.25);
+  transition: transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .22s ease;
+}
+.quarto-dark .gtile{ box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 6px 14px -8px rgba(0,0,0,.6); }
+.gcard:hover .gtile{ transform: translateY(-1px) scale(1.04); }
+.gtile svg{ width: 19px; height: 19px; stroke: var(--accent); }
+@media (prefers-reduced-motion: reduce){ .gcard:hover .gtile{ transform: none; } }
+
+/* ── Research question callout ── */
+.rq{ margin: 1.1rem 0 1.3rem; padding: .95rem 1.15rem; border-left: 2px solid var(--accent); background: var(--accent-soft); border-radius: 0 6px 6px 0; }
+.rq-label{ font-family: var(--sans); font-size: .68rem; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--accent); margin-bottom: .35rem; }
+.rq p{ margin: 0; font-style: italic; color: var(--text); font-size: .98rem; max-width: none; }
+
+/* ── Status pill ── */
+.status-pill{ display: inline-flex; align-items: center; gap: .4rem; font-family: var(--sans); font-size: .7rem; font-weight: 600; letter-spacing: .03em; text-transform: uppercase; padding: .28rem .65rem; border-radius: 20px; white-space: nowrap; }
+.status-pill.is-ongoing{ background: var(--accent-soft); color: var(--accent); }
+.status-pill.is-ongoing .dot{ width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse-dot 2.2s ease-in-out infinite; }
+.status-pill.is-completed{ background: transparent; color: var(--text-secondary); border: 1px solid var(--border-strong); border-radius: 2px; text-transform: none; letter-spacing: 0; padding: .28rem 0 .1rem; border-width: 0 0 1px; }
+.status-pill.is-live{ background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+@keyframes pulse-dot{ 0%,100%{ opacity: 1; } 50%{ opacity: .3; } }
+@media (prefers-reduced-motion: reduce){ .status-pill.is-ongoing .dot{ animation: none; } }
+
+/* ── Research area editorial blocks (replaces the small card grid) ── */
+.axis-block{ padding: 2.2rem 0; border-top: 1px solid var(--border); }
+.axis-block:first-of-type{ border-top: none; padding-top: .5rem; }
+.axis-block h3{ font-size: 1.3rem; margin: 0 0 .8rem; }
+.axis-block p{ max-width: 640px; }
+.gtile-lg{ width: 52px; height: 52px; border-radius: 12px; margin-bottom: 1.1rem; }
+.gtile-lg svg{ width: 26px; height: 26px; }
+
+/* ── Research area cards (2x2 grid with expandable detail) ── */
+.rcard-grid{ grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 620px){ .rcard-grid{ grid-template-columns: 1fr; } }
+.rcard summary{
+  cursor: pointer; list-style: none;
+  font-family: var(--sans); font-size: .8rem; color: var(--accent); font-weight: 600;
+  margin-top: var(--space-sm);
+  display: flex; align-items: center; gap: .3rem;
+}
+.rcard summary::-webkit-details-marker{ display: none; }
+.rcard summary::before{ content: "+"; font-size: 1rem; line-height: 1; transition: transform .18s ease; }
+.rcard details[open] summary::before{ content: "\2212"; }
+.rcard details{ margin-top: var(--space-xs); }
+.rcard details > p, .rcard details > .rq, .rcard details > .gcard-meta{ margin-top: var(--space-sm); }
+.rcard details > p:first-of-type{ margin-top: var(--space-md); }
+
+/* ── Icon-pill link buttons (replaces plain "PDF" / "Dataset" / "GitHub →" text links) ── */
+.link-btn{
+  display: inline-flex; align-items: center; gap: .35rem;
+  font-family: var(--sans); font-size: .78rem; font-weight: 500;
+  color: var(--text-secondary);
+  padding: .3rem .7rem; border: 1px solid var(--border-strong); border-radius: 6px;
+  background: var(--surface);
+  transition: color .15s ease, border-color .15s ease, background-color .15s ease;
+}
+.link-btn svg{ width: 12px; height: 12px; flex: none; }
+.link-btn:hover{ color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+.link-btn-row{ display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-sm); }
+
+/* ── Publication status/venue badges ── */
+.pub-badge{
+  display: inline-block; font-family: var(--sans); font-size: .72rem; font-weight: 600;
+  padding: .2rem .55rem; border-radius: 4px; letter-spacing: .01em;
+}
+.pub-badge.is-venue{ background: var(--accent-soft); color: var(--accent); }
+.pub-badge.is-prep{ background: rgba(217,119,6,.14); color: #9A4507; }
+.quarto-dark .pub-badge.is-prep{ background: rgba(251,191,36,.14); color: #FBBF24; }
+
+/* ── Clickable cards (Projects/Blog): the whole card is an <a>, hover lifts
+   it the same way a .gcard <div> does. Both .gcard and .featured-project
+   are laid out by the strict-flow block below, which also blockifies them —
+   an <a> is inline by default and that was the overlap bug (see there). */
+a.gcard:hover .gcard-more{ color: var(--accent); }
+a.gcard:hover .gcard-more .arrow{ transform: translateX(3px); }
+
+/* ── Card internals: strict vertical flow ──────────────────────────────
+   Every card on the site (Projects, Research areas, Blog, and the featured
+   variants of both) stacks eyebrow / icon tile / date / title / description
+   / tags / status / link in normal flow with a fixed vertical rhythm.
+   Nothing inside a card is absolutely positioned and no spacing depends on
+   a string's length, so a longer translated label — "Projet phare" vs
+   "Featured project", "En conception" vs "Design stage" — pushes what
+   follows down instead of landing on top of it.
+
+   `a.featured-project` is the bug this replaces. That element is an <a>,
+   which is inline by default, and it wrapped block-level children
+   (h3/p/div). An inline box cannot contain block boxes, so the browser
+   split it into inline fragments: padding was applied only to the first
+   and last fragment, the border/background painted per fragment, and the
+   eyebrow, the icon tile, the description and the "Read essay" link ended
+   up drawn over each other and over the following section. `a.gcard`
+   already carried display:block, the featured variant never did — which is
+   why only featured cards broke, and why it surfaced in French first
+   (longer strings wrap differently). Both are flex columns now. */
+.gcard, .featured-project{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-decoration: none;
+  color: inherit;
+}
+.gcard > *, .gcard > p, .gcard > h3,
+.featured-project > *, .featured-project > p, .featured-project > h3{
+  margin-top: 0;
+  margin-bottom: 0;
+  min-width: 0; /* let long unbroken tokens shrink instead of widening the card */
+}
+.gcard > * + *, .featured-project > * + *{ margin-top: .5rem; }
+.featured-project > h3{ margin-top: .7rem; }
+/* The icon tile is a fixed-size object: it must not stretch to the card
+   width as a flex child otherwise would, and it gets extra air beneath. */
+.gcard > .gtile, .featured-project > .gtile{ flex: none; align-self: flex-start; }
+.gcard > .gtile + *, .featured-project > .gtile + *{ margin-top: .95rem; }
+.gcard > .gcard-meta, .featured-project > .gcard-meta{ margin-top: .9rem; }
+.gcard > .gcard-more, .featured-project > .gcard-more{ align-self: flex-start; }
+/* Grid rows stretch every card to the tallest in the row, so the closing
+   link is pushed to the bottom edge instead of trailing whatever amount of
+   description text a given card happens to have. margin-top:auto absorbs
+   the slack; padding-top keeps the minimum gap when there is none (the
+   featured card, which sets its own height). */
+.gcard > .gcard-more, .featured-project > .gcard-more{ margin-top: auto; padding-top: .9rem; }
+/* .gcard-meta mixes a status pill with inline prose ("· Selected work: …"),
+   so it stays inline flow rather than becoming a flex row — it just needs
+   room to breathe once it wraps onto two lines in a longer language. */
+.gcard-meta{ line-height: 1.8; }
+.gcard-meta .gcard-more, .gcard-meta .status-pill{ margin-top: 0; vertical-align: baseline; }
+
+/* ── Filter groups (Blog: category + year) ── */
+.filter-group{ margin-bottom: var(--space-md); }
+.filter-group-label{ font-family: var(--sans); font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-tertiary); margin-bottom: var(--space-sm); }
+
+/* ── CV contact row (icon + text pairs) ── */
+.cv-contact-row{
+  display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-lg);
+  font-family: var(--sans); font-size: .85rem; color: var(--text-secondary);
+  padding-bottom: var(--space-lg); border-bottom: 1px solid var(--border);
+}
+.cv-contact-row .ci{ display: inline-flex; align-items: center; gap: .4rem; }
+.cv-contact-row .ci svg{ opacity: .6; width: 14px; height: 14px; flex: none; }
+.cv-contact-row a{ color: var(--text-secondary); }
+.cv-contact-row a:hover{ color: var(--accent); }
+
+/* ── Editorial lists (replaces cards/badges everywhere) ── */
+.elist{ margin: 0 0 1rem; padding: 0; }
+.eitem{ padding: var(--space-lg) 0; border-top: 1px solid var(--border); }
+.elist .eitem:last-child{ padding-bottom: 0; }
+.eitem-head{
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .7rem;
+  font-family: var(--sans);
+}
+.eitem-title{ font-family: var(--serif); font-size: 1.06rem; font-weight: 600; color: var(--text); }
+a.eitem-title{ color: var(--text); }
+a.eitem-title:hover{ color: var(--accent); text-decoration: none; }
+.eitem-meta{ font-size: .8rem; color: var(--text-tertiary); }
+.eitem-status{ font-size: .8rem; color: var(--text-tertiary); font-style: italic; }
+.eitem-desc{ margin: .35rem 0 0; color: var(--text-secondary); font-size: .96rem; max-width: 620px; }
+.eitem-links{ margin-top: .35rem; display: flex; gap: 1rem; }
+.eitem-links a{ font-family: var(--sans); font-size: .82rem; }
+.tags-plain{ font-family: var(--sans); font-size: .8rem; color: var(--text-tertiary); }
+
+/* ── CV ── */
+.cv-header{ text-align: center; margin-bottom: 1.8rem; }
+.cv-header h1{ font-size: 1.7rem; margin-bottom: .2rem; }
+.cv-role{ font-family: var(--sans); font-size: .92rem; color: var(--text-secondary); margin: 0 0 .9rem; }
+.cv-contacts{
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem 1rem;
+  font-family: var(--sans); font-size: .82rem; color: var(--text-secondary);
+  padding-bottom: 1.6rem; border-bottom: 1px solid var(--border);
+}
+.cv-contacts a{ color: var(--text-secondary); }
+.cv-contacts a:hover{ color: var(--accent); }
+.ci{ display: inline-flex; align-items: center; gap: .3rem; }
+.ci svg{ opacity: .55; }
+
+/* Section titles now use the site's normal <h2 class="rv"> — same visual
+   weight as "Research areas" / "Publications & outputs" elsewhere, per your
+   request for consistency. .cv-section kept as a class name on those h2s
+   only so any old references don't silently break; it carries no styling
+   of its own anymore. */
+/* Chaque titre du CV est seul dans son .cv-block : la règle globale
+   `h2:first-of-type{margin-top:0}` le collait au bloc précédent (Résumé → Formation).
+   On rend donc aux titres de blocs l'espacement habituel des sections. */
+.cv-block h2{ margin-top: var(--space-2xl); }
+
+.cv-row{ display: grid; grid-template-columns: 1fr auto; gap: .3rem 1.2rem; padding: .9rem 0; border-top: 1px solid var(--border); align-items: baseline; }
+.cv-row:first-of-type{ border-top: none; padding-top: 0; }
+.cv-pos{ font-weight: 600; }
+.cv-org{ font-family: var(--sans); font-size: .88rem; color: var(--text-secondary); margin-top: .1rem; }
+.cv-desc{ grid-column: 1 / -1; color: var(--text-secondary); font-size: .93rem; margin-top: .3rem; }
+.cv-desc ul{ margin: 0; padding-left: 1.2rem; }
+.cv-desc li{ margin-bottom: .2rem; }
+.cv-yr{ font-family: var(--sans); font-size: .82rem; color: var(--text-tertiary); white-space: nowrap; }
+
+.sk-line{ color: var(--text-secondary); font-size: .95rem; }
+.tag-row{ display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+.tag{
+  font-family: var(--sans); font-size: .82rem; color: var(--text-secondary);
+  padding: .35rem .75rem; border: 1px solid var(--border); border-radius: 6px;
+  background: var(--surface);
+}
+/* aliases kept so nothing already using the old names breaks */
+.skill-tags{ display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+.skill-tag{
+  font-family: var(--sans); font-size: .82rem; color: var(--text-secondary);
+  padding: .35rem .75rem; border: 1px solid var(--border); border-radius: 6px;
+  background: var(--surface);
+}
+.lang-bar-row{ padding: var(--space-sm) 0; max-width: 380px; }
+.lang-bar-head{ display: flex; justify-content: space-between; align-items: baseline; font-family: var(--sans); font-size: .9rem; margin-bottom: .4rem; }
+.lang-bar-head .lvl{ color: var(--text-tertiary); font-size: .8rem; }
+.lang-bar-track{ height: 5px; border-radius: 3px; background: var(--border); overflow: hidden; }
+/* Fill animates from 0 to --w (set inline per language) using the same
+   scroll-reveal observer already wired up for .rv elsewhere on the site —
+   no extra JS needed. The percentage is a conventional visual proxy for the
+   stated proficiency label (Native/Professional), not a measured score;
+   the label stays visible alongside it so nothing is overstated. */
+.lang-bar-fill{ height: 100%; border-radius: 3px; background: var(--accent); width: 0; transition: width 1s cubic-bezier(.2,.7,.3,1); }
+.lang-bar-fill.in{ width: var(--w); }
+
+/* ── TOC (article sidebar, native Quarto "docked" mode from toc-location:left) ── */
+/* Quarto's own nav.sidebar.sidebar-navigation background DOES swap between
+   light/dark stylesheets (#fff / #222), same pattern as the footer above —
+   consolidating onto our own token removes any mismatch with the rest of
+   the page rather than trusting a second, separate theming mechanism. */
+nav.sidebar.sidebar-navigation{ background-color: var(--bg) !important; }
+#TOC{ font-family: var(--sans); font-size: .78rem; color: var(--text-secondary) !important; }
+#TOC h2{ font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; color: var(--text-tertiary) !important; font-weight: 600; margin: 0 0 .6rem; }
+#TOC a{ color: var(--text-secondary) !important; border-left: 2px solid transparent; padding-left: .7rem; }
+#TOC a:hover, #TOC a.active{ color: var(--text) !important; border-left-color: var(--accent); }
+/* The sticky top-recalculation Quarto does as the fixed navbar hides/shows on
+   scroll is what reads as the TOC "jumping" — pinning `top` to a constant
+   stops it from moving at all. Selector matches both possible sidebar modes. */
+#quarto-sidebar.sidebar-navigation{
+  top: 54px !important;
+  max-height: calc(100vh - 54px - 1.5rem) !important;
+}
+/* Quarto's own "docked" grid puts a single flexible track *after* the content
+   column, so on a wide screen the content sits hugging the TOC/left side
+   with all the leftover space dumped on the right — unbalanced. Splitting
+   that into two equal flexible tracks (one on each side of the content
+   column) centers the reading column in the space to the right of the TOC,
+   instead of sticking to the TOC's right edge. Desktop-only: below 992px
+   Quarto collapses the TOC into its own mobile drawer regardless. */
+@media (min-width: 992px){
+  body.docked #quarto-content.page-columns{
+    grid-template-columns:
+      [screen-start] 1.5em [screen-start-inset page-start]
+      minmax(50px, 100px) [page-start-inset]
+      50px [body-start-outset]
+      50px [body-start]
+      1fr
+      [body-content-start] minmax(500px, 720px) [body-content-end]
+      1fr
+      [body-end]
+      50px [body-end-outset]
+      minmax(50px, 100px) [page-end-inset]
+      50px [page-end]
+      1.5em [screen-end] !important;
+  }
+}
+/* main is a grid item; without an explicit centering rule it can sit flush
+   at the start of its grid cell rather than filling/centering — that, not
+   the reading-width cap itself, is what left the "phantom empty column" on
+   the right of every page-layout:full page (Home/Research/Projects/Blog
+   index). `.column-page` is the class Quarto gives `main` specifically for
+   page-layout:full; blog *posts* use page-layout:article instead and don't
+   get this class, so they're untouched here — their width/centering is
+   handled separately by the docked-grid rule above. */
+#quarto-document-content{ margin-left: auto !important; margin-right: auto !important; }
+#quarto-document-content.column-page{
+  grid-column: 1 / -1 !important;
+  /* 100 % et non « none » : avec des marges auto, un élément de grille se dimensionne sur son
+     contenu ; une rangée de filtres ou un bloc de code large élargissait alors toute la page
+     au-delà de l'écran sur mobile (défilement horizontal de la page). */
+  max-width: 100% !important;
+}
+#quarto-document-content:not(.column-page){ max-width: 720px; }
+
+/* ── Footer ──
+   Quarto's own footer.footer/.nav-footer rules DO swap between light/dark
+   stylesheets, but with their own literal colors (#fff/#222, #757575/#8a8a8a)
+   that don't match this site's tokens — same class of bug as the navbar fix
+   earlier: two theming mechanisms disagreeing rather than one being "stuck".
+   Consolidating onto our own tokens removes the seam in both modes. */
+footer.footer, .nav-footer{
+  background-color: var(--bg) !important;
+  color: var(--text-tertiary) !important;
+  border-top: 1px solid var(--border);
+}
+.nav-footer a{ color: var(--text-tertiary) !important; }
+.nav-footer a:hover{ color: var(--accent) !important; }
+/* Réseaux sociaux : liste Quarto (icône + texte) affichée en ligne. */
+.nav-footer .footer-items{ display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-xs) var(--space-md); margin: 0; padding: 0; }
+.nav-footer .footer-items .nav-item{ display: inline-flex; }
+.nav-footer .footer-items .nav-link{ padding: 0; display: inline-flex; align-items: center; gap: .4rem; }
+.nav-footer .footer-items .nav-link i{ font-size: .95em; line-height: 1; }
+.nav-footer .footer-items p{ margin: 0; }
+/* Pied de page : trois blocs (nom · réseaux sociaux · réseau).
+   Cause du décalage corrigée : les <p> de Quarto dans le pied de page héritaient de la largeur
+   de lecture du site (p{max-width:40rem}) sans être centrés. Entre 576 et 1100 px (fenêtre réduite,
+   zoom 125–200 %, tablette), le texte se centrait donc dans une boîte de 640 px collée à gauche.
+   Les paragraphes du pied de page prennent maintenant toute la largeur de leur bloc. */
+.nav-footer p{ max-width: none !important; margin: 0; }
+.nav-footer{ row-gap: var(--space-xs); padding-block: var(--space-md) !important; }
+.nav-footer-left, .nav-footer-center, .nav-footer-right{ min-width: 0; overflow-wrap: anywhere; }
+/* Deuxième cause : Quarto a ses propres points de rupture pour ce pied de page (768 et 576 px :
+   marge haute de 3em et ordre inversé pour le centre, marges basses de 1em, hauteur minimale de
+   3em, police réduite à .825em au centre). Mélangés aux nôtres, ils décalaient les blocs selon la
+   largeur ou le zoom. On les neutralise : un seul système, défini ici. */
+footer.footer .nav-footer-left, footer.footer .nav-footer-center, footer.footer .nav-footer-right{
+  margin: 0 !important; min-height: 0 !important; font-size: inherit;
+}
+footer.footer .nav-footer-center .footer-items, footer.footer .nav-footer-right .footer-items{ padding-block: 0; }
+footer.footer .nav-footer-center .footer-items .nav-link{ padding-inline: 0; }
+footer.footer .nav-footer{ font-size: .92rem; line-height: 1.5; }
+/* Grand écran : [nom] [réseaux, largeur de leur contenu] [réseau], le centre reste au centre. */
+@media (min-width: 1100px){
+  footer.footer .nav-footer{ display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; column-gap: var(--space-md); }
+  footer.footer .nav-footer-left{ text-align: start; }
+  footer.footer .nav-footer-right{ text-align: end; padding-inline-end: 3.2rem; }   /* place du bouton « haut de page » */
+}
+/* En dessous : les trois blocs s'empilent, centrés, chacun sur toute la largeur. */
+@media (max-width: 1099.98px){
+  footer.footer .nav-footer{ display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding-bottom: 4.2rem !important; }
+  footer.footer .nav-footer-left, footer.footer .nav-footer-center, footer.footer .nav-footer-right{ flex: none; width: 100%; text-align: center; }
+  /* Ordre fixe (Quarto inverse centre et droite sous 768 px) : nom, réseaux, Chad AI Network. */
+  footer.footer .nav-footer-left{ order: 1; }
+  footer.footer .nav-footer-center{ order: 2; }
+  footer.footer .nav-footer-right{ order: 3; }
+  .nav-footer .footer-items{ gap: var(--space-xs) var(--space-lg); }
+}
+.site-footer-note{ font-family: var(--sans); font-size: .78rem; color: var(--text-tertiary); }
+
+/* ── Back-to-top ── */
+#stt{
+  position: fixed; right: 1.4rem; bottom: 1.4rem;
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--bg);
+  color: var(--text-secondary);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity .15s;
+  z-index: 900;
+}
+#stt.on{ opacity: 1; pointer-events: auto; }
+#stt:hover{ color: var(--accent); border-color: var(--accent); }
+
+/* ── Scroll reveal (subtle, one-time) ── */
+.rv{ opacity: 0; transform: translateY(6px); transition: opacity .5s ease, transform .5s ease; }
+.rv.in{ opacity: 1; transform: none; }
+.rv1{ transition-delay: .06s; }
+.rv2{ transition-delay: .12s; }
+.rv3{ transition-delay: .18s; }
+@media (prefers-reduced-motion: reduce){
+  .rv{ opacity: 1; transform: none; transition: none; }
+}
+
+.placeholder-note{ font-size: .82rem; color: var(--text-tertiary); font-style: italic; }
+
+
+/* ── Home: rotating multilingual slogan ─────────────────────
+   The same short sentence, cycling through the languages this work is
+   actually for. Every phrase stays in the DOM, stacked into one grid cell
+   (`grid-area: 1/1`) rather than positioned absolutely: the container is
+   sized by the tallest phrase, so swapping phrases can never reflow the
+   page or overlap the block below it — the same principle as the card
+   flow fix above. Only the active phrase is visible and exposed to
+   assistive tech. Driven by a short rotator in assets/html/foot.html. */
+.slogan{
+  display: flex; align-items: flex-start; gap: .65rem;
+  margin: var(--space-lg) 0 0;
+}
+.slogan-mark{
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--amber); flex: none; margin-top: .62rem;
+}
+.slogan-body{ display: grid; min-width: 0; }
+.slogan-item{
+  grid-area: 1 / 1;              /* all phrases share one cell — no absolute positioning */
+  min-width: 0;
+  opacity: 0; visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity .55s ease, transform .55s ease, visibility .55s;
+}
+.slogan-item.is-on{ opacity: 1; visibility: visible; transform: none; }
+.slogan-text{
+  display: block;
+  font-family: var(--serif); font-size: 1.04rem; font-style: italic;
+  line-height: 1.5; color: var(--text);
+  unicode-bidi: isolate;         /* an Arabic phrase inside an LTR page keeps its own direction */
+  text-align: start;
+}
+.slogan-lang{
+  display: block; margin-top: .25rem;
+  font-family: var(--sans); font-size: .68rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .07em;
+  color: var(--text-tertiary);
+  unicode-bidi: isolate; text-align: start;
+}
+/* Arabic and Ngambay carry diacritics that a tight leading clips. */
+.slogan-item[lang="ar"] .slogan-text,
+.slogan-item[lang="sba"] .slogan-text{ line-height: 1.75; }
+@media (prefers-reduced-motion: reduce){
+  .slogan-item{ transition: none; }
+}
+
+/* ── Blog article pages: category, share bar, prev/next ────────────
+   These classes are emitted by the .qmd posts ([…]{.post-cat},
+   ::: {.sbar}, ::: {.pnav}) and had no styling at all, so an article ended
+   up showing a bare "Share: Twitter/X LinkedIn Facebook" run of default
+   links under a horizontal rule. Same tokens as the rest of the site. */
+.post-cat{
+  font-family: var(--sans); font-size: .7rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .05em; color: var(--accent);
+}
+.sbar{ display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm); margin: 2rem 0 0; }
+.sbar-label{ font-family: var(--sans); font-size: .8rem; color: var(--text-tertiary); }
+.sbar-label strong{ font-weight: 600; }
+.sb{
+  font-family: var(--sans); font-size: .78rem; color: var(--text-secondary);
+  padding: .32rem .75rem; border: 1px solid var(--border-strong); border-radius: 20px;
+  background-color: var(--surface); background-image: none;
+  transition: color .15s ease, border-color .15s ease, background-color .15s ease;
+}
+.sb:hover{ color: var(--accent); border-color: var(--accent); background-color: var(--accent-soft); }
+.pnav{
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-lg);
+  margin: 2.6rem 0 0; padding-top: var(--space-lg); border-top: 1px solid var(--border);
+}
+.pn{
+  display: block; background-image: none;
+  font-family: var(--sans); font-size: .78rem; color: var(--text-tertiary);
+  border: 1px solid var(--border); border-radius: 10px;
+  padding: var(--space-md); background-color: var(--surface);
+  transition: border-color .2s ease, background-color .2s ease;
+}
+.pn strong{
+  display: block; margin-top: .3rem;
+  font-family: var(--serif); font-size: .98rem; font-weight: 600;
+  line-height: 1.35; color: var(--text); overflow-wrap: break-word;
+}
+.pn:hover{ border-color: var(--accent); }
+.pn:hover strong{ color: var(--accent); }
+.pn.pn-r{ text-align: right; }
+
+/* ── Responsive ───────────────────────────────────────
+   Breakpoints: <=640 phone · 641-1023 tablet · 1024-1439 laptop ·
+   >=1440 large desktop. Card grids step 3 -> 2 -> 1 columns; every grid
+   track is minmax(0, 1fr) so a long unbreakable token (a URL, a model
+   name) can never force a track wider than its share and push the page
+   into horizontal scroll. */
+@media (min-width: 1024px){
+  .grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .rcard-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 641px) and (max-width: 1023.98px){
+  .grid, .rcard-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px){
+  .grid, .rcard-grid{ grid-template-columns: minmax(0, 1fr); }
+}
+
+/* With no YAML title Quarto still emits the title-block wrapper, now empty.
+   It contributes nothing but margin, so take it out of the flow. */
+#title-block-header:empty{ display: none; }
+
+/* Nothing on any page may exceed the viewport width. */
+img, svg, video, iframe, table{ max-width: 100%; }
+img{ height: auto; }
+h1, h2, h3, h4, .name, .hero-xxl, .eitem-title, .cv-pos, .gcard h3{ overflow-wrap: break-word; }
+
+/* Navbar below Quarto's navbar-expand-lg breakpoint: the hamburger drawer
+   holds the page links, the EN/FR/AR switch and the social icons (both of
+   the latter live inside #navbarCollapse, so they collapse with it).
+   The desktop `height: 48px !important` had to be released here — with a
+   fixed height the expanded drawer was clipped out of the fixed header. */
+@media (max-width: 991.98px){
+  .navbar{
+    height: auto !important;
+    min-height: 48px;
+    padding: 0 1rem !important;
+    align-items: center;
+  }
+  .navbar-collapse{
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+  }
+  .navbar-collapse .navbar-nav{ width: 100%; }
+  .navbar-collapse .nav-link{
+    display: flex; align-items: center;
+    min-height: 44px;                       /* touch target */
+    margin: 0 !important;
+    padding: .25rem !important;
+    font-size: .95rem !important;
+  }
+  .navbar-collapse .navbar-nav.ms-auto{
+    margin-top: .35rem;
+    padding-top: .5rem;
+    border-top: 1px solid var(--border);
+  }
+  /* Language switch sits on its own row in the drawer rather than being
+     squeezed into the icon run, with full-size tap targets. */
+  .navbar-collapse #lsw{ padding: .35rem 0; }
+
+  .navbar-collapse .lb{ font-size: .82rem; padding: .5rem .8rem; min-height: 40px; }
+  .navbar-toggler{ min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+  .navbar-brand{ font-size: .92rem !important; }
+}
+
+@media (max-width: 640px){
+  /* Body copy stays at >=16px: nothing on a phone should need pinch-zoom.
+     Small type is kept for labels and metadata only (eyebrows, dates,
+     status pills), never for prose. */
+  body{ font-size: 1.05rem; }
+  p{ max-width: none; }
+  .gcard p, .featured-project p, .eitem-desc, .cv-desc, .rq p, .slogan-text{ font-size: 1rem; }
+  .question-list li{ font-size: 1.02rem; }
+  /* Controls, not prose — but 13px chips are uncomfortable to read and aim
+     at on a phone, so the interactive labels come up too. */
+  .fchip, .sb, .pbtn, .link-btn, .tag{ font-size: .9rem; }
+  .role, .cv-role{ font-size: .95rem; }
+  .page{ padding: 2rem 1.25rem 3.5rem; }
+  .name{ font-size: 1.75rem; }
+  .cv-header h1{ font-size: 1.45rem; }
+  .featured-project h3{ font-size: 1.25rem; }
+  .cv-contact-row{ gap: .6rem var(--space-md); font-size: .88rem; }
+  .lang-bar-row{ max-width: none; }
+  .pnav{ grid-template-columns: minmax(0, 1fr); gap: var(--space-md); }
+  .pn.pn-r{ text-align: left; }
+  .cta-row .cta-pill{ flex: 1 1 auto; justify-content: center; }
+
+  /* CV rows: the year moves above the role instead of fighting it for a
+     shared line, which is what a `1fr auto` grid does on a narrow screen. */
+  .cv-row{ grid-template-columns: minmax(0, 1fr); gap: .25rem; }
+  .cv-row > div:first-child{ order: 2; }
+  .cv-yr{ order: 1; }
+}
+
+/* Large desktop: keep proportional vertical air on a 1920 screen. The
+   measure itself is already capped by .page / .page-wide. */
+@media (min-width: 1440px){
+  .page{ padding-top: 4rem; }
+  .hero-xxl{ max-width: 17ch; }
+}
+
+/* ── RTL (Arabic) ──
+   Flex/grid layouts here are direction-relative and mirror on their own;
+   only physical (non-logical) properties below need explicit overrides. */
+[dir="rtl"] #TOC a{ border-left: none; border-right: 2px solid transparent; padding-left: 0; padding-right: .7rem; }
+[dir="rtl"] #TOC a:hover, [dir="rtl"] #TOC a.active{ border-right-color: var(--accent); }
+[dir="rtl"] .cv-desc ul{ padding-left: 0; padding-right: 1.2rem; }
+[dir="rtl"] #stt{ right: auto; left: 1.4rem; }
+
+/* Physical borders/alignment introduced by the sections above. Flex/grid
+   layouts (.slogan, .gcard, .featured-project, .pnav, .cv-row) are
+   direction-relative and mirror on their own — including `align-self`,
+   whose flex-start follows the writing direction. */
+[dir="rtl"] .rq{ border-left: none; border-right: 2px solid var(--accent); border-radius: 6px 0 0 6px; }
+[dir="rtl"] .pn.pn-r{ text-align: left; }
+/* The "→" affordance in card and inline links is a character, so it does
+   not mirror with `dir`. Flip it geometrically instead of swapping glyphs,
+   so the hover nudge keeps pointing the way the link reads. */
+[dir="rtl"] .link-arrow .arrow, [dir="rtl"] .gcard-more .arrow{ transform: scaleX(-1); }
+[dir="rtl"] .link-arrow:hover .arrow, [dir="rtl"] .gcard-more:hover .arrow{ transform: scaleX(-1) translateX(3px); }
+[dir="rtl"] .navbar-collapse .nav-link{ padding-right: .25rem !important; }
+
+/* CV : langues en liste simple (niveau entre parenthèses) */
+.cv-langs{ list-style: none; margin: var(--space-sm) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; }
+.cv-langs li{ margin: 0; color: var(--text-secondary); }
+.cv-langs strong{ color: var(--text); font-weight: 600; }
+
+
+/* ── Principes : onglets en ligne, texte en dessous ─────────────────── */
+.pv{ margin-top: var(--space-lg); }
+/* Les quatre principes sur une seule ligne, en colonnes de même largeur. */
+.pv-tabs{ display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .55rem; }
+.pv-tab{
+  -webkit-appearance: none; appearance: none; cursor: pointer;
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: .35rem;
+  width: 100%; padding: .8rem .9rem; min-height: 44px;
+  background: transparent; border: 1px solid var(--border-strong); border-radius: 6px;
+  font-family: var(--sans); font-size: .9rem; font-weight: 500; line-height: 1.25; text-align: start;
+  color: var(--text-secondary);
+  transition: color .18s ease, border-color .18s ease, background-color .18s ease;
+}
+.pv-num{ font-family: var(--mono, ui-monospace, monospace); font-size: .72rem; color: var(--accent); transition: color .18s ease; }
+.pv-tab:hover{ color: var(--text); border-color: var(--accent); }
+.pv-tab:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; }
+.pv-tab[aria-selected="true"]{ background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.pv-tab[aria-selected="true"] .pv-num{ color: var(--bg); opacity: .75; }
+.pv-stage{ margin-top: 1.6rem; padding-top: 1.5rem; border-top: 1px solid var(--border); min-height: 11rem; }
+.pv-title{ font-family: var(--serif); font-size: clamp(1.4rem, 2.3vw, 1.75rem); font-weight: 600; line-height: 1.2; margin: 0 0 .8rem; color: var(--text); }
+.pv-panel p{ color: var(--text-secondary); margin: 0 0 .9rem; }
+.pv-panel p:last-child{ margin-bottom: 0; }
+.pv-panel:focus-visible{ outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 4px; }
+.pv-panel[hidden]{ display: none; }
+.pv-panel.is-in{ animation: pvIn .3s cubic-bezier(.2, .7, .3, 1); }
+@keyframes pvIn{ from{ opacity: 0; transform: translateY(6px); } to{ opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce){ .pv-panel.is-in{ animation: none; } }
+/* Sans JavaScript : tous les principes lisibles, les uns sous les autres. */
+.pv:not(.is-ready) .pv-tabs{ display: none; }
+.pv:not(.is-ready) .pv-panel[hidden]{ display: block; margin-top: 1.5rem; }
+/* Téléphone : boutons en grille 2 × 2, texte en dessous. */
+@media (max-width: 560px){
+  .pv-tabs{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+  .pv-tab{ padding: .7rem .8rem; font-size: .86rem; }
+  .pv-stage{ min-height: 0; }
+}
+@media (max-width: 340px){ .pv-tabs{ grid-template-columns: minmax(0, 1fr); } }
+
+/* Téléphone : le nom en signature, la langue et le mode sombre tiennent sur une seule ligne. */
+@media (max-width: 480px){
+  .navbar-brand .navbar-title{ font-size: 1rem; }
+  .navbar-brand{ margin-inline-end: .4rem !important; }
+  .lsw-globe{ display: none; }
+  .lsw-btn{ padding: 0 .45rem; }
+  .quarto-navbar-tools{ margin-inline-start: .15rem; gap: 0; }
+}
+@media (max-width: 360px){
+  .navbar-brand .navbar-title{ font-size: .92rem; letter-spacing: -.02em; }
+  .navbar{ padding-inline: .35rem .5rem !important; }
+  .lsw-btn{ padding: 0 .35rem; gap: .2rem; }
+}
+
+/* ── Cartes empilées (Accueil : « Ce que je fais », « Ce qui me motive », « Mes principes ») ──
+   Principe : chaque carte est `position: sticky`. En défilant, la carte suivante
+   (plus haut dans l'ordre d'empilement) remonte et recouvre la précédente, qui
+   reste en place, légèrement réduite et assombrie (profondeur).
+   - --stack-top : position d'arrêt de chaque carte, calculée par initStacks()
+     (foot.html) : sous l'en-tête + un petit décalage par carte (le bord des cartes
+     précédentes reste visible) ; pour une carte plus haute que l'écran, l'arrêt
+     est remonté pour que tout son contenu défile avant d'être recouvert.
+   - --p (0 → 1) : part de la carte déjà recouverte, mise à jour au défilement.
+   - Aucun ancêtre n'a d'overflow caché (condition pour que sticky fonctionne). */
+.stack{
+  --stack-w: min(66rem, calc(100vw - 2.5rem));
+  width: var(--stack-w);
+  margin: var(--space-xl) auto var(--space-2xl);
+  position: relative;
+}
+.stack-card{
+  position: sticky;
+  top: var(--stack-top, calc(var(--hdr-h) + var(--hdr-gap) + 1.25rem + var(--i, 0) * 1rem));
+  z-index: calc(var(--i, 0) + 1);
+  margin-bottom: clamp(2.5rem, 14vh, 8rem);       /* distance de défilement pendant laquelle la carte reste seule */
+  padding: clamp(1.6rem, 4vw, 3.25rem) clamp(1.4rem, 4.5vw, 3.75rem);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 -1px 0 var(--border), 0 -18px 40px -30px rgba(0, 0, 0, .35);
+  transform-origin: 50% 0;
+  transform: scale(calc(1 - var(--p, 0) * .045));
+  will-change: transform;
+}
+.stack-card:last-child{ margin-bottom: 0; }
+/* Voile qui assombrit une carte à mesure qu'elle est recouverte. */
+.stack-card::after{
+  content: ""; position: absolute; inset: -1px; border-radius: inherit; pointer-events: none;
+  background: var(--bg); opacity: calc(var(--p, 0) * .55);
+}
+/* Distinction discrète entre cartes : la teinte de fond varie très légèrement. */
+.stack-card:nth-child(3n+2){ background: color-mix(in srgb, var(--accent) 4%, var(--surface)); }
+.stack-card:nth-child(3n+3){ background: var(--surface-elevated, var(--surface)); }
+.quarto-dark .stack-card{ box-shadow: 0 -1px 0 var(--border), 0 -18px 40px -24px rgba(0, 0, 0, .9); }
+.quarto-dark .stack-card:nth-child(3n+2){ background: color-mix(in srgb, var(--accent) 7%, var(--surface)); }
+
+.stack-head{ display: flex; flex-direction: column; gap: .5rem; margin-bottom: clamp(1.2rem, 2.5vw, 2rem); padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+.stack-num{ font-family: var(--mono, ui-monospace, monospace); font-size: .74rem; letter-spacing: .06em; color: var(--accent); }
+.stack-head h2{ margin: 0; padding: 0; border: 0; font-family: var(--serif); font-size: clamp(1.7rem, 3.4vw, 2.5rem); font-weight: 600; line-height: 1.1; letter-spacing: -.015em; }
+.stack-body{ max-width: 46rem; }
+.stack-body > p:first-child{ margin-top: 0; }
+.stack-body > :last-child{ margin-bottom: 0; }
+.stack-body .stats-grid{ margin-top: var(--space-lg); }
+/* « Ce qui me motive » : texte court, mis en valeur comme une citation. */
+.stack-card.is-quote .stack-body > p:first-child{ font-family: var(--serif); font-size: clamp(1.25rem, 2.2vw, 1.55rem); line-height: 1.45; color: var(--text); }
+/* La page reprend sa colonne après les cartes. */
+.page-after-stack{ padding-top: 0 !important; }
+.page-intro{ padding-bottom: 0 !important; }
+
+/* Tablette : décalages et marges réduits, superposition conservée. */
+@media (max-width: 900px){
+  .stack-card{ margin-bottom: clamp(2rem, 10vh, 5rem); }
+}
+/* Téléphone : cartes pleine largeur (16 px de marge), pas de réduction d'échelle (le texte reste net),
+   seul le voile marque la superposition ; les cartes plus hautes que l'écran défilent entièrement
+   avant d'être recouvertes (voir initStacks). */
+@media (max-width: 600px){
+  .stack{ --stack-w: calc(100vw - 2rem); margin-block: var(--space-lg) var(--space-xl); }
+  .stack-card{ transform: none; border-radius: 8px; margin-bottom: 2.5rem; }
+  .stack-card::after{ opacity: calc(var(--p, 0) * .4); }
+}
+@media (prefers-reduced-motion: reduce){
+  .stack-card{ transform: none; }
+}
+
+/* ── Accueil : profil en colonne latérale + texte qui défile à droite ─────
+   Grand écran (≥ 1000 px) : deux colonnes. La colonne gauche est `sticky` : le
+   profil reste visible pendant que la présentation et les cartes empilées défilent
+   à droite. Elle ne se fige que si elle tient en entier dans l'écran (hauteur
+   ≥ 600 px) ; sinon elle défile normalement, pour que rien ne soit jamais coupé.
+   Tablette et téléphone : une seule colonne, profil en haut, aucun élément figé. */
+.home-layout{
+  width: min(74rem, calc(100vw - 2.5rem));
+  margin: clamp(2rem, 5vw, 3.5rem) auto clamp(3rem, 8vw, 6rem);
+  display: grid;
+  grid-template-columns: minmax(15rem, 18.5rem) minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: start;
+}
+.home-side{ position: static; min-width: 0; }
+.home-side-slot{ display: none; }
+/* Profil fixé (≥ 1000 px de large, dès qu'il tient en hauteur) : initHomeSide() dans foot.html ajoute .is-pinned, place le profil en
+   `position: fixed` exactement au-dessus de la colonne gauche (gauche et largeur mesurées), et le
+   fait remonter seulement quand le pied de page arrive. On n'utilise plus `position: sticky`, qui
+   cesse de fonctionner dès qu'un conteneur parent coupe le débordement (overflow) : c'est ce qui
+   empêchait le profil de rester visible chez vous. */
+.home-layout.is-pinned .home-side-slot{ display: block; grid-column: 1; grid-row: 1; min-height: 1px; }
+.home-layout.is-pinned .home-side{
+  position: fixed; z-index: 2;
+  top: calc(var(--hdr-h) + var(--hdr-gap) + 2rem);
+  will-change: transform;
+}
+.home-layout.is-pinned .home-main{ grid-column: 2; grid-row: 1; }
+.home-layout.is-pinned .home-side{ top: calc(var(--hdr-h) + var(--hdr-gap) + 1.5rem); }
+/* Écrans peu hauts (portable, zoom 125–150 %) : profil compact pour qu'il tienne entier, fixé. */
+@media (min-width: 1000px) and (max-height: 820px){
+  .home-side .hp-photo{ width: min(100%, 10.5rem); margin-bottom: 1rem; }
+  .home-side .hp-name{ font-size: 1.6rem; margin-bottom: .5rem; }
+  .home-side .hp-role{ font-size: .86rem; margin-bottom: .9rem; }
+  .home-side .hp-links{ gap: .35rem; }
+  .home-side .hp-links .lk{ padding: .35rem .6rem; font-size: .8rem; }
+}
+@media (min-width: 1000px) and (max-height: 560px){
+  .home-side .hp-photo{ width: 7.5rem; margin-bottom: .7rem; }
+  .home-side .hp-name{ font-size: 1.4rem; }
+}
+.hp-photo{
+  display: block; width: min(100%, 15rem); height: auto; aspect-ratio: 1 / 1; object-fit: cover;
+  border-radius: 16px;           /* carré aux coins arrondis ; 50% pour revenir au cercle */
+  box-shadow: 0 0 0 1px var(--border), 0 20px 40px -28px rgba(0, 0, 0, .45);
+  margin-bottom: 1.4rem;
+}
+.hp-name{
+  font-family: var(--serif); font-weight: 600; letter-spacing: -.015em; line-height: 1.08;
+  font-size: clamp(1.75rem, 2.4vw, 2.15rem); margin: 0 0 .7rem; padding: 0; border: 0; color: var(--text);
+  overflow-wrap: break-word;
+}
+.hp-role{ font-family: var(--sans); font-size: .92rem; line-height: 1.5; color: var(--text-secondary); margin: 0 0 1.2rem; }
+.hp-role a{ color: inherit; text-decoration: underline; text-decoration-color: var(--border-strong); text-underline-offset: 3px; }
+.hp-role a:hover{ color: var(--accent); text-decoration-color: currentColor; }
+.hp-links{ display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 1.4rem; }
+.hp-facts{ margin: 0; padding-top: 1.1rem; border-top: 1px solid var(--border); display: grid; gap: .7rem; font-family: var(--sans); font-size: .82rem; }
+.hp-facts div{ display: grid; gap: .1rem; }
+.hp-facts dt{ color: var(--text-tertiary); font-size: .7rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; }
+.hp-facts dd{ margin: 0; color: var(--text-secondary); }
+.home-main{ min-width: 0; }
+.home-about{ margin-bottom: clamp(2rem, 4vw, 3rem); }
+.hp-kicker{ font-family: var(--sans); font-size: .74rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 .8rem; }
+.hp-bio{ font-family: var(--serif); font-size: clamp(1.2rem, 1.9vw, 1.5rem); line-height: 1.5; color: var(--text); margin: 0; max-width: 44rem; }
+/* Les cartes empilées occupent la colonne de droite. */
+.home-main .stack{ width: 100%; margin: 0; }
+@media (max-width: 999px){
+  .home-layout{ grid-template-columns: minmax(0, 1fr); gap: 2rem; width: min(46rem, calc(100vw - 2rem)); }
+  .home-side{ display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 1.3rem; align-items: center; }
+  .hp-photo{ width: clamp(6.5rem, 26vw, 10.5rem); margin: 0; grid-row: span 2; }
+  .hp-name{ font-size: clamp(1.6rem, 5.5vw, 2.2rem); margin-bottom: .4rem; align-self: end; }
+  .hp-role{ margin: 0; align-self: start; }
+  .hp-links, .hp-facts{ grid-column: 1 / -1; }
+  .hp-links{ margin: 1.3rem 0 0; }
+  .hp-facts{ margin-top: 1.2rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 420px){
+  .home-side{ grid-template-columns: minmax(0, 1fr); }
+  .hp-photo{ grid-row: auto; margin-bottom: 1rem; }
+  .hp-facts{ grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Accueil : texte de droite, simple et continu (présentation, motivation, principes). */
+.home-text{ max-width: 44rem; }
+.home-text section + section{ margin-top: clamp(2.5rem, 5vw, 3.75rem); }
+.home-text h2{
+  font-family: var(--serif); font-size: clamp(1.45rem, 2.2vw, 1.8rem); font-weight: 600; letter-spacing: -.01em;
+  margin: 0 0 1rem; padding: 0 0 .7rem; border-bottom: 1px solid var(--border);
+}
+.home-text p{ color: var(--text-secondary); margin: 0 0 1rem; }
+.home-text .hp-lead{ font-size: clamp(1.2rem, 1.9vw, 1.42rem); line-height: 1.5; color: var(--text); }
+.hp-principles{ list-style: none; margin: 0; padding: 0; counter-reset: pr; display: grid; gap: 1.4rem; }
+.hp-principles li{ counter-increment: pr; display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); column-gap: .4rem; margin: 0; }
+.hp-principles li::before{ content: counter(pr, decimal-leading-zero); grid-row: span 2; font-family: var(--mono, ui-monospace, monospace); font-size: .78rem; color: var(--accent); padding-top: .35rem; }
+.hp-principles h3{ font-family: var(--serif); font-size: 1.15rem; font-weight: 600; margin: 0 0 .3rem; color: var(--text); }
+.hp-principles p{ margin: 0; }
+
+/* ── Recherche : cartes d'axes (titre + une phrase + mots-clés) ── */
+.rcard h3{ font-size: 1.18rem; }
+.rcard > h3 + p{ margin-top: .65rem; }
+.rcard > p{ font-size: .98rem; line-height: 1.6; }
+.rcard > .tag-row{ margin-top: auto; padding-top: .9rem; gap: .4rem; }
+
+/* ── Cartes (Projets, Recherche) : mots-clés compacts, statut + lien alignés en bas ── */
+.gcard .tag-row{ gap: .35rem; }
+.gcard .tag-row .tag{ font-size: .74rem; font-weight: 500; padding: .22rem .6rem; border-radius: 999px; background: transparent; line-height: 1.4; }
+.gcard > .gcard-meta{ margin-top: auto; padding-top: 1rem; }
+.gcard > .gcard-meta + .gcard-more{ margin-top: .7rem; padding-top: 0; }

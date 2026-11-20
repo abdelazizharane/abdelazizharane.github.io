@@ -1,0 +1,88 @@
+---
+title: "Trois ans au Deep Learning Indaba, de bénévole à évaluateur"
+description: "Bénévole en 2024, évaluateur des candidatures en 2025, des candidatures et des posters en 2026, puis finaliste du Wangari Maathai Impact Award : ce que le bénévolat au Deep Learning Indaba m'a appris, et ce qu'il a changé pour le travail mené au Tchad."
+type: annonce
+lang: fr
+date: 2026-11-20
+categories: [Réflexions, Langues africaines]
+draft: true          # retirer cette ligne pour publier
+see-also:
+  - ref: kalam-na
+---
+
+<!-- À COMPLÉTER AVANT PUBLICATION (ces commentaires ne s'affichent pas) :
+     - 2024 : sur place à Dakar ou à distance ? Quelles tâches exactement (accueil, logistique, sessions, réseaux…) ?
+     - 2025 : nombre approximatif de dossiers évalués ; à distance ?
+     - 2026 : nombre de dossiers / posters évalués ; présent à Lagos ?
+     - Une anecdote précise par année rendrait le texte plus vivant (une personne, une session, un moment). -->
+
+En juillet 2026, le Deep Learning Indaba a publié la liste de ses prix de l'année. J'y figurais comme finaliste du Wangari Maathai Impact Award. Ce prix n'est pas venu de nulle part : il arrive au bout de trois années passées à travailler pour cette communauté, d'abord comme bénévole, ensuite comme évaluateur. Ce billet raconte ce parcours, parce qu'on parle souvent des prix et rarement du travail discret qui les précède.
+
+## Ce qu'est le Deep Learning Indaba
+
+Le Deep Learning Indaba est la principale rencontre africaine consacrée à l'apprentissage automatique. Chaque année, une ville différente du continent accueille une semaine de cours, d'ateliers, de posters et de discussions entre étudiants, chercheurs et praticiens. *Indaba* désigne, en zoulou, une assemblée où l'on se réunit pour débattre des affaires communes. Le nom dit bien l'intention : renforcer l'apprentissage automatique en Afrique par et pour des Africains.
+
+Autour de la rencontre annuelle existent les IndabaX, des éditions nationales organisées par des communautés locales. C'est par cette porte que le Tchad est entré dans le réseau.
+
+## 2024 : commencer comme bénévole
+
+Ma première année avec le Deep Learning Indaba, en 2024, je l'ai passée comme bénévole.
+<!-- Décrire ici les tâches réelles : accueil des participants, appui aux sessions, logistique, communication… et le lieu (Dakar, Sénégal, ou à distance). -->
+
+Le bénévolat a quelque chose d'ingrat : on voit l'événement depuis les coulisses, rarement depuis la scène. C'est pourtant de là que j'ai le plus appris. On comprend ce que coûte une session qui commence à l'heure, une salle prête, un intervenant accueilli. On mesure aussi le nombre de personnes, souvent invisibles, qui tiennent une rencontre de cette taille.
+
+La même année, le Tchad organisait sa propre édition. Le Deep Learning Indaba avait confirmé IndabaX Chad en janvier 2024 ; la première édition s'est tenue à N'Djaména les 26 et 27 octobre 2024, avec un comité d'organisation de seize personnes. Le jour de l'ouverture, Internet a été coupé dans la capitale de 9 heures à 15 h 43. Quatre intervenants sur cinq devaient intervenir à distance. Nous avons maintenu le programme. Ce que j'avais vu dans les coulisses du Deep Learning Indaba m'a servi ce jour-là : prévoir le plan B avant d'en avoir besoin.
+
+## 2025 : évaluer les candidatures
+
+En 2025, je suis passé de l'autre côté du formulaire : évaluateur des candidatures au Deep Learning Indaba.
+<!-- Préciser : nombre approximatif de dossiers lus, période, à distance. -->
+
+Chaque année, des milliers de personnes demandent à participer, et les places sont limitées. Derrière chaque dossier, il y a quelqu'un qui a pris le temps d'expliquer son parcours, souvent dans une langue qui n'est pas sa première, parfois avec une connexion instable. Évaluer, c'est accepter d'en refuser beaucoup. C'est aussi une responsabilité : un dossier lu trop vite peut écarter la personne que la rencontre aurait le plus aidée.
+
+J'ai appris à lire autrement. Une candidature solide n'est pas toujours la plus brillante ; c'est souvent celle où l'on voit ce que la personne a fait avec peu de moyens, et ce qu'elle compte rapporter chez elle. Ce regard, je l'ai gardé pour IndabaX Chad. En 2025, la salle de notre deuxième édition nous a été retirée cinq jours avant l'ouverture. Nous l'avons tenue malgré tout.
+
+## 2026 : candidatures et posters, à Lagos
+
+En 2026, pour l'édition de Lagos, au Nigeria, j'ai évalué à la fois les candidatures et les posters.
+<!-- Préciser : présence sur place ou non, nombre de posters, une rencontre marquante. -->
+
+Évaluer un poster, ce n'est pas seulement noter un résultat. C'est discuter avec quelqu'un qui présente parfois sa première recherche devant un public, lui poser la question qui l'aidera à aller plus loin, et lui dire clairement ce qui tient et ce qui ne tient pas encore. Beaucoup de posters portaient sur des langues, des données ou des problèmes africains que les grands jeux de test ignorent. C'est exactement le terrain sur lequel je travaille au Tchad.
+
+## Le Wangari Maathai Impact Award
+
+Le 14 juillet 2026, le Deep Learning Indaba a annoncé ses prix. Le Wangari Maathai Impact Award récompense des Africains dont le travail en apprentissage automatique ou en IA a un impact technique, social, environnemental ou économique. Il porte le nom de Wangari Maathai, qui croyait à la capacité de chacun à faire bouger les choses. Le comité des prix a examiné plus de cinquante nominations, avec l'aide d'évaluateurs extérieurs venus de l'université, de la recherche et de l'industrie.
+
+Le prix est revenu à la Dr Hellina Hailu Nigatu, pour ses travaux sur les biais de genre en traduction automatique pour l'amharique, l'afaan oromo et le tigrinya. J'en ai été le finaliste.
+
+L'annonce rappelle les raisons de ce choix :
+
+- le Tchad compte 123 langues, et seules deux apparaissent dans les outils numériques existants ;
+- avec Kalam-na, nous avons constitué des données de parole et de texte pour seize dialectes de la famille sara : plus de 68 000 extraits audio transcrits et 72 000 textes alignés, base de futurs modèles ouverts de reconnaissance vocale, de synthèse vocale et de traduction ;
+- Kalam-na Voice permet aux locuteurs d'enregistrer leur propre voix sans obstacle technique ;
+- le Chad AI Network, que j'ai fondé, compte plus de deux cents membres ; il a porté deux éditions d'IndabaX Chad ;
+- ce travail pourrait concerner environ quatre millions de locuteurs de langues tchadiennes.
+
+Dans l'annonce, j'ai dit être profondément honoré par ce prix, que je vois comme le reflet d'un engagement : résoudre les problèmes réels du Tchad grâce à l'IA et au génie logiciel. Je le pense toujours. J'ajouterais une chose : ce prix appartient aussi aux locuteurs qui ont prêté leur voix, aux membres du comité d'IndabaX Chad, et à tous ceux qui ont tenu bon les jours où rien ne marchait.
+
+## Ce que le bénévolat m'a appris
+
+**Une communauté se construit par les tâches que personne ne voit.** Accueillir, relire, répondre aux messages, préparer une salle. Rien de cela n'apparaît dans un CV de chercheur. Tout cela fait qu'une rencontre a lieu.
+
+**Évaluer les autres oblige à mieux travailler soi-même.** Après avoir lu des dizaines de dossiers et de posters, on voit vite ce qui manque à ses propres textes : une question claire, une limite reconnue, une mesure honnête.
+
+**Le réseau sert d'abord à ceux qui viennent après.** Ce que j'ai reçu du Deep Learning Indaba, contacts, méthodes, confiance, je l'ai rapporté à N'Djaména. Plus de 350 personnes ont été formées en science des données et en apprentissage automatique autour d'IndabaX Chad, en partie grâce à notre partenariat avec DataCamp. Nos recommandations ont été remises aux ministères chargés des TIC et de l'Enseignement supérieur.
+
+**Persévérer est une compétence.** Une coupure d'Internet, une salle retirée, des demandes refusées : rien de cela n'a arrêté le travail. Il a fallu chaque fois trouver une autre façon de faire.
+
+## Et maintenant
+
+Je continue de m'engager comme bénévole et comme évaluateur, parce que cette communauté m'a donné plus que je ne lui ai rendu. Au Tchad, le travail reste immense : la plupart de nos langues n'ont encore aucun outil numérique, et beaucoup de jeunes qui veulent apprendre l'IA n'ont pas accès aux formations.
+
+Si vous êtes étudiant, chercheur ou développeur au Tchad ou ailleurs en Afrique : candidatez au Deep Learning Indaba, proposez-vous comme bénévole, rejoignez une édition IndabaX près de chez vous. Et si vous voulez travailler sur les langues et les problèmes du Tchad, le [Chad AI Network](https://chadainetwork.org) est ouvert.
+
+## Pour aller plus loin
+
+- [Annonce des prix 2026 du Deep Learning Indaba](https://deeplearningindaba.com/blog/2026/07/2026-awards-announcement/)
+- [Rapport d'impact 2025 du Deep Learning Indaba](https://deeplearningindaba.com/blog/2026/05/deep-learning-indaba-impact-report-2025/)
+- [Ouverture du Deep Learning Indaba 2026 à Lagos (Tech Review Africa)](https://techreviewafrica.com/news/6594/deep-learning-indaba-2026-opens-in-nigeria-with-focus-on-sovereign-intelligence-and-african-ai-innovation)

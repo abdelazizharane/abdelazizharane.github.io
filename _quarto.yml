@@ -1,76 +1,97 @@
 project:
   type: website
   output-dir: _site
+  # Les dossiers/fichiers dont le nom commence par "_" (ex. blog/_modeles/)
+  # sont ignorés par Quarto : ce sont les modèles d'articles, pas des pages.
   render:
-    - "index.qmd"
-    - "blog/index.qmd"
-    - "blog/*.qmd"
-    - "articles/index.qmd"
+    - "*.qmd"
+    - "blog/**/*.qmd"
+    - "essais/**/*.qmd"
+  resources:
+    - "assets/js/*.js"
+    - "assets/img/*"
+    # gallery photos (Medias → Photos), also the large format  grand .
+    - "assets/img/galerie/*"
+    # Fichiers joints aux articles (PDF, jeux de données, .bib) référencés dans `links:`.
+    - "blog/*/files/*"
+    - "essais/*/files/*"
 
 website:
   title: "Abdel-aziz Harane"
-  description: "ML/NLP Engineer & AI Researcher — Chad AI Network"
   favicon: assets/img/favicon.svg
-  site-url: "https://abdelazizharane.github.io"
 
-  sidebar:
-    style: "docked"
-    background: "light"
-    collapse-level: 1
-    contents:
-      - text: "About"
+  site-url: "https://abdelazizharane.com"
+  open-graph:
+    # default image (1200×630)
+    image: /assets/img/og-default.png
+    image-alt: "Abdel-aziz Harane, ingénieur ML/NLP et chercheur, Chad AI Network"
+  twitter-card:
+    card-style: summary_large_image
+    image: /assets/img/og-default.png
+
+  navbar:
+    pinned: true
+    left:
+      - text: "Accueil"
         href: index.qmd
-        icon: person-circle
-      - text: "Blog"
+      - text: "Recherche"
+        href: research.qmd
+      - text: "Projets"
+        href: projects.qmd
+      # « Écrits » regroupe Blog et Essais (sous-onglets en haut des deux pages).
+      - text: "Écrits"
         href: blog/index.qmd
-        icon: journal-text
-      - text: "Articles"
-        href: articles/index.qmd
-        icon: book
+      - text: "Médias"
+        href: medias.qmd
+      - text: "CV"
+        href: cv.qmd
+  # Recherche plein texte : l'index search.json sert à la recherche des pages Blog et Essais.
+  search:
+    location: navbar
+    type: overlay
+    limit: 12
+    keyboard-shortcut: ["/"]
 
   page-footer:
-    left: "© 2025 Abdel-aziz Harane · [Chad AI Network](https://chadainetwork.org)"
-    right: "Construit avec [Quarto](https://quarto.org)"
-
-  open-graph:
-    title: "Abdel-aziz Harane"
-    description: "ML/NLP Engineer, fondateur du Chad AI Network."
-  twitter-card:
-    title: "Abdel-aziz Harane"
-    card-style: summary
+    left: "Abdel-aziz Harane Abounounou"
+    center:
+      - text: '<i class="bi bi-linkedin" aria-hidden="true"></i> LinkedIn'
+        href: https://www.linkedin.com/in/abdel-aziz-harane/
+      - text: '<i class="bi bi-github" aria-hidden="true"></i> GitHub'
+        href: https://github.com/abdelazizharane
+      - text: '<i class="bi bi-twitter-x" aria-hidden="true"></i> X'
+        href: https://x.com/Abdel_azizH
+    right: '[Chad AI Network](https://chadainetwork.org) : Résoudre les problèmes locaux'
 
 format:
   html:
     theme:
-      light: [flatly, assets/css/harane-light.scss]
-      dark:  [darkly, assets/css/harane-dark.scss]
-    css: assets/css/harane.css
-    include-in-header: assets/html/head-extra.html
-    include-after-body: assets/html/body-extra.html
+      light: flatly
+      dark: darkly
+    css:
+      - assets/css/main.css
+      - assets/css/writing.css
+    include-in-header: assets/html/head.html
+    include-after-body: assets/html/foot.html
     toc: false
-    number-sections: false
     smooth-scroll: true
-    # ── Code : TOUT masqué — jamais de bouton "Code source" ──
-    code-fold: false
+    page-layout: full
+    title-block-banner: false
     code-tools: false
-    code-copy: false
-    code-link: false
-    echo: false
-    highlight-style: github
-    fig-align: center
-    fig-cap-location: bottom
-    df-print: paged
+    code-copy: true
+    anchor-sections: false
+    code-overflow: scroll
+    highlight-style: a11y    # contrast color (WCAG AA).
     link-external-newwindow: true
+    echo: false
+    # blog and essays articles gabarits
+    filters:
+      - assets/lua/article.lua
 
 execute:
   freeze: auto
-  cache: false
   warning: false
   message: false
-  echo: false        # ← ne jamais afficher le code dans les pages
-
-bibliography: references.bib
-csl: assets/csl/apa.csl
-link-citations: true
+  echo: false
 
 lang: fr

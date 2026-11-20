@@ -1,0 +1,107 @@
+---
+title: "Ce que les géants du numérique se trompent sur l'IA des langues africaines"
+subtitle: "Pourquoi l'infrastructure doit appartenir à ceux qui parlent ces langues"
+description: "Les grands laboratoires d'IA s'intéressent enfin aux langues africaines. Le problème n'est pas leur technique : c'est l'endroit où vont les données, et qui garde la main ensuite."
+lang: fr
+date: 2025-03-08
+date-modified: 2026-10-26
+categories: [Souveraineté numérique, Langues africaines]
+featured: true
+bibliography: sources-big-tech.bib
+aliases:
+  - /blog/2025-03-08-big-tech-african-languages.html
+updates:
+  - date: 2026-10-26
+    note: "Texte repris et développé en français : ajout des sources, d'une section sur les objections et d'une autre sur les limites de la démarche. L'argument d'origine est inchangé."
+see-also:
+  - ref: kalam-na
+  - ref: research-agenda
+---
+
+Le Tchad compte plus de cent vingt langues. Dans les outils numériques que nous utilisons chaque jour (clavier prédictif, traduction, dictée vocale, assistants), deux seulement y sont représentées. Tout le monde, ou presque, dit vouloir combler cet écart. Je crois que la plupart de ceux qui le disent veulent sincèrement le faire. Je crois aussi que la manière dont ils s'y prennent, dans l'ensemble, reproduit le problème qu'elle prétend résoudre.
+
+## Un écart que tout le monde dit vouloir combler
+
+Ce n'est pas un hasard si ces langues sont absentes. La recherche en traitement automatique des langues suit les langues qui ont déjà beaucoup de textes : quand on classe les langues du monde selon les données dont elles disposent, la grande majorité tombe dans les deux classes les plus pauvres, et presque toutes les langues africaines avec elles [@joshi2020].
+
+Depuis quelques années, les choses bougent. Meta a publié NLLB, un modèle de traduction couvrant deux cents langues [@nllb2022]. OpenAI a publié Whisper, un modèle de reconnaissance vocale qui en couvre une centaine [@radford2023]. Aucune langue sara, la famille du sud du Tchad où nous travaillons, n'y figure.
+
+Je ne vais pas prétendre que ces travaux sont inutiles. Ce sont des contributions techniques réelles, et je m'en sers : le modèle de traduction que nous affinons pour le sara part de NLLB-200. Mon désaccord est ailleurs. Il porte sur le chemin que prennent les données, et sur ce qui revient à ceux qui les ont données.
+
+## Le modèle extractif
+
+Le schéma est presque toujours le même, et il se décrit en quatre temps.
+
+1. On collecte des voix et des textes auprès de communautés, directement ou par des intermédiaires.
+2. On les traite dans des centres de données situés aux États-Unis ou en Europe.
+3. On restitue le résultat sous forme d'une interface qui suppose une connexion à Internet, une carte bancaire et une documentation en anglais.
+4. La communauté n'a ni propriété, ni contrôle, ni moyen de corriger une sortie qui lui paraît fausse ou déplacée.
+
+Au Tchad, la troisième étape suffit à exclure. Fin 2025, environ 13 % de la population utilisait Internet [@datareportal2026]. Un service qui ne fonctionne qu'en ligne, qui se paie par carte et qui se lit en anglais n'est pas fait pour la grande majorité des locuteurs des langues qu'il dit servir.
+
+La quatrième étape est moins visible, et plus grave. Un modèle qui rend mal un terme de parenté ou une formule de politesse n'est pas seulement inexact : il dit quelque chose de faux à des gens qui, eux, savent que c'est faux, et qui ne peuvent rien y faire.
+
+Plusieurs chercheurs, dont des Africains, décrivent ce schéma depuis des années, parfois en termes de colonisation algorithmique [@birhane2020; @mohamed2020]. Un travail collectif sur les récits qui entourent le partage de données en Afrique invite à déplacer la question : au-delà de « partager ou non », qui décide, à quelles conditions, et au profit de qui [@abebe2021].
+
+## Ce que « la souveraineté d'abord » change, concrètement
+
+Chez Chad AI Network, nous avons fait trois choix pour Kalam-na, qui rassemble des voix et des textes de 16 dialectes sara.
+
+**Le consentement se prend à l'enregistrement.** Chaque locuteur sait, au moment où il parle, ce que deviendra sa voix. Les données sont anonymisées.
+
+**Ce que nous construisons doit tourner hors ligne.** C'est le principe de KalamBot, l'assistant vocal que nous concevons pour un simple téléphone Android. Le réseau ne couvre pas tout le Logone, le Mandoul ou le Moyen-Chari ; un outil qui en dépend n'existe pas pour ceux qui n'y ont pas accès.
+
+**La réutilisation commerciale est encadrée.** Les conditions de diffusion des corpus visent à ne pas permettre l'exploitation commerciale sans retour pour les communautés qui les ont produits.
+
+C'est plus lent. Rassembler 16 dialectes avec l'accord de chacun demande de se déplacer, d'expliquer, d'obtenir le consentement, de revenir. Mais c'est la seule démarche qui laisse à la communauté quelque chose qu'elle contrôle réellement.[^care]
+
+[^care]: Ce cadre s'inspire des principes CARE de gouvernance des données autochtones : bénéfice collectif, autorité de contrôle, responsabilité, éthique [@carroll2020]. Ils ont été pensés pour d'autres contextes, et le mot « autochtone » ne se transpose pas tel quel au Tchad ; je m'en sers comme d'une grille de questions, pas comme d'un modèle à copier.
+
+::: {.pullquote}
+À qui cela appartient-il ? Qui peut le corriger ? Qui en profite ?
+:::
+
+## Trois questions avant de déployer
+
+Quand quelqu'un veut déployer un modèle de langue africaine, je lui demande de répondre à ces trois questions. Elles sont courtes ; les réponses honnêtes sont rarement simples.
+
+### À qui cela appartient-il ?
+
+Les données, d'abord. Mais aussi le modèle entraîné dessus, et le droit de décider de ses mises à jour. Une communauté qui a donné ses voix devrait pouvoir récupérer une copie du modèle qui en résulte, et pas seulement l'utiliser par une interface qu'un tiers peut retirer.
+
+Même « ouvert » ne veut pas dire libre : les poids de NLLB-200 sont publiés pour un usage non commercial.[^nllb] Pour une équipe locale qui voudrait en faire un service payant, la porte est fermée.
+
+[^nllb]: Licence CC-BY-NC 4.0, indiquée sur la page du modèle.
+
+### Qui peut le corriger ?
+
+Corriger suppose trois choses : que les locuteurs puissent signaler une erreur dans leur propre langue, que quelqu'un se charge de la corriger, et que cette personne soit accessible. Si corriger une traduction en sara exige d'écrire en anglais à une équipe à l'autre bout du monde, la question est déjà tranchée.
+
+Le travail de Masakhane montre qu'une autre voie existe. Des chercheurs africains y ont construit eux-mêmes des jeux de test de traduction pour des dizaines de langues, sans attendre qu'on les évalue de l'extérieur [@nekoto2020].
+
+### Qui en profite ?
+
+Le bénéfice ne se limite pas à l'accès à un outil. Il comprend les compétences, les emplois et les institutions qui se construisent autour. Un corpus collecté au Tchad par des ingénieurs tchadiens laisse derrière lui des gens capables de le refaire, de le corriger et de l'étendre. Un corpus collecté ailleurs n'en laisse aucun.
+
+## Objections
+
+**« Sans eux, nous n'aurions pas ces modèles. »** C'est vrai, et je m'en sers. La publication ouverte d'un modèle est une bonne chose. Ce que je critique n'est pas la recherche de ces laboratoires, mais le sens unique des flux : les données vont vers eux, et les services reviennent sous leurs conditions.
+
+**« Les communautés n'ont pas les moyens de faire autrement. »** Affiner un modèle ouvert sur des données bien préparées est à la portée d'une petite équipe. Le plus difficile n'est pas le calcul, mais la collecte, le consentement et la confiance, qui demandent du temps et de la présence plutôt que de l'argent.
+
+## Ce que je demande
+
+- **Citer les travaux portés par les communautés.** Leurs auteurs manquent souvent dans les bibliographies, parce qu'on cite ce qui est publié au bon endroit.
+- **Les financer, y compris sur ce qui n'a rien de spectaculaire** : la collecte, la gestion du consentement, le stockage, les salaires locaux.
+- **Évaluer avec des locuteurs.** Un bon score sur un jeu de test ne dit pas si la traduction d'une salutation convient.
+- **Poser les trois questions avant de déployer**, et publier les réponses.
+
+## Ce que cette position ne règle pas
+
+Je ne prétends pas que notre démarche soit exempte de problèmes.
+
+Les données de Kalam-na restent modestes : 34 heures d'audio réparties sur 16 dialectes, soit quelques heures par dialecte. Nos modèles seront d'abord moins bons que ceux des grands laboratoires, et la souveraineté ne garantit pas la qualité.
+
+« La communauté » n'est pas un bloc. Seize dialectes, ce sont seize groupes de locuteurs dont les intérêts ne coïncident pas toujours. Qui parle au nom de qui, et comment trancher un désaccord sur la manière de diffuser un corpus, sont des questions que nous n'avons pas fini de résoudre.
+
+Enfin, on peut se tromper en toute bonne foi. C'est pourquoi la deuxième question, celle de la correction, compte autant que la première : ce n'est pas d'avoir raison du premier coup qui rend une démarche saine, c'est de pouvoir être corrigé.

@@ -1,0 +1,12 @@
+# Metadata for the essais section
+type: essai
+author: "Abdel-aziz Harane Abounounou"
+page-layout: full
+title-block-style: none
+title-block-banner: false
+toc: false
+# Notes de bas de page : regroupées par article.lua dans une section « Notes » en fin de texte.
+reference-location: section
+citation: false                  # pas de bloc « Citation » sous les articles (citation: true dans un article pour l'activer)
+# Icône d'ancre sur tous les titres (liens directs vers une section).
+anchor-sections: true

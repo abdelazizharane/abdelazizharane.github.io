@@ -1,0 +1,49 @@
+# Cibles du bloc « Voir aussi » (front matter : see-also: [{ref: laal-yew}])
+# et valeurs possibles du champ `project:` des notes de recherche.
+#
+# Une entrée = une clé courte (la « ref ») + son type + ses libellés.
+# `kind` : project | publication | page | essay | article | external
+# Les libellés des projets et publications sont des NOMS PROPRES : jamais traduits automatiquement.
+# Un libellé qui n'est pas un nom propre (« Axes de recherche ») peut avoir une variante par langue :
+# `title-en:` / `title-ar:` (sinon `title` est utilisé partout).
+#
+# Pour relier un autre article du site, pas besoin d'entrée ici :
+#   see-also: [{article: essais/big-tech-african-language-ai}]
+# (le titre et le lien sont lus dans l'article lui-même).
+
+laal-yew:
+  kind: project
+  title: "Laal-Yəw"
+  href: "projects.html#laal"
+
+kalam-na:
+  kind: project
+  title: "Kalam-na"
+  href: "projects.html#kalam-na"
+
+kalambot:
+  kind: project
+  title: "KalamBot"
+  href: "projects.html#kalambot"
+
+atlas:
+  kind: project
+  title: "Atlas linguistique du Tchad"
+  title-en: "Linguistic Atlas of Chad"
+  href: "projects.html#atlas"
+
+chad-research-portal:
+  kind: project
+  title: "Chad Research Portal"
+  href: "https://chadresearchportal.com"
+
+tchaddata-explorer:
+  kind: project
+  title: "TchadData Explorer"
+  href: "projects.html"
+
+research-agenda:
+  kind: page
+  title: "Axes de recherche"
+  title-en: "Research areas"
+  href: "research.html#areas"

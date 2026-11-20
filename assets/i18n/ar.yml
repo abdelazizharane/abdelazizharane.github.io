@@ -1,0 +1,22 @@
+# Libellés générés par Quarto pour les articles rédigés en arabe.
+# Quarto n'a pas de traduction arabe : sans ce fichier, le bloc « Citation »,
+# les titres de callouts et l'infobulle du bouton de copie restent en anglais.
+# Utilisation : dans le front matter d'un article en arabe,
+#     language: ../../assets/i18n/ar.yml      (traduction : ../../../assets/i18n/ar.yml)
+# scripts/new.py l'ajoute automatiquement. À faire relire par un arabophone natif.
+section-title-citation: "الاستشهاد"
+appendix-attribution-cite-as: "للاستشهاد بهذا العمل، يُرجى استخدام الصيغة التالية:"
+appendix-attribution-bibtex: "صيغة BibTeX:"
+section-title-footnotes: "الهوامش"
+section-title-references: "المراجع"
+section-title-reuse: "إعادة الاستخدام"
+section-title-copyright: "حقوق النشر"
+callout-tip-title: "نصيحة"
+callout-note-title: "ملاحظة"
+callout-warning-title: "تحذير"
+callout-important-title: "مهم"
+callout-caution-title: "تنبيه"
+copy-button-tooltip: "نسخ إلى الحافظة"
+copy-button-tooltip-success: "تم النسخ!"
+back-to-top: "العودة إلى الأعلى"
+code-summary: "الشيفرة"

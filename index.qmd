@@ -1,204 +1,48 @@
 ---
-title: ""
-page-layout: full
-toc: false
+pagetitle: "Abdel-aziz Harane Abounounou"
+description: "Ingénieur ML/NLP, fondateur de Chad AI Network."
 ---
 
 ```{=html}
-<!-- ── PROFIL ────────────────────────────────────────────────── -->
-<div class="h-profile">
-  <div class="h-profile-top">
-    <img
-      src="https://avatars.githubusercontent.com/u/122400488?v=4"
-      alt="Abdel-aziz Harane"
-      class="h-profile-avatar"
-      onerror="this.style.display='none';document.getElementById('av-fb').style.display='flex';"
-    />
-    <div class="h-profile-avatar h-profile-avatar-fallback" id="av-fb" style="display:none;">A</div>
-
-    <div class="h-profile-id">
-      <h1 class="h-profile-name">Abdel-aziz Harane Abounounou</h1>
-
-      <div class="h-ticker-wrap" aria-label="Spécialités">
-        <div class="h-ticker">
-          <span>ML / NLP Engineer</span><span class="h-ticker-sep">·</span>
-          <span data-i18n="tag-riem">Géométrie Riemannienne</span><span class="h-ticker-sep">·</span>
-          <span>Speech Recognition</span><span class="h-ticker-sep">·</span>
-          <span>Machine Translation</span><span class="h-ticker-sep">·</span>
-          <span data-i18n="tag-chadian">Langues Africaines</span><span class="h-ticker-sep">·</span>
-          <span>Chad AI Network</span><span class="h-ticker-sep">·</span>
-          <!-- duplicate pour boucle fluide -->
-          <span>ML / NLP Engineer</span><span class="h-ticker-sep">·</span>
-          <span data-i18n="tag-riem">Géométrie Riemannienne</span><span class="h-ticker-sep">·</span>
-          <span>Speech Recognition</span><span class="h-ticker-sep">·</span>
-          <span>Machine Translation</span><span class="h-ticker-sep">·</span>
-          <span data-i18n="tag-chadian">Langues Africaines</span><span class="h-ticker-sep">·</span>
-          <span>Chad AI Network</span><span class="h-ticker-sep">·</span>
-        </div>
-      </div>
-
-      <div class="h-profile-meta">
-        <span>📍 <span data-i18n="location">N'Djaména, Tchad</span></span>
-        <span class="h-profile-sep">·</span>
-        <span class="h-status-dot"></span>
-        <span data-i18n="open-collab">Open to collaborations</span>
-      </div>
-
-      <div class="h-profile-links">
-        <a href="https://github.com/abdelazizharane" class="h-social-btn" target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-          GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/abdel-aziz-harane/" class="h-social-btn" target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
-        </a>
-        <a href="https://substack.com/@abdelazizharane" class="h-social-btn" target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
-          Substack
-        </a>
-        <a href="https://chadainetwork.org" class="h-social-btn h-social-btn-green" target="_blank">📰 Chad AI Network</a>
-      </div>
+<div class="home-layout">
+  <div class="home-side-slot" aria-hidden="true"></div>  <!-- réserve la colonne gauche quand le profil est fixé -->
+  <div class="home-side">
+    <img class="hp-photo" src="assets/img/AbdelH-600.webp" srcset="assets/img/AbdelH-360.webp 360w, assets/img/AbdelH-600.webp 600w" sizes="(max-width: 999px) 168px, 240px" width="600" height="600" alt="Portrait d'Abdel-aziz Harane Abounounou" fetchpriority="high" decoding="async">
+    <h1 class="hp-name" id="home-name">Abdel-aziz Harane Abounounou</h1>
+    <p class="hp-role">Ingénieur ML/NLP; fondateur de <a href="https://chadainetwork.org" target="_blank" rel="noopener">Chad AI Network</a></p>
+    <div class="links hp-links">
+      <a class="lk hp-link" href="https://github.com/abdelazizharane" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>GitHub</a>
+      <a class="lk hp-link" href="https://www.linkedin.com/in/abdel-aziz-harane/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>LinkedIn</a>
+      <a class="lk hp-link" href="https://x.com/Abdel_azizH" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
+      <a class="lk hp-link" href="mailto:harane.abdelaziz@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4z"/><path d="m4 6 8 7 8-7"/></svg>E-mail</a>
     </div>
   </div>
 
-  <div class="h-profile-bio">
-    <p data-i18n="bio">ML/NLP Engineer et fondateur de <strong>Chad AI Network</strong>.
+  <div class="home-main home-text">
+    <section aria-label="Présentation">
+      <p class="hp-lead">Je suis ingénieur NLP et fondateur de Chad AI Network. Mes travaux portent sur le traitement automatique de la parole et des langues à tradition orale : des langues tonales, peu standardisées à l'écrit, marquées par une forte variation dialectale, et presque absentes des données sur lesquelles reposent les modèles actuels.</p>
+      <p>Le Tchad, avec ses 123 langues autochtones, est mon terrain principal. Il pose une question qui dépasse largement ses frontières : que faut-il changer dans nos architectures pour apprendre efficacement lorsque les données sont quasi inexistantes, que l'orthographe est instable et que la variation est la règle plutôt que l'exception ?</p>
+      <p>En parallèle, je mène une recherche plus fondamentale sur les limites des Transformers, conçus (à priori) pour des langues riches en données écrites. J'explore d'autres géométries pour représenter la parole. En l'occurrence la géométrie non euclidienne.</p>
+    </section>
 
-    Je travaille principalement dans les domaines de l’apprentissage automatique et du traitement du langage naturel, avec un intérêt particulier pour les secteurs de l’agriculture, de la santé (radiologie et épidémiologie) et de la linguistique (intégration des langues tchadiennes dans les outils d’IA).
-    Je suis également fermement convaincu que l’IA, et par extension le génie logiciel, ne peuvent être utiles que s’ils résolvent les problèmes auxquels nous sommes confrontés (pour chaque pays et pour notre société), répondent véritablement aux besoins des gens, et ne sont pas simplement des outils mal compris et utilisés à tort et à travers par n’importe qui.
+    <section aria-labelledby="motive">
+      <h2 id="motive">Pourquoi je fais ce travail</h2>
+      <p>Aujourd'hui, une machine peut converser dans une centaine de langues. Presque aucune des langues parlées au quotidien au Tchad n'en fait partie.</p>
+      <p>Ce n'est pas un détail technique. Quand une langue n'existe pas pour les machines, ceux qui la parlent doivent passer par une autre langue pour accéder au savoir, aux services, à l'administration, et demain à tout ce que l'intelligence artificielle va transformer. Cet écart se creuse à chaque nouvelle génération de modèles.</p>
+      <p>Ce qui m'obsède, c'est que ce problème n'est pas seulement une injustice. C'est aussi l'aveu d'une faiblesse scientifique. Des modèles qui ont besoin de milliards de mots écrits pour apprendre une langue ne comprennent pas vraiment le langage. Un enfant de Sarh apprend le ngambay sans avoir jamais lu une seule ligne. Tant que nos systèmes n'en sont pas capables, ils restent incomplets.</p>
+      <p>Les langues du Tchad ne sont donc pas un cas marginal à traiter après les autres : c'est là que se joue la prochaine avancée de l'intelligence artificielle. Je veux que cette avancée soit pensée, construite et signée ici, à N'Djamena, au niveau des meilleurs laboratoires du monde.</p>
+    </section>
 
-    Mon objectif principal est de contribuer à la transformation durable de l’écosystème de l’IA et du génie logiciel au Tchad à travers la communauté Chad AI Network (chadainetwork.org) que j’ai fondée. Elle rassemble des passionnés, des étudiants, des universitaires, des chercheurs, des ingénieurs et des professionnels animés par la volonté de faire progresser collectivement ce secteur stratégique dans notre pays.
-
-    Résoudre les problèmes locaux à l’aide du génie logiciel, de l’IA et de la science des données est ma préoccupation constante.</p>
-  </div>
-
-  <div class="h-tags">
-    <span class="h-tag h-tag-green" data-i18n="tag-speech">Speech AI</span>
-    <span class="h-tag h-tag-green">NLP</span>
-    <span class="h-tag">Linguistic computational</span>    
-    <span class="h-tag h-tag-green" data-i18n="tag-chadian">Langues tchadiennes</span>
-    <span class="h-tag h-tag-ocre" data-i18n="tag-riem">Géométrie Riemannienne</span>
-    <span class="h-tag" data-i18n="tag-open">Open Science</span>
+    <section aria-labelledby="principes">
+      <h2 id="principes">Mes principes</h2>
+      <ol class="hp-principles">
+        <li><h3>Les problèmes difficiles sont ici</h3><p>Travailler depuis le Tchad n'est pas un handicap à compenser : c'est un accès direct à des questions que les grands corpus masquent.</p></li>
+        <li><h3>Une langue n'a pas besoin d'être écrite pour compter</h3><p>La parole est la langue. Je refuse de construire des systèmes qui exigent d'abord un texte que des millions de personnes n'ont jamais eu besoin d'écrire.</p></li>
+        <li><h3>Résoudre plutôt qu'adapter</h3><p>Ajuster à la marge un modèle conçu pour l'anglais ne suffit pas. Quand l'architecture échoue, c'est l'architecture qu'il faut repenser.</p></li>
+        <li><h3>Celui qui parle décide</h3><p>Une voix enregistrée appartient d'abord à celui qui l'a prêtée. Les communautés gardent la maîtrise de leurs données, de leur usage et de ce qui en revient.</p></li>
+        <li><h3>Le travail doit survivre à son auteur</h3><p>Chaque étape est documentée, chaque résultat est vérifiable et chaque compétence est transmise, pour que d'autres reprennent ce travail et aillent plus loin que moi.</p></li>
+      </ol>
+    </section>
   </div>
 </div>
-
-<!-- ── PROJET EN COURS ────────────────────────────────────────── -->
-<div class="h-featured-project h-fade">
-  <div class="h-fp-label" data-i18n="fp-label">🔭 Projet en cours</div>
-  <div class="h-fp-body">
-    <div class="h-fp-info">
-      <h3 data-i18n="fp-title">NLP for Chadian Languages</h3>
-      <p data-i18n="fp-desc">Ressources NLP, corpus et modèles pour les langues tchadiennes — Sara, Laal, Arabe tchadien et 120+ autres langues.</p>
-    </div>
-    <a href="https://abdelazizharane.github.io/nlp-for-chadian-languages/" class="h-btn h-btn-primary" target="_blank" data-i18n="fp-btn">Voir le projet ↗</a>
-  </div>
-</div>
-
-<!-- ── DOMAINES DE RECHERCHE ──────────────────────────────────── -->
-<section class="h-home-section">
-  <h2 class="h-home-title" data-i18n="s-research">Domaines de recherche</h2>
-  <div class="h-research-list">
-
-    <div class="h-card h-research-item h-fade">
-      <div class="h-ri-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="url(#g1)"/><path d="M16 24 Q20 16 24 24 Q28 32 32 24" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="16" cy="24" r="2.5" fill="white"/><circle cx="32" cy="24" r="2.5" fill="white"/><defs><linearGradient id="g1" x1="4" y1="4" x2="44" y2="44"><stop stop-color="#C8963E"/><stop offset="1" stop-color="#f9e2a8"/></linearGradient></defs></svg></div>
-      <div class="h-ri-body"><h3 data-i18n="r1-title">Speech AI & ASR</h3><p data-i18n="r1-desc">Machine Translation</p></div>
-    </div>
-
-    <div class="h-card h-research-item h-fade">
-      <div class="h-ri-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="url(#g2)"/><rect x="13" y="17" width="9" height="14" rx="2" fill="rgba(255,255,255,0.9)"/><rect x="26" y="17" width="9" height="14" rx="2" fill="rgba(255,255,255,0.5)"/><path d="M22 24 L26 24" stroke="white" stroke-width="2" stroke-dasharray="1.5 1.5"/><defs><linearGradient id="g2" x1="4" y1="4" x2="44" y2="44"><stop stop-color="#1A3A6A"/><stop offset="1" stop-color="#2A5A9A"/></linearGradient></defs></svg></div>
-      <div class="h-ri-body"><h3 data-i18n="r2-title">Traduction Automatique</h3><p data-i18n="r2-desc">Systèmes MT pour les paires de langues africaines faiblement dotées : Sara↔Français, Arabe tchadien↔Français.</p></div>
-    </div>
-
-    <div class="h-card h-research-item h-fade">
-      <div class="h-ri-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="url(#g3)"/><path d="M15 30 L15 20 Q15 15 20 15 L28 15 Q33 15 33 20 L33 28 Q33 33 28 33 L17 33 Z" fill="rgba(255,255,255,0.85)"/><line x1="19" y1="20" x2="29" y2="20" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/><line x1="19" y1="24" x2="27" y2="24" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/><line x1="19" y1="28" x2="25" y2="28" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="g3" x1="4" y1="4" x2="44" y2="44"><stop stop-color="#5B21B6"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs></svg></div>
-      <div class="h-ri-body"><h3 data-i18n="r3-title">Documentation Linguistique</h3><p data-i18n="r3-desc">Infrastructure numérique pour le Laal (isolat probable, ~750 locuteurs, UNESCO niveau 5).</p></div>
-    </div>
-
-    <div class="h-card h-research-item h-fade">
-      <div class="h-ri-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="url(#g4)"/><circle cx="24" cy="20" r="6" fill="rgba(255,255,255,0.9)"/><path d="M14 34 Q14 26 24 26 Q34 26 34 34" fill="rgba(255,255,255,0.5)"/><defs><linearGradient id="g4" x1="4" y1="4" x2="44" y2="44"><stop stop-color="#92400E"/><stop offset="1" stop-color="#C8963E"/></linearGradient></defs></svg></div>
-      <div class="h-ri-body"><h3 data-i18n="r4-title">NLP & Language Models</h3><p data-i18n="r4-desc">Fine-tuning de LLMs pour les langues africaines, tokenisation multilingue, représentations tonales riemanniennes.</p></div>
-    </div>
-
-    <div class="h-card h-research-item h-fade">
-      <div class="h-ri-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="url(#g5)"/><rect x="13" y="28" width="5" height="8" rx="1" fill="rgba(255,255,255,0.9)"/><rect x="21" y="22" width="5" height="14" rx="1" fill="rgba(255,255,255,0.75)"/><rect x="29" y="16" width="5" height="20" rx="1" fill="rgba(255,255,255,0.6)"/><defs><linearGradient id="g5" x1="4" y1="4" x2="44" y2="44"><stop stop-color="#1A4A3A"/><stop offset="1" stop-color="#C8963E"/></linearGradient></defs></svg></div>
-      <div class="h-ri-body"><h3 data-i18n="r5-title">Data Engineering</h3><p data-i18n="r5-desc">Pipelines open-source pour la gouvernance des données linguistiques — MinIO, OpenSearch, FAIR/CARE.</p></div>
-    </div>
-
-    <div class="h-card h-research-item h-fade">
-      <div class="h-ri-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="url(#g6)"/><path d="M24 14 L27 20 L34 21 L29 26 L30 33 L24 30 L18 33 L19 26 L14 21 L21 20 Z" fill="rgba(255,255,255,0.9)"/><defs><linearGradient id="g6" x1="4" y1="4" x2="44" y2="44"><stop stop-color="#7F1D1D"/><stop offset="1" stop-color="#DC2626"/></linearGradient></defs></svg></div>
-      <div class="h-ri-body"><h3 data-i18n="r6-title">Éthique & Souveraineté</h3><p data-i18n="r6-desc">Cadres de gouvernance communautaires, droits linguistiques, politiques d'IA responsable pour l'Afrique.</p></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ── PROJETS PHARES ──────────────────────────────────────────── -->
-<section class="h-home-section">
-  <h2 class="h-home-title" data-i18n="s-projects">Projets phares</h2>
-  <div class="h-project-stack">
-
-    <div class="h-card h-project-item h-fade">
-      <div class="h-project-item-head">
-        <div><span class="h-project-badge" data-i18n="badge-ongoing">En cours</span><span class="h-project-badge h-project-badge-ocre">Masakhane · Lingua Africa</span></div>
-        <a href="https://github.com/abdelazizharane/Corpus-Chadian-Languages" class="h-icon-btn" target="_blank" data-i18n="btn-code">Code ↗</a>
-      </div>
-      <h3 data-i18n="p1-title">Laal-Yəw Project</h3>
-      <p data-i18n="p1-desc">Première infrastructure numérique complète pour le Laal (ISO: gdm), isolat linguistique probable du sud du Tchad (~750 locuteurs). Lexique, corpus audio, ASR baseline via géométrie riemannienne.</p>
-      <div class="h-stack"><span class="h-stack-tag">Wav2Vec 2.0</span><span class="h-stack-tag">Whisper</span><span class="h-stack-tag">ELAR/SOAS</span><span class="h-stack-tag">Riemannian Geometry</span></div>
-    </div>
-
-    <div class="h-card h-project-item h-fade">
-      <div class="h-project-item-head">
-        <div><span class="h-project-badge" data-i18n="badge-active">Actif</span></div>
-        <a href="https://github.com/Chad-AI-Network" class="h-icon-btn" target="_blank" data-i18n="btn-code">Code ↗</a>
-      </div>
-      <h3 data-i18n="p2-title">Atlas Linguistique Interactif du Tchad</h3>
-      <p data-i18n="p2-desc">Application web Leaflet.js cartographiant 127 langues tchadiennes avec clustering géographique et filtres régionaux.</p>
-      <div class="h-stack"><span class="h-stack-tag">Leaflet.js</span><span class="h-stack-tag">GeoJSON</span><span class="h-stack-tag">Ethnologue 27</span></div>
-    </div>
-
-    <div class="h-card h-project-item h-fade">
-      <div class="h-project-item-head">
-        <div><span class="h-project-badge" data-i18n="badge-design">Design</span><span class="h-project-badge h-project-badge-ocre">Mobile AI</span></div>
-      </div>
-      <h3 data-i18n="p3-title">KalamBot — Assistant Linguistique Sara</h3>
-      <p data-i18n="p3-desc">Assistant mobile IA pour les dialectes Sara. Architecture offline-first pour appareils Android bas de gamme — Flutter/ONNX/Whisper-tiny/VITS.</p>
-      <div class="h-stack"><span class="h-stack-tag">Flutter</span><span class="h-stack-tag">ONNX</span><span class="h-stack-tag">Whisper-tiny</span><span class="h-stack-tag">VITS TTS</span></div>
-    </div>
-
-    <div class="h-card h-project-item h-fade">
-      <div class="h-project-item-head">
-        <div><span class="h-project-badge h-project-badge-neutral" data-i18n="badge-oss">Open Source</span></div>
-        <a href="https://github.com/Chad-AI-Network" class="h-icon-btn" target="_blank" data-i18n="btn-code">Code ↗</a>
-      </div>
-      <h3 data-i18n="p4-title">TchadData Explorer</h3>
-      <p data-i18n="p4-desc">Moteur de recherche open-source pour les données tchadiennes. MiniSearch, TF-IDF custom, NLP multilingue FR/EN/AR, zéro API payante.</p>
-      <div class="h-stack"><span class="h-stack-tag">MiniSearch</span><span class="h-stack-tag">TF-IDF</span><span class="h-stack-tag">Docker</span><span class="h-stack-tag">MIT License</span></div>
-    </div>
-
-    <div class="h-card h-project-item h-fade">
-      <div class="h-project-item-head">
-        <div><span class="h-project-badge" data-i18n="badge-corpus">Corpus</span></div>
-        <a href="https://github.com/Chad-AI-Network/Chadian-Data" class="h-icon-btn" target="_blank" data-i18n="btn-data">Données ↗</a>
-      </div>
-      <h3 data-i18n="p5-title">Kalam-na — Corpus Speech Sara</h3>
-      <p data-i18n="p5-desc">~37 000 utterances audio, 12 langues Sara, 16 dialectes, ~19 heures, 16-bit/16kHz.</p>
-      <div class="h-stack"><span class="h-stack-tag">HuggingFace</span><span class="h-stack-tag">Zenodo</span><span class="h-stack-tag">Wav2Vec 2.0</span><span class="h-stack-tag">Whisper</span></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ── COLLABORATIONS ──────────────────────────────────────────── -->
-<section class="h-home-section">
-  <h2 class="h-home-title" data-i18n="s-collabs">Collaborations & Partenaires</h2>
-  <div class="h-collab-list">
-    <div class="h-card h-collab-item h-fade"><div class="h-collab-dot">🎓</div><div><h4 data-i18n="c1-name">Dr. Florian Lionnet — Princeton University</h4><p data-i18n="c1-desc">Principal expert mondial du Laal — collaboration sur la documentation phonologique et la structuration du corpus audio.</p></div></div>
-    <div class="h-card h-collab-item h-fade"><div class="h-collab-dot">🔬</div><div><h4 data-i18n="c2-name">Prof. Pascal Boyeldieu — CNRS/LLACAN</h4><p data-i18n="c2-desc">Linguiste de référence sur les langues tchadiennes ; partenaire pour les données typologiques et la validation scientifique.</p></div></div>
-    <div class="h-card h-collab-item h-fade"><div class="h-collab-dot">🏛️</div><div><h4 data-i18n="c3-name">ELAR / SOAS University of London</h4><p data-i18n="c3-desc">Partenaire d'archivage pour la préservation long-terme des ressources linguistiques du Laal.</p></div></div>
-    <div class="h-card h-collab-item h-fade"><div class="h-collab-dot">🌐</div><div><h4 data-i18n="c4-name">Masakhane Research Foundation</h4><p data-i18n="c4-desc">Candidature Lingua Africa pour le Projet Laal-Yəw ; communauté AfricaNLP pour la recherche NLP africaine ouverte.</p></div></div>
-    <div class="h-card h-collab-item h-fade"><div class="h-collab-dot">🏫</div><div><h4 data-i18n="c5-name">Université de N'Djaména / INSH</h4><p data-i18n="c5-desc">Partenaire institutionnel pour la recherche linguistique et la collecte de données communautaires au Tchad.</p></div></div>
-  </div>
-</section>
 ```

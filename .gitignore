@@ -1,35 +1,8 @@
-# Quarto build output (généré automatiquement, ne pas commiter)
 /.quarto/
 /_site/
-
-# _freeze : COMMITER ce dossier ! Il cache les résultats des chunks R/Python
-# Ne pas l'ignorer sauf si tu veux re-exécuter tout le code à chaque build CI
-# /_freeze/
-
-# Images uploadées (optionnel)
-/assets/img/*.png
-/assets/img/*.jpg
-
-# R
 .Rproj.user/
 .Rhistory
 *.RData
-
-# Python
-__pycache__/
-.venv/
-*.pyc
-.ipynb_checkpoints/
-
-# OS
 .DS_Store
-Thumbs.db
 
-# Editor
-.vscode/
-.idea/
-*.swp
-
-# Secrets
-.env
-.env.local
+**/*.quarto_ipynb

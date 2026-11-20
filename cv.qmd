@@ -1,0 +1,154 @@
+---
+title: "CV"
+pagetitle: "CV"
+description: "Curriculum vitae d'Abdel-aziz Harane Abounounou : ingénieur ML/NLP, fondateur de Chad AI Network. Formation, expérience, distinction, engagement communautaire et langues."
+anchor-sections: false
+---
+
+```{=html}
+<div class="page">
+<div class="visually-hidden" role="heading" aria-level="1">Curriculum vitae &mdash; Abdel-aziz Harane Abounounou</div>
+<h2 class="rv">Profil</h2>
+<p class="rv">Ing&eacute;nieur ML/NLP sp&eacute;cialis&eacute; dans les technologies pour les langues africaines peu dot&eacute;es &mdash; reconnaissance vocale (ASR), synth&egrave;se vocale (TTS), traduction automatique et documentation linguistique. Fondateur de Chad AI Network. J&rsquo;applique la g&eacute;om&eacute;trie riemannienne et les r&eacute;seaux de neurones hyperboliques au traitement automatique des langues pour la famille des langues sara, le laal et l&rsquo;arabe tchadien. Engag&eacute; pour des syst&egrave;mes d&rsquo;IA ouverts, souverains et utilisables hors ligne dans le bassin du lac Tchad.</p>
+
+<div class="cv-block">
+<h2 class="rv">Formation</h2>
+<div class="cv-row">
+  <div>
+    <div class="cv-pos">Dipl&ocirc;me d&rsquo;ing&eacute;nieur &mdash; IA et Big Data</div>
+    <div class="cv-org">&Eacute;cole Sup&eacute;rieure Polytechnique / Universit&eacute; Cheikh Anta Diop (UCAD), Dakar, S&eacute;n&eacute;gal</div>
+    <div class="cv-desc">Apprentissage automatique, reconnaissance vocale, traduction automatique, analyse num&eacute;rique. Dipl&ocirc;m&eacute; avec mention.</div>
+  </div>
+  <div class="cv-yr">2022&ndash;2024</div>
+</div>
+
+<div class="cv-row">
+  <div>
+    <div class="cv-pos">Licence &mdash; Statistique</div>
+    <div class="cv-org">Universit&eacute; Cheikh Anta Diop (UCAD), Dakar, S&eacute;n&eacute;gal</div>
+    <div class="cv-desc">Statistique, s&eacute;ries temporelles, techniques desondage, collecte et analyse de donn&eacute;es. Dipl&ocirc;m&eacute; avec mention.</div>
+  </div>
+  <div class="cv-yr">2019&ndash;2022</div>
+</div>
+</div>
+
+<div class="cv-block">
+<h2 class="rv">Exp&eacute;rience</h2>
+<div class="cv-row">
+  <div>
+    <div class="cv-pos">Fondateur et Coordonnateur Général</div>
+    <div class="cv-org">Chad AI Network &mdash; N&rsquo;Djam&eacute;na, Tchad</div>
+    <div class="cv-desc"><ul>
+      <li>A fond&eacute; Chad AI Network, une communaut&eacute; de recherche en IA au Tchad</li>
+      <li>Dirige des projets de reconnaissance vocale (ASR), de synth&egrave;se vocale (TTS), de traduction automatique (MT) et de documentation pour les langues tchadiennes</li>
+      <li>Organise des ateliers, des sprints open source et des &eacute;v&eacute;nements communautaires</li>
+    </ul></div>
+  </div>
+  <div class="cv-yr">2023&ndash;aujourd&rsquo;hui</div>
+</div>
+
+<div class="cv-row">
+  <div>
+    <div class="cv-pos">Collaborateur scientifique &mdash; Documentation de la langue laal</div>
+    <div class="cv-org">Avec Dr Florian Lionnet et Dr Pascal Boyeldieu (CNRS/LLACAN)</div>
+    <div class="cv-desc"><ul>
+      <li>Travail de terrain et constitution d&rsquo;un corpus pour le laal (~800 locuteurs, langue isol&eacute;e)</li>
+      <li>Archivage ELAR/SOAS, annotation ELAN, lexicographie FLEx</li>
+    </ul></div>
+  </div>
+  <div class="cv-yr">2024&ndash;aujourd&rsquo;hui</div>
+</div>
+
+<div class="cv-row">
+  <div>
+    <div class="cv-pos">Ing&eacute;nieur ML/NLP (ind&eacute;pendant)</div>
+    <div class="cv-org">Chad Research Portal &middot; TchadData Explorer &middot; Kalam-na Corpus</div>
+    <div class="cv-desc"><ul>
+      <li>Moteurs de recherche open source pour les contenus tchadiens (MiniSearch, <span style="white-space:nowrap">TF-IDF</span>, Docker)</li>
+      <li>Corpus vocal Kalam-na </li>
+    </ul></div>
+  </div>
+  <div class="cv-yr">2024</div>
+</div>
+</div>
+
+<div class="cv-block">
+<h2 class="rv">Distinction</h2>
+<div class="cv-row">
+  <div>
+    <div class="cv-pos">Finaliste (&laquo;&nbsp;runner-up&nbsp;&raquo;) &mdash; Wangari Maathai Impact Award</div>
+    <div class="cv-org">Deep Learning Indaba</div>
+    <div class="cv-desc"><a href="https://deeplearningindaba.com/blog/2026/07/2026-awards-announcement/" target="_blank" rel="noopener">Lire l&rsquo;annonce &rarr;</a></div>
+  </div>
+  <div class="cv-yr">2026</div>
+</div>
+</div>
+
+<div class="cv-block">
+<h2 class="rv">Engagement communautaire et b&eacute;n&eacute;volat</h2>
+<div class="cv-row">
+  <div>
+    <div class="cv-pos">Fondateur et Coordonnateur Général &mdash; IndabaX Chad</div>
+    <div class="cv-org">Chad AI Network &times; Deep Learning Indaba &mdash; N&rsquo;Djam&eacute;na</div>
+    <div class="cv-desc"><ul>
+      <li>Lancement d&rsquo;IndabaX Chad apr&egrave;s la confirmation du Deep Learning Indaba en janvier 2024 ; premi&egrave;re &eacute;dition les 26 et 27 octobre 2024, avec un comit&eacute; d&rsquo;organisation de 16 personnes</li>
+      <li>Programme maintenu malgr&eacute; la coupure d&rsquo;Internet le jour de l&rsquo;&eacute;v&eacute;nement (80&nbsp;% des intervenants &eacute;taient &agrave; distance), puis en 2025 malgr&eacute; le retrait de la salle cinq jours avant l&rsquo;&eacute;dition</li>
+      <li>Plus de 350 participants form&eacute;s en science des donn&eacute;es et en apprentissage automatique, en partie gr&acirc;ce au partenariat avec DataCamp</li>
+      <li>Recommandations remises aux minist&egrave;res des TIC et de l&rsquo;Enseignement sup&eacute;rieur</li>
+    </ul></div>
+  </div>
+  <div class="cv-yr">2024&ndash;aujourd&rsquo;hui</div>
+</div>
+<div class="cv-row">
+  <div>
+    <div class="cv-pos">B&eacute;n&eacute;vole, puis &eacute;valuateur &mdash; Deep Learning Indaba</div>
+    <div class="cv-org">Principale conf&eacute;rence africaine d&rsquo;apprentissage automatique</div>
+    <div class="cv-desc"><ul>
+      <li>2026 : &eacute;valuateur des candidatures et des posters (Lagos, Nigeria)</li>
+      <li>2025 : &eacute;valuateur des candidatures</li>
+      <li>2024 : b&eacute;n&eacute;vole</li>
+    </ul></div>
+  </div>
+  <div class="cv-yr">2024&ndash;2026</div>
+</div>
+<div class="cv-row">
+  <div>
+    <div class="cv-pos">Animation de communaut&eacute; &mdash; Chad AI Network</div>
+    <div class="cv-org">N&rsquo;Djam&eacute;na, Tchad</div>
+    <div class="cv-desc"><ul>
+      <li>Une communaut&eacute; de plus de 200 membres autour de l&rsquo;IA au Tchad</li>
+      <li>Mentorat de jeunes praticiens tchadiens de l&rsquo;IA et mise en relation avec leurs pairs du continent</li>
+    </ul></div>
+  </div>
+  <div class="cv-yr">2023&ndash;aujourd&rsquo;hui</div>
+</div>
+</div>
+
+<div class="cv-block">
+<h2 class="rv">Langages et frameworks</h2>
+<div class="tag-row">
+  <span class="tag rv">Python</span>
+  <span class="tag rv">R</span>
+  <span class="tag rv">Scikit-learn</span>
+  <span class="tag rv">PyTorch</span>
+  <span class="tag rv">FFmpeg</span>
+  <span class="tag rv">ELAN</span>
+  <span class="tag rv">FLEx</span>
+</div>
+</div>
+
+<div class="cv-block">
+<h2 class="rv">Langues</h2>
+<ul class="cv-langs">
+  <li class="rv"><strong>Fran&ccedil;ais</strong> (natif)</li>
+  <li class="rv"><strong>Arabe tchadien</strong> (natif)</li>
+  <li class="rv"><strong>Anglais</strong> (professionnel)</li>
+</ul>
+</div>
+
+<div class="cv-block">
+<h2 class="rv">Publications</h2>
+<p class="rv">Voir <a href="research.html">Recherche</a> pour les publications et rapports techniques.</p>
+</div>
+</div>
+```

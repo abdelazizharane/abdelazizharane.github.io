@@ -1,0 +1,24 @@
+# Distinctions une entrée par prix ou distinction.
+#   title        nom du prix
+#   rang         résultat (ex. « Finaliste (runner-up) », « Lauréat »)
+#   org          organisation qui le décerne
+#   annee        année
+#   annonce      date de l'annonce (facultatif, AAAA-MM-JJ, entre guillemets)
+#   lieu         lieu de la remise (facultatif)
+#   description  pourquoi ce prix (une ou deux phrases)
+#   citation     extrait de l'annonce officielle, mot pour mot, entre guillemets (facultatif)
+#   liens        liste de { label, url } : annonce officielle, articles de presse…
+#   image        photo (facultatif, ex. assets/img/galerie/remise-dli-2026.webp)
+
+- title: "Wangari Maathai Impact Award"
+  rang: "Finaliste (« runner-up »)"
+  org: "Deep Learning Indaba"
+  annee: "2026"
+  annonce: "2026-07-14"
+  lieu: "Remise lors du Deep Learning Indaba 2026, Lagos (Nigeria)"
+  description: "Distinction pour la construction des outils de traitement automatique des langues autochtones du Tchad (Kalam-na project) et l'engagement communautaire de Chad AI Network."
+  liens:
+    - label: "Annonce officielle du Deep Learning Indaba"
+      url: "https://deeplearningindaba.com/blog/2026/07/2026-awards-announcement/"
+    - label: "Tech Review Africa — ouverture du Deep Learning Indaba 2026"
+      url: "https://techreviewafrica.com/news/6594/deep-learning-indaba-2026-opens-in-nigeria-with-focus-on-sovereign-intelligence-and-african-ai-innovation"

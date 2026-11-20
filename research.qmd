@@ -1,0 +1,79 @@
+---
+title: "Recherche"
+pagetitle: "Recherche"
+description: "Axes de recherche d'Abdel-aziz Harane : apprentissage automatique pour les faibles ressources, traduction et reconnaissance de la parole, apprentissage profond géométrique, évaluation et généralisation des modèles."
+---
+
+```{=html}
+<!-- Page écrite en français ; les autres langues sont traduites automatiquement. -->
+<div class="page page-wide">
+
+<div class="visually-hidden" role="heading" aria-level="1">Recherche</div>
+
+<h2 class="rv" id="areas">Axes de recherche</h2>
+
+<div class="grid rcard-grid">
+<div class="gcard rcard rv" id="axe-ml">
+  <div class="gtile" aria-hidden="true">
+    <svg viewBox="0 0 32 32" fill="none" stroke="var(--accent)" stroke-width="1.2">
+      <circle cx="6" cy="9" r="2.4" fill="var(--accent)" opacity=".7"/><circle cx="6" cy="23" r="2.4" fill="var(--accent)" opacity=".7"/>
+      <circle cx="16" cy="6" r="2.4" fill="var(--accent)"/><circle cx="16" cy="16" r="2.4" fill="var(--accent)"/><circle cx="16" cy="26" r="2.4" fill="var(--accent)"/>
+      <circle cx="26" cy="16" r="2.6" fill="var(--accent)"/>
+      <path d="M8.2 9.8 13.8 6.6M8.2 10 13.8 15M8.2 22 13.8 17M8.2 22.4 13.8 25.4M18.2 6.8 24 15M18.4 16H23.4M18.2 25.2 24 17" opacity=".55"/>
+    </svg>
+  </div>
+  <h3>Apprentissage automatique</h3>
+  <p>Nouvelles architectures et méthodes d’apprentissage pour les régimes à très peu de données : apprentissage auto-supervisé, transfert entre langues et dialectes proches, sobriété en données et en calcul.</p>
+  <div class="tag-row"><span class="tag">Faibles ressources</span><span class="tag">Auto-supervision</span><span class="tag">Transfert inter-dialectes</span></div>
+</div>
+
+<div class="gcard rcard rv rv1" id="axe-parole">
+  <div class="gtile" aria-hidden="true">
+    <svg viewBox="0 0 32 32" fill="none">
+      <rect x="3" y="14" width="2.2" height="6" rx="1.1" fill="var(--accent)" opacity=".5"/>
+      <rect x="8" y="9" width="2.2" height="16" rx="1.1" fill="var(--accent)" opacity=".7"/>
+      <rect x="13" y="5" width="2.2" height="24" rx="1.1" fill="var(--accent)"/>
+      <rect x="18" y="10" width="2.2" height="14" rx="1.1" fill="var(--accent)" opacity=".7"/>
+      <rect x="23" y="3" width="2.2" height="28" rx="1.1" fill="var(--accent)"/>
+      <rect x="28" y="12" width="1.6" height="10" rx="0.8" fill="var(--accent)" opacity=".5"/>
+    </svg>
+  </div>
+  <h3>Traduction et reconnaissance de la parole</h3>
+  <p>Traduction automatique, reconnaissance et synthèse vocales pour des langues de tradition orale, peu écrites et très variables d’un dialecte à l’autre, avec des modèles conçus pour ces propriétés plutôt qu’adaptés après coup.</p>
+  <div class="tag-row"><span class="tag">Traduction neuronale</span><span class="tag">Reconnaissance vocale (ASR)</span><span class="tag">Synthèse vocale</span></div>
+</div>
+
+<div class="gcard rcard rv rv2" id="axe-geometrie">
+  <div class="gtile" aria-hidden="true">
+    <svg viewBox="0 0 32 32" fill="none" stroke="var(--accent)" stroke-linecap="round">
+      <path d="M2 22 Q 11 8, 16 16 Q 21 24, 30 10" stroke-width="1.4"/>
+      <path d="M2 12 Q 11 24, 16 15 Q 21 6, 30 19" stroke-width="1.2" opacity=".55"/>
+      <path d="M5 4 Q 16 17, 27 4" stroke-width="1" opacity=".35"/>
+    </svg>
+  </div>
+  <h3>Apprentissage profond géométrique</h3>
+  <p>Transformers sur variétés riemanniennes et hyperboliques : une attention dont la géométrie s’adapte à la structure de la langue et de la parole — hiérarchies, variation dialectale, continuité du signal — que l’espace plat de l’attention classique représente mal.</p>
+  <div class="tag-row"><span class="tag">Géométrie riemannienne</span><span class="tag">Espaces hyperboliques</span><span class="tag">Attention géométrique</span></div>
+</div>
+
+</div>
+
+<h2 class="rv" id="publications">Publications et productions</h2>
+<div class="elist">
+  <div class="eitem rv">
+    <div class="eitem-title" style="font-size:1.05rem">Linguistic Atlas of Chad: Mapping 127 Languages with Open Data</div>
+    <div class="eitem-meta"><em>Abdel-aziz Harane</em></div>
+    <div class="gcard-meta" style="margin:.5rem 0 .6rem"><span class="pub-badge is-venue">Rapport technique, Chad AI Network</span> <span class="eitem-meta">2025</span></div>
+    <div class="link-btn-row">
+      <a class="link-btn" href="https://chadainetwork.org" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v5h5"/></svg>Rapport</a>
+    </div>
+  </div>
+  <div class="eitem rv rv1">
+    <div class="eitem-title" style="font-size:1.05rem">Data Governance Frameworks for Community-Owned Language Resources in Africa</div>
+    <div class="eitem-meta"><em>Abdel-aziz Harane</em></div>
+    <div class="gcard-meta" style="margin:.5rem 0 0"><span class="pub-badge is-venue">Atelier sur l'éthique de l'IA, Chad AI Network</span> <span class="eitem-meta">2024</span></div>
+  </div>
+</div>
+
+</div>
+```

@@ -1,0 +1,17 @@
+# Libellés des thèmes (champ `categories:` des articles) dans les autres langues.
+# Le français est la langue source : on écrit les thèmes en français dans les articles.
+# Un thème absent d'ici s'affiche tel quel dans toutes les langues.
+# Pour ajouter un thème : une ligne `Nom en français: { en: "English name" }`.
+# (Un libellé arabe peut s'ajouter de la même façon : `ar: "…"` — à faire relire par un locuteur natif.)
+
+TAL: { en: "NLP" }
+Parole: { en: "Speech" }
+Traduction automatique: { en: "Machine translation" }
+Langues africaines: { en: "African languages" }
+Langues à tons: { en: "Tonal languages" }
+Documentation linguistique: { en: "Language documentation" }
+Gouvernance des données: { en: "Data governance" }
+Souveraineté numérique: { en: "Digital sovereignty" }
+Infrastructure de recherche: { en: "Research infrastructure" }
+Éthique: { en: "Ethics" }
+Réflexions: { en: "Reflections" }

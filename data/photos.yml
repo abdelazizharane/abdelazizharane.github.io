@@ -1,0 +1,47 @@
+- src: assets/img/galerie/DeepLearningIndabarecognizes2026.jpg
+  large: assets/img/galerie/DeepLearningIndabarecognizes2026.jpg
+  title: "Wangari Maathai Impact Award 2026"
+  event: "Distinction"
+  quand: "2026"
+  description: "Finaliste (« runner-up ») du Wangari Maathai Impact Award, Deep Learning Indaba."
+
+- src: assets/img/galerie/indabaxchad2024edition.jpg
+  large: assets/img/galerie/indabaxchad2024edition.jpg
+  title: "IndabaX Chad 2024"
+  event: "IndabaX Chad"
+  quand: "2024-10-26"
+  place: "N’Djaména, Tchad"
+  description: "Première édition d’IndabaX Chad, les 26 et 27 octobre 2024."
+
+- src: assets/img/galerie/dlinigeriacommunity.jpeg
+  large: assets/img/galerie/dlinigeriacommunity.jpeg
+  title: "Deep Learning Indaba 2026"
+  event: "Deep Learning Indaba"
+  quand: "2026-08"
+  place: "Lagos, Nigeria"
+  description: "Délegation tchadienne au Deep Learning Indaba 2026."
+
+- src: assets/img/galerie/rwanda2025.jpg
+  large: assets/img/galerie/rwanda2025.jpg 
+  title: "Deep Learning Indaba 2025"
+  event: "IndabaX Chad"
+  quand: "2025-10-26"
+  place: "Kigali, Rwanda"
+  description: "Exposition d’IndabaX Chad."
+
+- src: assets/img/galerie/posterprizeDLI2025.jpg
+  large: assets/img/galerie/posterprizeDLI2025.jpg
+  title: "Research & Poster Prize"
+  event: "Deep Learning Indaba"
+  quand: "2025"
+  place: "Kigali, Rwanda"
+
+
+
+- src: assets/img/galerie/presentationDLI2025.png
+  large: assets/img/galerie/presentationDLI2025.png
+  title: "Présentation scientifique"
+  event: "Deep Learning Indaba"
+  quand: "2025-11-04"
+  place: "Kigali, Rwanda"
+
